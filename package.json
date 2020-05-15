@@ -2,6 +2,10 @@
   "name": "sei-group-project-3",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "nodemon",
+    "seed": "node db/seeds.js"
+  },
   "repository": "git@github.com:A-Der/sei-group-project-3.git",
   "author": "Assia Deramchi <at.deramchi@gmail.com>",
   "license": "MIT",

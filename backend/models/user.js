@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   profilePhoto: { type: Array },
   garage: { type: String },
   dreamTrips: { type: String },
-  trips: { type: mongoose.Schema.ObjectId, ref: 'Trip', required: true }
+  trips: { type: mongoose.Schema.ObjectId, ref: 'Trip' }
 })
 
 
@@ -24,6 +24,14 @@ userSchema
     }
     next()
   })
+
+// userSchema
+//   .pre('save', function(next) {
+//     if (this.isModified('password')) {
+//       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8))
+//     }
+//     next()
+//   })
 
 
 module.exports = mongoose.model('User', userSchema)

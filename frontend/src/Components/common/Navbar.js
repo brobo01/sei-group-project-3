@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
   <div className="navbar">
-      <div className="header-logo"> RoadTrippin </div>
+      <Link to='/' className="header-logo"> RoadTrippin </Link>
 
                   <div className="navbar-links">
           <div className="links">
@@ -13,13 +13,8 @@ const Navbar = () => {
                     <Link to='/trips/trip' className="link">Trip</Link>
                     <Link to='/login' className="link">Login</Link>
                     <Link to='/register' className="link">Register</Link>
-                  </div>
-
-
-
-
-
-          
+                    <Link to='/users/user' className="link">Profile</Link>
+                  </div>          
           </div>
   </div>
 

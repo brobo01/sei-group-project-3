@@ -1,0 +1,35 @@
+const mongoose = require('mongoose')
+
+
+
+const recommendationSchema = new mongoose.Schema({
+  text: { type: String, required: true },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+}, {
+  timestamps: true
+})
+
+const tripSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true, maxlength: 100 },
+  startingPoint: { type: String, required: true },
+  endPoint: { type: String, required: true },
+  distance: { type: String },
+  routeImage: { type: String },
+  tags: { type: String, required: true },
+  ratings: {
+    scenery: { type: Number },
+    enojoyment: { type: Number }
+  },
+  photoGallery: { type: Array, required: true },
+  videos: { type: Array },
+  description: { type: String, required: true, maxlength: 150 },
+  timeOfYear: { type: String, required: true },
+  highlights: { type: Array },
+  pastTravellers: { type: Array },
+  recommendations: [recommendationSchema]
+
+}, {
+  timestamps: true
+})
+
+module.exports = mongoose.model('Trip', tripSchema)

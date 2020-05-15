@@ -15,15 +15,15 @@ const tripSchema = new mongoose.Schema({
   endPoint: { type: String, required: true },
   distance: { type: String },
   routeImage: { type: String },
-  tags: { type: String, required: true },
+  tags: { type: Array, required: true },
   ratings: {
     scenery: { type: Number },
     enojoyment: { type: Number }
   },
   photoGallery: { type: Array, required: true },
   videos: { type: Array },
-  description: { type: String, required: true, maxlength: 150 },
-  timeOfYear: { type: String, required: true },
+  description: { type: String, required: true },
+  timeOfYear: { type: String },
   highlights: { type: Array },
   pastTravellers: { type: Array },
   recommendations: [recommendationSchema]

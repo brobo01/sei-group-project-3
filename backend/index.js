@@ -4,11 +4,10 @@ const mongoose = require('mongoose')
 const app = express()
 // const logger = require('./lib/logger')
 const router = require('./config/routes')
-const { dbURI , port } = require('./config/environment')
+const { dbURI, port } = require('./config/environment')
 const errorHandler = require('./lib/errorHandler')
 
-
-mongoose.connect(dbURI , { useNewUrlParser: true, useUnifiedTopology: true } , (err) => {
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
   if (err) return console.log(err)
   console.log('Mongo is connected!')
 })
@@ -17,7 +16,7 @@ mongoose.connect(dbURI , { useNewUrlParser: true, useUnifiedTopology: true } , (
 
 // app.use(logger)
 
-app.use('/api',router)
+app.use('/api', router)
 
 app.use(errorHandler)
 

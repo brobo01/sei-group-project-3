@@ -1,13 +1,14 @@
-const Trips = require('../models/trips') //* To be updated ----------------
+const Trips = require('../models/trip')
 const { notFound } = require('../lib/errorMessages')
 
 
-async function tripsIndex(req,res,next) {
+async function tripsIndex(req, res, next) {
   try {
-    const trips = await Trips
+    const trips = await Trips.find()
+    console.log(trips)
     if (!trips) throw new Error(notFound)
     res.status(200).json(trips)
-  } catch (err){
+  } catch (err) {
     next(err)
   }
 }

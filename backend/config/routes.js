@@ -32,8 +32,8 @@ router.route('/users/:userId')
   // .get(secureRoute, user.profile)
   .get(user.userProfile)
 
-router.route('/profile/:userId/')
-  .put(user.showProfile)
+router.route('/profile/:userId')
+  .get(user.showProfile)
 // .get(secureRoute, user.editProfile)
 
 router.route('/profile/:userId/edit')

@@ -26,8 +26,8 @@ const tripSchema = new mongoose.Schema({
   timeOfYear: { type: String },
   highlights: { type: Array },
   pastTravellers: { type: Array },
-  recommendations: [recommendationSchema]
-
+  recommendations: [recommendationSchema],
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {
   timestamps: true
 })

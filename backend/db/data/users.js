@@ -5,7 +5,7 @@ module.exports = [
     email: 'ben@email',
     password: 'pass',
     passwordConfirmation: 'pass',
-    profilePhoto: null,
+    profilePhoto: ['https://cdn-1.motorsport.com/images/amp/27vbxEx0/s6/67-ford-chip-ganassi-racing-fo.jpg', 'https://cdn-6.motorsport.com/images/mgl/6O1bQjW2/s8/69-ford-chip-ganassi-racing-fo-1.jpg', 'https://cdn-2.motorsport.com/images/mgl/2y3axep6/s8/67-ford-chip-ganassi-racing-fo-1.jpg'],
     garage: 'Harley Davidson',
     dreamTrips: 'Winner of Le Mans race'
   }, {

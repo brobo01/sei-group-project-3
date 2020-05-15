@@ -8,8 +8,8 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   profilePhoto: { type: Array },
   garage: { type: String },
-  dreamTrips: { type: String },
-  trips: { type: mongoose.Schema.ObjectId, ref: 'Trip' }
+  dreamTrips: { type: String }
+
 })
 
 userSchema
@@ -41,7 +41,7 @@ userSchema
 
 userSchema
   .pre('save', function (next) {
-    if (this.isModified('passowrd')) {
+    if (this.isModified('password')) {
       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8))
     }
     next()

@@ -32,46 +32,62 @@ class Register extends React.Component {
   render() {
     const { formData } = this.state
     return (
-      <div>
-        <h1>Register</h1>
-        <form onSubmit={this.handleSubmit}>
-        <label> Username: </label>         
-        <input type="text" 
-        name="username"
-        onChange={this.handleChange}
-        value={formData.username}
-        />  
+      <div className="section">
+        <div className="container">
+          <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" height="100"/>
+          <div className="title">Register</div>
+              <form onSubmit={this.handleSubmit}>
+            <div className="form">
+                <div className="form-item">
+                  <label> Username: </label>         
+                  <input type="text" 
+                  name="username"
+                  onChange={this.handleChange}
+                  value={formData.username}
+                  />  
+                </div>
 
-        <label> Name: </label>     
-        <input type="text" 
-        name="name"
-        onChange={this.handleChange}
-        value={formData.name}
-        /> 
+                <div className="form-item">
+                  <label> Name: </label>     
+                  <input type="text" 
+                  name="name"
+                  onChange={this.handleChange}
+                  value={formData.name}
+                  /> 
+                </div>
 
-        <label> Email: </label>         
-        <input type="email" 
-        name="email"
-        onChange={this.handleChange}
-        value={formData.email}
-        />
+                <div className="form-item">
+                  <label> Email: </label>         
+                  <input type="email" 
+                  name="email"
+                  onChange={this.handleChange}
+                  value={formData.email}
+                  />
+                </div>
 
-        <label> Password: </label>         
-        <input type="password" 
-        name="password"
-        onChange={this.handleChange}
-        value={formData.password}
-        />
 
-        <label> Confirm Password: </label>         
-        <input type="password" 
-        name="passwordConfirmation"
-        onChange={this.handleChange}
-        value={formData.passwordConfirmation}
-        />
+                <div className="form-item">
+                  <label> Password: </label>         
+                  <input type="password" 
+                  name="password"
+                  onChange={this.handleChange}
+                  value={formData.password}
+                  />
+                </div>
 
-        <button type='submit'>Register</button>
-        </form>
+                <div className="form-item">
+                  <label> Confirm Password: </label>         
+                  <input type="password" 
+                  name="passwordConfirmation"
+                  onChange={this.handleChange}
+                  value={formData.passwordConfirmation}
+                  />
+                </div>
+
+                <button type='submit' className="submit-btn">Register</button>
+          </div>
+            </form>
+        </div>
       </div>
     )
   }

@@ -31,24 +31,33 @@ class Login extends React.Component {
     const { formData } = this.state
     return (
       <div>
-        <h1>LOG IN</h1>
-        <form onSubmit={this.handleSubmit}>
-  
-        <label> Email: </label>         
-        <input type="email" 
-        name="email"
-        onChange={this.handleChange}
-        value={formData.email}
-        />
-
-        <label> Password: </label>         
-        <input type="password" 
-        name="password"
-        onChange={this.handleChange}
-        value={formData.password}
-        />
-        <button type='submit'>Login</button>
-        </form>
+        <div className="section">
+          <div className="container">
+            <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" height="100"/>
+            <div className="title">Log In</div>
+              <form onSubmit={this.handleSubmit}>
+                <div className="form">
+                  <div className="form-item">
+                    <label> Email: </label>         
+                    <input type="email" 
+                    name="email"
+                    onChange={this.handleChange}
+                    value={formData.email}
+                    />
+                  </div>
+                  <div className="form-item">
+                    <label> Password: </label>         
+                    <input type="password" 
+                    name="password"
+                    onChange={this.handleChange}
+                    value={formData.password}
+                    />
+                  </div>
+                  <button type='submit' className="submit-btn">Login</button>
+                </div>
+              </form>
+            </div>
+        </div>
       </div>
     )
   }

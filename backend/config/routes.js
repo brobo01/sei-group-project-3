@@ -25,9 +25,20 @@ router.route('/trips/:id/comments/:commentId')
   .delete(trips.commentDelete)
 //   .delete(secureRoute, trips.commentDelete)
 
-router.route('/profile')
-  .get(secureRoute, user.profile)
-// .get(user.profile)
+router.route('/users')
+  .get(user.userIndex)
+
+router.route('/users/:userId')
+  // .get(secureRoute, user.profile)
+  .get(user.userProfile)
+
+router.route('/profile/:userId/')
+  .put(user.showProfile)
+// .get(secureRoute, user.editProfile)
+
+router.route('/profile/:userId/edit')
+  .put(user.editProfile)
+// .get(secureRoute, user.editProfile)
 
 router.route('/register')
   .post(auth.register)

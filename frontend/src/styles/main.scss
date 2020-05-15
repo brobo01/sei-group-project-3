@@ -1,0 +1,52 @@
+*{
+  background-color: #354f52;
+  margin:0;
+}
+
+
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: red;
+  color: white;
+  height: 60px;
+  .links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+    height: 100%;
+    width: 300px;
+    margin-right: 50px;
+  }
+  .link{
+    color: white;
+    text-decoration: none;
+
+  }
+}
+
+.hero{
+  display: flex;
+  flex-direction: column;
+  background-color: green;
+  height: 700px;
+  width: 100%;
+
+  .hero-text{
+    background-color: orange;
+  }
+  .hero-image{
+    background-color: purple;
+    height: 300px;
+  }
+  .header{
+    height: 100%;
+  }
+}
+
+

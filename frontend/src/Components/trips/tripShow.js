@@ -12,9 +12,11 @@ state={
   trip: []
 }
 
+
+
 async componentDidMount() {
 
-  const trip = await axios.get('https://open.mapquestapi.com/staticmap/v5/map?start=New+York,NY&end=Washington,DC&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ')
+  const trip = await axios.get('https://open.mapquestapi.com/staticmap/v5/map?start=London,UK&end=Le+Mans,France&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ')
   const mapURL = trip.config.url
   console.log(mapURL)
   this.setState({ trip })
@@ -23,12 +25,12 @@ async componentDidMount() {
 render() {
   const { trip } = this.state
 
-  if(!trip.length === 0) return null
+  if(trip.length === 0) return null
 
   return(
 
     <div>
-          {/* <img className='movie-img' src={trip.config.url}/> */}
+          <img className='map' alt='map' src={trip.config.url}/>
 </div>
 
 )

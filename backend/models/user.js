@@ -9,13 +9,27 @@ const userSchema = new mongoose.Schema({
   profilePhoto: { type: Array },
   garage: { type: String },
   dreamTrips: { type: String },
-  trips: { type: mongoose.Schema.ObjectId, ref: 'Trip', required: true }
+  trips: { type: mongoose.Schema.ObjectId, ref: 'Trip' }
 })
 
+userSchema
+  .set('toJSON', {
+    virtuals: true,
+    transform(doc, json) {
+      delete json.password
+      return json
+    }
+  })
 
 userSchema.methods.validatePassword = function (password) {
   return bcrypt.compareSync(password, this.password)
 }
+
+userSchema
+  .virtual('passwordConfirmation')
+  .set(function (passwordConfirmation) {
+    this._passwordConfirmation = passwordConfirmation
+  })
 
 userSchema
   .pre('validate', function (next) {
@@ -25,5 +39,12 @@ userSchema
     next()
   })
 
+userSchema
+  .pre('save', function (next) {
+    if (this.isModified('passowrd')) {
+      this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8))
+    }
+    next()
+  })
 
 module.exports = mongoose.model('User', userSchema)

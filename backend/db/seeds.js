@@ -3,7 +3,8 @@ const { dbURI } = require('../config/environment')
 
 const tripData = require('./data/trips')
 const Trip = require('../models/trip')
-
+const User = require('../models/user')
+const userData = require('./data/users')
 
 mongoose.connect(
   dbURI,
@@ -15,6 +16,9 @@ mongoose.connect(
       await db.dropDatabase()
       const trips = await Trip.create(tripData)
       console.log(`${trips.length} made trips`)
+
+      const users = await User.create(userData)
+      console.log(`${users.length} users made`)
       await mongoose.connection.close()
       console.log('Goodbye 👋')
 

@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const trips = require('../controllers/trips')
-// const auth = require('../controllers/auth')
-// const secureRoute = require('../lib/secureRoute')
-// const user = require('../controllers/users')
+const auth = require('../controllers/auth')
+const secureRoute = require('../lib/secureRoute')
+const user = require('../controllers/users')
 
 
 router.route('/trips')
@@ -25,14 +25,14 @@ router.route('/trips/:id')
 //   .delete(trips.commentDelete)
 //   .delete(secureRoute, trips.commentDelete)
 
-// router.route('/profile')
-//   .get(user.profile)
-//   .get(secureRoute, user.profile)
+router.route('/profile')
+  .get(secureRoute, user.profile)
+  // .get(user.profile)
 
-// router.route('/register')
-//   .post(auth.register)
+router.route('/register')
+  .post(auth.register)
 
-// router.route('/login')
-//   .post(auth.login)
+router.route('/login')
+  .post(auth.login)
 
 module.exports = router

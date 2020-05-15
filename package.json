@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "git@github.com:A-Der/sei-group-project-3.git",
   "author": "Assia Deramchi <at.deramchi@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.14"
+  }
 }

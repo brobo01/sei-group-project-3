@@ -5,11 +5,20 @@ import { Link } from 'react-router-dom'
 
 const TripCard = ({ _id, name, image, routeImage, tags, handleHover, handleUnhover, hover }) => (
 
-<div>
 
+<div>
   <Link to={`/trips/${_id}`}>
     <h3>{name}</h3>
-      <img src= {hover ? routeImage : image} alt={name} onMouseEnter={handleHover} onMouseLeave={handleUnhover}/>
+    <div>
+    <img className="float" src= {hover ? routeImage : image} 
+      alt={name} 
+      onMouseEnter={handleHover} 
+      onMouseLeave={handleUnhover}/>
+      <p style= {{ display: hover ? "" : "none" }}
+      className="blurb"
+      onMouseEnter={handleHover}
+      onMouseLeave={handleUnhover}>LOTS OF INFO AND MUCH MUCH MOREEEE</p>
+    </div>
       </Link> 
 
       <br></br>

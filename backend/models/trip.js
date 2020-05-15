@@ -15,6 +15,7 @@ const tripSchema = new mongoose.Schema({
   endPoint: { type: String, required: true },
   distance: { type: String },
   routeImage: { type: String },
+  image: { type: String },
   tags: { type: Array, required: true },
   ratings: {
     scenery: { type: Number },

@@ -6,25 +6,24 @@ const Home = () => {
   return (
     <div>
       <div className="hero">
-        <div className="hero-left"></div>
+        <div className="hero-left">
+          <div className="hero-left-title">Welcome to Road Trippin</div>
+          <div className="hero-left-subtitle">Home of the Wanderer</div>
+          <Link to='/trips' className="hero-left-btn">Get started</Link>
+        </div>
         <div className="hero-right"></div>
       </div>
+        <div className="recent-trips">
+        <div className="title">
+          Recent Trips
+        </div>
+        <div className="carousel">
+          <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' height='200' className="image"/>
+          <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg' height='200' className="image"/>
+          <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg' height='200' className="image"/>
+        </div>
+        </div>
     </div>
-
-    // {/* <div className="hero-text"> */}
-
-
-
-    //         {/* <div className="header"> RoadTrippin </div>
-    //         <Link to='/trips'>ENTER</Link>
-    // <div className="hero-image"> Hello */}
-    // {/* </div> */}
-    // {/* </div>
-    // </div>
-    // </div> */}
-
-// 'https://www.intrepidtravel.com/adventures/wp-content/uploads/2017/11/stefan-machler-440749-1170x658.jpg'
-
   )
 }
 

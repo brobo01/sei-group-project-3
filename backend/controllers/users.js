@@ -23,6 +23,7 @@ async function userIndex(req, res, next) {
 }
 
 async function indivProfile(req, res, next) {
+
   try {
     const user = await User.findById(req.currentUser._id)
     if (!user) throw new Error(notFound)
@@ -33,6 +34,7 @@ async function indivProfile(req, res, next) {
 }
 
 async function indivProfileEdit(req, res, next) {
+
   try {
     const user = await User.findById(req.currentUser._id)
     if (!user) throw new Error(notFound)

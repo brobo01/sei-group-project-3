@@ -15,6 +15,7 @@ const tripSchema = new mongoose.Schema({
   endPoint: { type: String, required: true },
   distance: { type: String },
   routeImage: { type: String },
+  image: { type: String },
   tags: { type: Array, required: true },
   ratings: {
     scenery: { type: Number },
@@ -26,8 +27,8 @@ const tripSchema = new mongoose.Schema({
   timeOfYear: { type: String },
   highlights: { type: Array },
   pastTravellers: { type: Array },
-  recommendations: [recommendationSchema]
-
+  recommendations: [recommendationSchema],
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {
   timestamps: true
 })

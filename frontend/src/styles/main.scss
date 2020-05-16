@@ -1,3 +1,4 @@
+
 *{
   margin:0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -221,7 +222,59 @@
   background-color: black;
 }
 
-@media only (max-width: 500px) {
+
+  // .hero-text{
+  //   background-color: orange;
+  // }
+  // .hero-image{
+  //   background-color: purple;
+  //   height: 300px;
+  // }
+  // .header{
+  //   height: 100%;
+  // }
 
 
+  .all-index-divs {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+
+
+    // .index-comps {
+    //   height: 300px;
+    //   width: 300px
+    // }
+
+    .index-image {
+        height: 300px;
+        width: 300px
+    }
+    
+     //* this is for the text that shows up when you hover over an image on index page
+    .blurb {
+      position: relative;
+      top: -80px;
+      // left: 50px;
+      background: red;
+      width: 250px
+      // width: 100px
+    }
+  }
+
+
+
+  
+
+.dream-trips {
+  background: radial-gradient(circle, #354f52 0%, #213133 98%);
 }
+
+
+// @media only (max-width: 500px) {
+
+
+// }

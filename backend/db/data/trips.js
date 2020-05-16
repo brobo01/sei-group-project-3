@@ -42,7 +42,7 @@ module.exports = [
     startingPoint: 'Hanoi',
     endPoint: 'Ho Chi Minh',
     distance: '1870 km / 1162m',
-    routeImage: 'https://lh3.googleusercontent.com/proxy/dwZH-Q_e6uiA8SUxvNG7QZ3f_bNGplE7Qrs94F7spR_DMPut292ba7pHcV8Swzcb4tsSA-qlwQ7XNLHmU5sdj6ElmJOu7AZ4JJ9CmuQHwtwTcr6gMEXxReK3j04dm5k',
+    routeImage: 'https://cuongs-motorbike-adventure.com/wp-content/uploads/2018/01/Ho-Chi-Minh-Trail-motorbike-tour-map.jpg',
     image: 'https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/06/Hai-Van-Pass-Da-Nang-Vietnam.jpg',
     tags: ['Mountains', 'Scenery', 'Villages', 'Beaches'],
     ratings: {

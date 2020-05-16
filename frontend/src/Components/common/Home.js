@@ -18,9 +18,9 @@ const Home = () => {
           Recent Trips
         </div>
         <div className="carousel">
-          <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' height='200' className="image"/>
-          <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg' height='200' className="image"/>
-          <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg' height='200' className="image"/>
+          <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' alt="" height='200' className="image"/>
+          <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg' alt="" height='200' className="image"/>
+          <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg' alt="" height='200' className="image"/>
         </div>
         </div>
     </div>

@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 
 
 const recommendationSchema = new mongoose.Schema({
-  text: { type: String, required: true }
-  // user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  text: { type: String, required: true },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {
   timestamps: true
 })
@@ -19,9 +19,9 @@ const tripSchema = new mongoose.Schema({
   tags: { type: Array, required: true },
   ratings: {
     scenery: { type: Number },
-    enojoyment: { type: Number }
+    enjoyment: { type: Number }
   },
-  photoGallery: { type: Array, required: true },
+  photoGallery: { type: Array },
   videos: { type: Array },
   description: { type: String, required: true },
   timeOfYear: { type: String },

@@ -19,9 +19,9 @@ const tripSchema = new mongoose.Schema({
   tags: { type: Array, required: true },
   ratings: {
     scenery: { type: Number },
-    enojoyment: { type: Number }
+    enjoyment: { type: Number }
   },
-  photoGallery: { type: Array, required: true },
+  photoGallery: { type: Array },
   videos: { type: Array },
   description: { type: String, required: true },
   timeOfYear: { type: String },

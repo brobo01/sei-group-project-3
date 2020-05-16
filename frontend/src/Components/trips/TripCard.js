@@ -1,34 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-//* tags is an array
 
-const TripCard = ({ _id, name, image, routeImage, tags, handleHover, handleUnhover, hover }) => (
+class TripCard extends React.Component {
+  state = {
+    hover: false
+  }
 
+  handleHover = async () => {
+    this.setState({ hover: true })
+      }
+      handleUnhover = async () => {
+        this.setState({ hover: false })
+      }
 
-<div>
-  <Link to={`/trips/${_id}`}>
-    <h3>{name}</h3>
-    <div>
-    <img className="float" src= {hover ? routeImage : image} 
-      alt={name} 
-      onMouseEnter={handleHover} 
-      onMouseLeave={handleUnhover}/>
-      <p style= {{ display: hover ? "" : "none" }}
-      className="blurb"
-      onMouseEnter={handleHover}
-      onMouseLeave={handleUnhover}>LOTS OF INFO AND MUCH MUCH MOREEEE</p>
-    </div>
-      </Link> 
+    render() {
+      const { _id, name, image, routeImage, tags, distance, startingPoint, endPoint } = this.props
+      const { hover } = this.state
 
-      <br></br>
-      
-      {tags.map(tag => (
-        <span key={tag}>{tag} - </span>
-      ))}
-  
-</div>
- 
-)
+return (
+  <div className ="index-comps">
+    <Link to={`/trips/${_id}`}>
+      <h3>{name}</h3>
 
+      <img className="index-image" src= {hover ? routeImage : image} 
+      alt={name}
+      style={{ size: "auto" }}
+        onMouseEnter={this.handleHover} 
+        onMouseLeave={this.handleUnhover}/>
+
+        <p style= {{ visibility: hover ? "visible" : "hidden" }}
+        className="blurb"
+        onMouseEnter={this.handleHover}
+        onMouseLeave={this.handleUnhover}>
+          {startingPoint} - {endPoint} {distance}
+          </p>
+
+        </Link> 
+        <br></br>
+        {/* {tags.map(tag => (
+          <span key={tag}>{tag} - </span>
+        ))} */}
+  </div>
+)}}  
 export default TripCard

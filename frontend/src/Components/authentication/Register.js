@@ -34,7 +34,9 @@ class Register extends React.Component {
     return (
       <div className="section">
         <div className="container">
-          <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" height="100"/>
+          <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" 
+          alt=""
+          height="100"/>
           <div className="title">Register</div>
               <form onSubmit={this.handleSubmit}>
             <div className="form">

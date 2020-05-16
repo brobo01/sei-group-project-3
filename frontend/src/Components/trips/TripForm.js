@@ -5,7 +5,9 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText 
   return (
     <div className="section">
       <div className="container">
-        <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" height="100" />
+        <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" 
+        alt= ""
+        height="100" />
         <div className="title">{titleText}</div>
         <form onSubmit={handleSubmit}>
           <div className="form">

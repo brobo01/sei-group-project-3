@@ -235,17 +235,40 @@
   //   height: 100%;
   // }
 
-  // img.float {
-  //   display:inline;
-  //      float: left;
-  // }
 
-  .blurb {
-     position: relative;
-      top: -60px;
-      left: 50px;
+  .all-index-divs {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
+
+
+    // .index-comps {
+    //   height: 300px;
+    //   width: 300px
+    // }
+
+    .index-image {
+        height: 300px;
+        width: 300px
+    }
+    
+     //* this is for the text that shows up when you hover over an image on index page
+    .blurb {
+      position: relative;
+      top: -80px;
+      // left: 50px;
       background: red;
+      width: 250px
+      // width: 100px
+    }
   }
+
+
+
+  
 
 .dream-trips {
   background: radial-gradient(circle, #354f52 0%, #213133 98%);

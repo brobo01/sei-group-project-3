@@ -98,7 +98,7 @@ class Profile extends React.Component {
             </div>
           <div className="carousel">
             {user.profilePhoto?.map((photo, index) => (
-              <img key={index} src={photo} alt="profile photo" />
+              <img key={index} src={photo} alt="profile" />
             ))}
           </div>
         </div>

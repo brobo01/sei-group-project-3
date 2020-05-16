@@ -1,37 +1,47 @@
 import React from 'react'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { Carousel } from 'react-responsive-carousel'
 
 
 class tripShow extends React.Component {
-state={
-  trip: []
-}
+  state = {
+    trip: [],
+
+  }
+
+  // async componentDidMount() {
+  //   const res = await axios.get('/api/trips/5ebfd648a9fc680f2c15758a')
+  //   this.setState({ trip: res.data })
+  //   this.getMap()
+  // }
 
 
+  // getMap = async () => {
+  //   const map = await axios.get('https://open.mapquestapi.com/staticmap/v5/map?start=London,UK&end=Le+Mans,France&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ')
 
-async componentDidMount() {
+  //   this.setState({ ...trip, routeImage: map.config.url })
+  // }
 
-  const trip = await axios.get('https://open.mapquestapi.com/staticmap/v5/map?start=London,UK&end=Le+Mans,France&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ')
-  const mapURL = trip.config.url
-  console.log(mapURL)
-  this.setState({ trip })
-}
+  // render() {
+  //   const { trip } = this.state
 
-render() {
-  const { trip } = this.state
+  //   if (trip.length === 0) return null
 
-  if(trip.length === 0) return null
+  //   return (
+  //     <section>
+  //       <img className='map' alt='map' src={trip.routeImage} />
+  //       <Carousel>
+  //         <div>
 
-  return(
+  //         </div>
+  //       </Carousel>
+  //     </section>
 
-    <div>
-          <img className='map' alt='map' src={trip.config.url}/>
-</div>
+  //   )
 
-)
-
-}
+  // }
 
 }
 

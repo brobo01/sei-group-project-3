@@ -20,19 +20,15 @@ async componentDidMount() {
 
 render() {
   const { trip } = this.state
-
   if(trip.length === 0) return null
 
   return(
-
     <div>
-          <img className='map' alt='map' src={trip.config.url}/>
-</div>
+      <img className='map' alt='map' src={trip.config.url}/>
+    </div>
 
 )
-
 }
-
 }
 
 

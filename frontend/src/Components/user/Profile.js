@@ -40,16 +40,16 @@ class Profile extends React.Component {
           <div className="cover-left">
             <div className="cover-left-image">
               <img src='https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/14618/thumb_Screen_Shot_2019-05-30_at_16.42.14.png'
-              alt=""
-              height="100" />
+                alt=""
+                height="100" />
             </div>
             <div className="cover-left-title">{user.username}Jack May</div>
             <div className="cover-left-subtitle">{user.name}@syntacticsugarbear</div>
           </div>
           <div className="cover-right">
             <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' className="image"
-            alt=""
-            height="700" />
+              alt=""
+              height="700" />
           </div>
         </div>
 
@@ -65,21 +65,21 @@ class Profile extends React.Component {
             dynamicHeight={true}
           >
             <div className="carousel-item">
-              <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' 
-              alt=""
-              className="image carousel-image" />
+              <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg'
+                alt=""
+                className="image carousel-image" />
               <p className="legend">Recent Trip 1</p>
             </div>
             <div className="carousel-item">
-              <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg' 
-              alt=""
-              className="image carousel-image" />
+              <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg'
+                alt=""
+                className="image carousel-image" />
               <p className="legend">Recent Trip 2</p>
             </div>
             <div className="carousel-item">
               <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg'
-              alt=""
-              className="image carousel-image" />
+                alt=""
+                className="image carousel-image" />
               <p className="legend">Recent Trip 3</p>
             </div>
 
@@ -126,21 +126,21 @@ class Profile extends React.Component {
               dynamicHeight={true}
             >
               <div className="carousel-item">
-                <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' 
-                alt=""
-                className="image carousel-image" />
+                <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg'
+                  alt=""
+                  className="image carousel-image" />
                 <p className="legend">Dream Trip 1</p>
               </div>
               <div className="carousel-item">
                 <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg'
-                alt=""
-                className="image carousel-image" />
+                  alt=""
+                  className="image carousel-image" />
                 <p className="legend">Dream Trip 2</p>
               </div>
               <div className="carousel-item">
                 <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg'
-                alt=""
-                className="image carousel-image" />
+                  alt=""
+                  className="image carousel-image" />
                 <p className="legend">Dream Trip 3</p>
               </div>
 

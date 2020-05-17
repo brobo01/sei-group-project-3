@@ -9,12 +9,12 @@ class tripShow extends React.Component {
   state = {
     trip: {},
     pendingRec: '',
-    inputValue: ''
+
   }
 
   async componentDidMount() {
 
-    const res = await axios.get('/api/trips/5ec041ea84630c1efdef1471')
+    const res = await axios.get('/api/trips/5ec106f7a296c22311fcd640')
     this.setState({ trip: res.data })
     const startPoint = 'london,uk'
     const endPoint = 'Le+Mans,France'
@@ -36,8 +36,8 @@ class tripShow extends React.Component {
     try {
       // const tripId = this.props.match.params.id
       e.preventDefault()
-
-      const res = await axios.post(`/api/trips/5ec041ea84630c1efdef1471/comments`, { text: this.state.pendingRec })
+      e.target.reset()
+      const res = await axios.post(`/api/trips/5ec106f7a296c22311fcd640/comments`, { text: this.state.pendingRec })
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state
@@ -81,15 +81,17 @@ class tripShow extends React.Component {
           <p>{trip.description}</p>
           <p>Time of year: {trip.timeOfYear}</p>
           <h3>Trip Recommendations from other Travellers:</h3>
-          {trip.recommendations?.map(obj => (
-            <p key={obj._id}>{obj.text}</p>
-          ))}
+          <div className="comments">
 
+            {trip.recommendations?.map(obj => (
+              <p key={obj._id}>{obj.text}</p>
+            ))}
+          </div>
           <form onSubmit={this.handleSubmit}>
             <textarea
               placeholder="leave a recommendation"
               onChange={this.handleChange}
-
+              value={this.pendingRec}
             />
             <button>Submit</button>
           </form>

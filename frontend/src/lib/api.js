@@ -14,3 +14,7 @@ export const registerUser = formData => {
 export const getAllTrips = () => {
   return axios.get(`${baseUrl}/trips`)
 }
+
+export const editTrip = (id, formData) => {
+  return axios.put(`${baseUrl}/trips/${id}`, formData)
+}

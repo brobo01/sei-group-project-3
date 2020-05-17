@@ -14,7 +14,7 @@ class tripShow extends React.Component {
 
   async componentDidMount() {
 
-    const res = await axios.get('/api/trips/5ec106f7a296c22311fcd640')
+    const res = await axios.get('/api/trips/5ec1286516918a6506803862')
     this.setState({ trip: res.data })
     const startPoint = 'london,uk'
     const endPoint = 'Le+Mans,France'
@@ -37,7 +37,7 @@ class tripShow extends React.Component {
       // const tripId = this.props.match.params.id
       e.preventDefault()
       e.target.reset()
-      const res = await axios.post(`/api/trips/5ec106f7a296c22311fcd640/comments`, { text: this.state.pendingRec })
+      const res = await axios.post(`/api/trips/5ec1286516918a6506803862/comments`, { text: this.state.pendingRec })
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state

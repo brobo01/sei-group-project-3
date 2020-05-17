@@ -26,6 +26,7 @@ background-size: cover;
     font-size: 40px;
     margin-left: 10px;
     color: white;
+    background-image: url('./assets/roadtrippers.png');
   }
   .links{
     display: flex;
@@ -134,17 +135,24 @@ background-size: cover;
     color: white;
     width: 15%;
     height: 100%;
+    .display-image{
+      border-radius: 10px;
+    }
     .cover-left-title{
       font-size: 45px;
       width:400px;
       padding: 20px 10px;
       background-color: rgba(0,0,0,0.5);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
     .cover-left-subtitle{
       font-size: 30px;
       width:400px;
       padding: 10px;
       background-color: rgba(0,0,0,0.5);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
   }
   .cover-right{

@@ -6,7 +6,17 @@ import { Carousel } from 'react-responsive-carousel'
 
 class Profile extends React.Component {
   state = {
-    user: {},
+    user: {
+      name: null,
+      username: null,
+      email: null,
+      homeBase: null,
+      garage: null,
+      dreamTrips: null, 
+      recentTrips: [],
+      profilePhoto: [],
+      bio: null
+    },
     userTrips: []
   }
 
@@ -14,9 +24,9 @@ class Profile extends React.Component {
     try {
       
       const userId = this.props.match.params.id
-      const res = await axios.get(`/api/profile/${userId}`)
+      const res = await axios.get(`/api/users/5ec134a3ee835872076c7549`)
       this.setState({ user: res.data })
-      console.log(res)
+      console.log(res.data)
     } catch (err) {
       console.log(err)
     }
@@ -32,60 +42,73 @@ class Profile extends React.Component {
   //   this.setState({ userTrips })
   // }
 
+
+
   render() {
-    const { user } = this.state
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase } = this.state.user
     return (
       <section>
 
         <div className="cover">
           <div className="cover-left">
             <div className="cover-left-image">
-              <img src='https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/14618/thumb_Screen_Shot_2019-05-30_at_16.42.14.png'
+              <img className="display-image" src={profilePhoto[0]}
                 alt=""
-                height="100" />
+                height="200" />
             </div>
-            <div className="cover-left-title">{user.username}Jack May</div>
-            <div className="cover-left-subtitle">{user.name}syntacticsugarbear</div>
+            <div className="cover-left-title">{username}</div>
+            <div className="cover-left-subtitle">{name}</div>
+            <button className="message">Send Message</button>
+    {/* <div className="cover-left-garage">{homeBase}<br></br>In the garage:<br></br>{garage}</div> */}
           </div>
           <div className="cover-right">
-            <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' className="image"
+            <img src={recentTrips[0]} 
+            className="image"
               alt=""
               height="700" />
           </div>
         </div>
 
-        <p>{user.garage}</p>
+        
 
         <div className="recent-trips">
+
+
           <div className="title">
             Recent Trips
             </div>
+
+
+            
           <Carousel
             infiniteLoop
             centerMode
             dynamicHeight={true}
           >
+            
             <div className="carousel-item">
-              <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg'
-                alt=""
+              <img src={recentTrips[0]}
+                alt="Morroco"
                 className="image carousel-image" />
-              <p className="legend">Recent Trip 1</p>
+              <p className="legend">Morroco</p>
             </div>
             <div className="carousel-item">
-              <img src='https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg'
-                alt=""
+              <img src={recentTrips[1]} 
+                alt="Iceland"
                 className="image carousel-image" />
-              <p className="legend">Recent Trip 2</p>
+              <p className="legend">Iceland</p>
             </div>
             <div className="carousel-item">
-              <img src='https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg'
-                alt=""
+              <img src={recentTrips[2]} 
+                alt="Scotland"
                 className="image carousel-image" />
-              <p className="legend">Recent Trip 3</p>
+              <p className="legend">Scotland</p>
             </div>
-
+  
           </Carousel>
         </div>
+        
+
 
 
 
@@ -108,21 +131,23 @@ class Profile extends React.Component {
           <div className="title">
             Pictures
             </div>
-          <div className="carousel">
-            {user.profilePhoto?.map((photo, index) => (
+          {/* <div className="carousel">
+            {profilePhoto?.map((photo, index) => (
               <img key={index} src={photo} alt="profile pic" />
             ))}
-          </div>
+          </div> */}
         </div>
+
+
 
         <div className="recent-trips">
           <div className="title">
             Dream Trips
             </div>
-          <p>{user.dreamTrips}</p>
+          <p>{dreamTrips}</p>
 
           <div className="dream-trips">
-            <Carousel
+            {/* <Carousel
               infiniteLoop
               centerMode
               dynamicHeight={true}
@@ -146,7 +171,7 @@ class Profile extends React.Component {
                 <p className="legend">Dream Trip 3</p>
               </div>
 
-            </Carousel>
+            </Carousel> */}
           </div>
 
         </div>

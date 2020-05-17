@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import RTimage from '../../styles/assets/roadtrippers.png'
 
 
 const Navbar = () => {
   return (
   <div className="navbar">
-      <Link to='/' className="header-logo"> RoadTrippin </Link>
+      <Link to='/' className="header-logo"><img src={RTimage}/></Link>
 
                   <div className="navbar-links">
           <div className="links">

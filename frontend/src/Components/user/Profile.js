@@ -3,6 +3,7 @@ import axios from 'axios'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 
+
 class Profile extends React.Component {
   state = {
     user: {},
@@ -11,11 +12,11 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     try {
-      const userId = this.props.match.params.userId
-      console.log(this.props.match.params.userId)
-      const res = await axios.get(`/api/users/${userId}`)
+      
+      const userId = this.props.match.params.id
+      const res = await axios.get(`/api/profile/${userId}`)
       this.setState({ user: res.data })
-
+      console.log(res)
     } catch (err) {
       console.log(err)
     }
@@ -44,7 +45,7 @@ class Profile extends React.Component {
                 height="100" />
             </div>
             <div className="cover-left-title">{user.username}Jack May</div>
-            <div className="cover-left-subtitle">{user.name}@syntacticsugarbear</div>
+            <div className="cover-left-subtitle">{user.name}syntacticsugarbear</div>
           </div>
           <div className="cover-right">
             <img src='https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg' className="image"
@@ -102,6 +103,7 @@ class Profile extends React.Component {
           </div>
         </div> */}
 
+
         <div className="recent-trips">
           <div className="title">
             Pictures
@@ -149,7 +151,7 @@ class Profile extends React.Component {
 
         </div>
 
-      </section>
+      </section> 
     )
   }
 

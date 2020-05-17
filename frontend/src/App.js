@@ -26,7 +26,7 @@ const App = () => {
           <Route path="/trips/new" component={TripNew} />
           <Route path="/trips/:id" component={TripShow} />
           <Route path="/trips" component={TripsIndex} />
-          <Route path="/users/:userId" component={Profile} />
+          <Route path="/profile/:id" component={Profile} />
 
         </Switch>
         <Footer />

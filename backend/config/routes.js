@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const trips = require('../controllers/trips')
 const auth = require('../controllers/auth')
-const secureRoute = require('../lib/secureRoute')
+// const secureRoute = require('../lib/secureRoute')
 const user = require('../controllers/users')
 
 
@@ -28,17 +28,18 @@ router.route('/trips/:id/comments/:commentId')
 router.route('/users')
   .get(user.userIndex)
 
+
+//* friends profiles
 router.route('/users/:userId')
-  // .get(secureRoute, user.profile)
   .get(user.userProfile)
 
-router.route('/profile/:userId')
-  .get(user.showProfile)
-// .get(secureRoute, user.editProfile)
 
-router.route('/profile/:userId/edit')
-  .put(user.editProfile)
-// .get(secureRoute, user.editProfile)
+//* indiv user profile
+router.route('/profile/:id')
+  .get(user.showProfile)
+// .put(secureRoute, user.editProfile)
+
+// router.route('/profile/:userId/edit')
 
 router.route('/register')
   .post(auth.register)

@@ -3,7 +3,7 @@ import axios from 'axios'
 // import { Link } from 'react-router-dom'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
-
+import { stringUpdate } from '../../lib/map'
 
 class tripShow extends React.Component {
   state = {
@@ -13,14 +13,14 @@ class tripShow extends React.Component {
   }
 
   async componentDidMount() {
-
-    const res = await axios.get('/api/trips/5ec1286516918a6506803862')
+    const tripId = this.props.match.params.id
+    const res = await axios.get(`/api/trips/${tripId}`)
     this.setState({ trip: res.data })
-    const startPoint = 'london,uk'
-    const endPoint = 'Le+Mans,France'
-    const map = await axios.get(`https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`)
+    const startPoint = stringUpdate(this.state.trip.startingPoint)
+    const endPoint = stringUpdate(this.state.trip.endPoint)
+    const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
 
-    const updated = { ...res.data, routeImage: map.config.url }
+    const updated = { ...res.data, routeImage: mapUrl }
     this.setState({ trip: updated })
 
   }
@@ -32,12 +32,16 @@ class tripShow extends React.Component {
   }
 
   handleSubmit = async e => {
-
+    const tripId = this.props.match.params.id
     try {
-      // const tripId = this.props.match.params.id
+
       e.preventDefault()
       e.target.reset()
+<<<<<<< HEAD
       const res = await axios.post(`/api/trips/5ec1286516918a6506803862/comments`, { text: this.state.pendingRec })
+=======
+      const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec })
+>>>>>>> development
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state
@@ -62,12 +66,13 @@ class tripShow extends React.Component {
             centerMode
           >
             <div>
-              <img src={trip.routeImage}
+              <img src={trip.image}
                 alt="map"
                 className="image carousel-image route-image" />
+              <p className="legend"></p>
             </div>
             <div>
-              <img src={trip.image}
+              <img src={trip.routeImage}
                 alt="trip"
                 className="image carousel-image route-image" />
             </div>

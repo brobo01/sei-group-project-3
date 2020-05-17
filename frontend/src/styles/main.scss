@@ -1,13 +1,17 @@
-
 *{
   margin:0;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.background-image{
+background-image: url(https://millionmilesecrets.com/wp-content/uploads/shutterstock_547827592.jpg);
+background-size: cover;
+
 .background{
-  background: radial-gradient(circle, rgba(53,79,82,1) 0%, rgba(33,49,51,1) 98%);
+  background: radial-gradient(circle, rgba(53,79,82,0.95) 0%, rgba(33,49,51,0.95) 98%);
   height: 100%;
   min-height: 100vh;
+}
 }
 
 .navbar{
@@ -174,14 +178,14 @@
       margin: 20px;
     }
     .form{
-      background-color: #52796f;
-      width: 500px;
-      height: 500px;
-      border-radius: 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      width: 500px;
+      height: 500px;
+      background-color: #52796f;
+      border-radius: 10px;
       .form-item{
         background-color: #52796f;
         display: flex;
@@ -211,6 +215,77 @@
   }
 }
 
+.index{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  .index-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    width: 75%;
+    .title{
+      background-color: none;
+      color: white;
+      font-size: 30px;
+      margin: 20px;
+    }
+  }
+  .all-index-divs {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: stretch;
+    background-color: #52796f;
+    border-radius: 10px;
+    padding-top: 50px;
+      .index-comps{
+        display: flex;
+        flex-direction: column;
+        height: 300px;
+        margin: 5px;
+        .index-card{
+          object-fit: cover;
+          display: flex;
+          flex-direction: column;
+
+          .crop {
+            width: 300px;
+            height: 300px;
+            overflow:hidden;   
+            position:relative;
+            .index-image {
+              object-fit: cover;
+              height: 300px;
+              width: 300px;
+              }
+          }
+          .crop img {
+            position: absolute;
+          }
+          .blurb {
+            //* this is for the text that shows up when you hover over an image on index page
+            position: relative;
+            top: -80px;
+            background: rgba(1,1,1,0.5);
+            width: auto;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }  
+    }
+  } 
+
+
 .footer {
   position:fixed;
   text-align: center;
@@ -223,55 +298,23 @@
 }
 
 
-  // .hero-text{
-  //   background-color: orange;
-  // }
-  // .hero-image{
-  //   background-color: purple;
-  //   height: 300px;
-  // }
-  // .header{
-  //   height: 100%;
-  // }
 
-
-  .all-index-divs {
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
-	align-content: stretch;
-
-
-    // .index-comps {
-    //   height: 300px;
-    //   width: 300px
-    // }
-
-    .index-image {
-        height: 300px;
-        width: 300px
-    }
-    
-     //* this is for the text that shows up when you hover over an image on index page
-    .blurb {
-      position: relative;
-      top: -80px;
-      // left: 50px;
-      background: red;
-      width: 250px
-      // width: 100px
-    }
-  }
-
-
-
-  
 
 .dream-trips {
   background: radial-gradient(circle, #354f52 0%, #213133 98%);
 }
+
+
+.route-image {
+  max-height: 500px;
+  max-width: 1000px;
+}
+.trip-info {
+  min-height: 1000px;
+}
+
+
+
 
 
 // @media only (max-width: 500px) {

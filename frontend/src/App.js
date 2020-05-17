@@ -15,6 +15,7 @@ import Profile from './Components/user/Profile'
 
 const App = () => {
   return (
+    <div className="background-image">
     <div className="background">
 
       <BrowserRouter>
@@ -31,6 +32,7 @@ const App = () => {
         </Switch>
         <Footer />
       </BrowserRouter>
+    </div>
     </div>
   )
 }

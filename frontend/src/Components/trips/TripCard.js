@@ -3,43 +3,51 @@ import { Link } from 'react-router-dom'
 
 
 class TripCard extends React.Component {
-  state = {
-    hover: false
+state = {
+  hover: false
+}
+
+handleHover = async () => {
+  this.setState({ hover: true })
   }
 
-  handleHover = async () => {
-    this.setState({ hover: true })
-      }
-      handleUnhover = async () => {
-        this.setState({ hover: false })
-      }
+handleUnhover = async () => {
+  this.setState({ hover: false })
+  }
 
-    render() {
-      const { _id, name, image, routeImage, tags, distance, startingPoint, endPoint } = this.props
-      const { hover } = this.state
+render() {
+  const { _id, name, image, routeImage, tags, distance, startingPoint, endPoint } = this.props
+  const { hover } = this.state
 
 return (
   <div className ="index-comps">
     <Link to={`/trips/${_id}`}>
-      <h3>{name}</h3>
+      <div className="index-card">
+        <div className="crop">
+          <img className="index-image"
+            src= {image} 
+            // src= {hover ? routeImage : image} 
+            alt={name}
+            style={{ size: "cover" }}
+            height="350"
+            onMouseEnter={this.handleHover} 
+            onMouseLeave={this.handleUnhover}
+          />
+        </div>
 
-      <img className="index-image" src= {hover ? routeImage : image} 
-      alt={name}
-      style={{ size: "auto" }}
-        onMouseEnter={this.handleHover} 
-        onMouseLeave={this.handleUnhover}/>
 
-        <p style= {{ visibility: hover ? "visible" : "hidden" }}
-        className="blurb"
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleUnhover}>
-          {startingPoint} - {endPoint} {distance}
-          </p>
-        </Link> 
-        <br></br>
-        {/* {tags.map(tag => (
-          <span key={tag}>{tag} - </span>
-        ))} */}
+        <p 
+          style= {{ visibility: hover ? "visible" : "hidden" }}
+          className="blurb"
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleUnhover}
+          >
+          {name}
+        </p>
+
+
+        </div>
+    </Link> 
   </div>
 )}}  
 export default TripCard

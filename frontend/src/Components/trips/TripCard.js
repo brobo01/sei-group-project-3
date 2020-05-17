@@ -35,7 +35,6 @@ return (
         onMouseLeave={this.handleUnhover}>
           {startingPoint} - {endPoint} {distance}
           </p>
-
         </Link> 
         <br></br>
         {/* {tags.map(tag => (

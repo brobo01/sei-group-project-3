@@ -24,7 +24,7 @@ class Profile extends React.Component {
     try {
       
       const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec134a3ee835872076c7549`)
+      const res = await axios.get(`/api/users/5ec1677d86db4bb27a34b098`)
       this.setState({ user: res.data })
       console.log(res.data)
     } catch (err) {
@@ -70,47 +70,48 @@ class Profile extends React.Component {
         </div>
 
         
-
-        <div className="recent-trips">
-
-
-          <div className="title">
+        <div className="title">
             Recent Trips
             </div>
+        <div className="recent-trips">
+          <div className="bio-div">
+          <div className="bio">bio bits
+            {homeBase} - In the garage - {garage}
+            </div>
+          </div>
 
-
-            
-          <Carousel
+<div className="caro-div">
+<Carousel
             infiniteLoop
             centerMode
-            dynamicHeight={true}
-          >
+            dynamicHeight={true}>
             
             <div className="carousel-item">
-              <img src={recentTrips[0]}
+              <img src={recentTrips[0]} 
+              // style={{ width: "400px" }}
                 alt="Morroco"
-                className="image carousel-image" />
+                className="carousel-image" />
               <p className="legend">Morroco</p>
             </div>
             <div className="carousel-item">
-              <img src={recentTrips[1]} 
+              <img src={recentTrips[1]}  
+              // style={{ width: "400px" }}
                 alt="Iceland"
-                className="image carousel-image" />
+                className="carousel-image" />
               <p className="legend">Iceland</p>
             </div>
             <div className="carousel-item">
               <img src={recentTrips[2]} 
+              // style={{ width: "400px" }}
                 alt="Scotland"
-                className="image carousel-image" />
+                className="carousel-image" />
               <p className="legend">Scotland</p>
             </div>
-  
           </Carousel>
+</div>
+          
         </div>
         
-
-
-
 
 
 
@@ -126,27 +127,27 @@ class Profile extends React.Component {
           </div>
         </div> */}
 
-
+{/* 
         <div className="recent-trips">
           <div className="title">
             Pictures
-            </div>
+            </div> */}
           {/* <div className="carousel">
             {profilePhoto?.map((photo, index) => (
               <img key={index} src={photo} alt="profile pic" />
             ))}
           </div> */}
-        </div>
+        {/* </div> */}
 
 
 
-        <div className="recent-trips">
+        {/* <div className="recent-trips">
           <div className="title">
             Dream Trips
             </div>
           <p>{dreamTrips}</p>
 
-          <div className="dream-trips">
+          <div className="dream-trips"> */}
             {/* <Carousel
               infiniteLoop
               centerMode
@@ -172,9 +173,9 @@ class Profile extends React.Component {
               </div>
 
             </Carousel> */}
-          </div>
+          {/* </div> */}
 
-        </div>
+        {/* </div> */}
 
       </section> 
     )

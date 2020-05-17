@@ -43,7 +43,7 @@ class tripEdit extends React.Component {
 
   async componentDidMount() {
     try{
-      const res = await axios.get('/api/trips/5ec1286516918a6506803862')
+      const res = await axios.get('/api/trips/5ec1528ba1872096400b3e95')
       this.setState({ formData: res.data })
       // console.log(this.state.formData.ratings.scenery)
     } catch (err){
@@ -68,7 +68,7 @@ class tripEdit extends React.Component {
   handleSubmit = async event => {
     event.preventDefault()
     // const tripId = this.props.match.params.id
-    const tripId = '5ec1286516918a6506803862'
+    const tripId = '5ec1528ba1872096400b3e95'
     try {
       await editTrip(tripId, this.state.formData)
       this.props.history.push(`/trips/${tripId}`)

@@ -54,6 +54,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
                   options={tags}
                   isMulti
                   onChange={handleMultiChange}
+                  // value={formData.tags}
                 />
 
 

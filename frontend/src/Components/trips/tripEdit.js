@@ -61,7 +61,7 @@ class TripEdit extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <TripFormExt
+          <TripForm
             formData={this.state.formData}
             tags={tags}
             handleChange={this.handleChange}

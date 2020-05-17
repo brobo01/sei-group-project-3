@@ -37,11 +37,7 @@ class tripShow extends React.Component {
 
       e.preventDefault()
       e.target.reset()
-<<<<<<< HEAD
-      const res = await axios.post(`/api/trips/5ec1286516918a6506803862/comments`, { text: this.state.pendingRec })
-=======
       const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec })
->>>>>>> development
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state

@@ -30,18 +30,20 @@ render() {
   const { trips } = this.state
   return (
     <main>
-            <h1> WELCOME THE ROAD TRIPS </h1>
+      <div className="index">
+        <div className="index-container">
+          <div className="title"> WELCOME THE ROAD TRIPS </div>
             <div className="all-index-divs">
             {trips.map(trip => 
-              <TripCard key={trip._id} 
+              <TripCard key={trip._id} className="all-index-div"
               {...trip}
               // hover={this.state.hover}
               // handleHover={this.handleHover}
               // handleUnhover={this.handleUnhover}
               />)}
             </div>
-            
-            
+        </div>
+      </div>
     </main>
 
     )

@@ -153,6 +153,11 @@ background-size: cover;
   }
 }
 
+.select{
+  width: 300px;
+}
+
+
 //* Login/Register Pages - use this form formatting throughout
 .section{
   display: flex;
@@ -314,7 +319,7 @@ background-size: cover;
 }
 
 .comments {
- 
+ background-color: white;
   width: 500px; 
   height: 200px; 
   overflow-x: hidden; 

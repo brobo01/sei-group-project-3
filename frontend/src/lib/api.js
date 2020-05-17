@@ -26,7 +26,7 @@ export const getAllTrips = () => {
 }
 
 export const getSingleTrip = id => {
-  return axios.post(`${baseUrl}/trips/:id`)
+  return axios.get(`${baseUrl}/trips/${id}`)
 }
 
 export const editTrip = (id, formData) => {

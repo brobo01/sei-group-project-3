@@ -16,7 +16,7 @@ handleUnhover = async () => {
   }
 
 render() {
-  const { _id, name, image, routeImage, tags, distance, startingPoint, endPoint } = this.props
+  const { _id, name, image } = this.props
   const { hover } = this.state
 
 return (

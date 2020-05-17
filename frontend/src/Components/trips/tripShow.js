@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
@@ -37,11 +37,7 @@ class tripShow extends React.Component {
 
       e.preventDefault()
       e.target.reset()
-<<<<<<< HEAD
-      const res = await axios.post(`/api/trips/5ec1286516918a6506803862/comments`, { text: this.state.pendingRec })
-=======
       const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec })
->>>>>>> development
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state
@@ -85,6 +81,7 @@ class tripShow extends React.Component {
           <h1>{trip.user?.username}</h1>
           <p>{trip.description}</p>
           <p>Time of year: {trip.timeOfYear}</p>
+          <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
           <h3>Trip Recommendations from other Travellers:</h3>
           <div className="comments">
 

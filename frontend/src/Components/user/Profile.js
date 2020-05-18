@@ -3,7 +3,7 @@ import axios from 'axios'
 import ReactTooltip from "react-tooltip"
 
 import SVG from 'react-inlinesvg'
-import '../../styles/all-icons'
+import  { icons } from  '../../styles/all-icons'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
@@ -30,7 +30,7 @@ class Profile extends React.Component {
     try {
       
       // const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec1904a7f5842e32239b257`)
+      const res = await axios.get(`/api/users/5ec2aa9db4eeec7dd795cc63`)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -48,10 +48,19 @@ class Profile extends React.Component {
   // }
 
 
+  
 
   render() {
-// console.log(motorbike)
+
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+    console.log(tripPrefs)
+
+
+    const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
+  
+
+    console.log(filteredIcons)
+
     return (
       <section>
 
@@ -73,8 +82,10 @@ class Profile extends React.Component {
           </div>
         </div>
         <SVG>
-
+        {filteredIcons.map(icon => icon.value)}
         </SVG>
+
+        
         
         <div className="recent-trips-title">
             Recent Trips
@@ -89,8 +100,11 @@ class Profile extends React.Component {
          
 
             
-           {tripPrefs.map(pref =>  <ReactTooltip key={pref} id={pref} place="top" effect="solid">{pref}</ReactTooltip>)}
-           {tripPrefs.map(pref =><label key={pref} data-tip data-for={pref}>{pref}</label>)}
+           {filteredIcons.map(icon =>  <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
+          <SVG>
+          {filteredIcons.map(icon =><label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
+          </SVG>
+           
 
 
 

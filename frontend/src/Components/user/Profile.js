@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import ReactTooltip from "react-tooltip"
 
+import Modal from 'react-modal';
+
+import ReactTooltip from "react-tooltip"
 import SVG from 'react-inlinesvg'
 import  { icons } from  '../../styles/all-icons'
 
@@ -11,6 +13,7 @@ import { Carousel } from 'react-responsive-carousel'
 
 class Profile extends React.Component {
   state = {
+    showModal: false,
     user: {
       name: null,
       username: null,
@@ -30,7 +33,7 @@ class Profile extends React.Component {
     try {
       
       // const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec2aa9db4eeec7dd795cc63`)
+      const res = await axios.get(`/api/users/5ec2c4fab9174e18b4b81238`)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -47,29 +50,71 @@ class Profile extends React.Component {
   //   this.setState({ userTrips })
   // }
 
-
+   handleOpenModal = () => {
+    this.setState({ showModal: true })
+  }
+  
+   handleCloseModal = () => {
+    this.setState({ showModal: false })
+  }
+  
   
 
   render() {
-
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
-    console.log(tripPrefs)
-
-
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
-  
-
-    console.log(filteredIcons)
-
+    const modalStyle = {
+    content : {
+            position: "fixed",
+            left: "25%",
+            border: "1px solid rgb(204, 204, 204)",
+            background: "rgba(15, 15, 15, 0.8)",
+            overflow: "auto",
+            borderRadius: "20px",
+            padding: "20px",
+            width: "40%",
+            height: "55%"
+  }
+}
     return (
       <section>
+
+
+<div>
+        {/* <button onClick={this.handleOpenModal}>Trigger Modal</button> */}
+        <Modal 
+          isOpen={this.state.showModal}
+          contentLabel="onRequestClose Example"
+          onRequestClose={this.handleCloseModal}
+          ariaHideApp={false}
+          style = {modalStyle}
+        >
+          
+          <Carousel
+          
+          infiniteLoop
+          centerMode
+          dynamicHeight={true}
+          width="500px">
+            {profilePhoto.map(photo => <div key={photo} className="carousel-item">
+            <img src={photo} alt="" className="carousel-image"/> 
+            </div>)}
+        </Carousel>
+          
+         
+          <button style={{ background: "red", borderRadius: "30px", color: "white" }} onClick={this.handleCloseModal}>X</button>
+        </Modal>
+      </div>
 
         <div className="cover">
           <div className="cover-left">
             <div className="cover-left-image">
+            <div onClick={this.handleOpenModal} style={{background: "yellow", height: "200px", width: "300px"}}>
               <img className="display-image" src={profilePhoto[0]}
                 alt=""
-                height="200" />
+                height="200px" />
+                {/* <button style={{ background: "#fa6400", borderRadius: "30px", color: "white", fontSize: "12px"}} className="open-modal" onClick={this.handleOpenModal}>+</button> */}
+                </div>
             </div>
             <div className="cover-left-title">{username}</div>
             <div className="cover-left-subtitle">{name}</div>
@@ -81,9 +126,9 @@ class Profile extends React.Component {
               height="700" />
           </div>
         </div>
-        <SVG>
+        {/* <SVG>
         {filteredIcons.map(icon => icon.value)}
-        </SVG>
+        </SVG> */}
 
         
         
@@ -93,21 +138,15 @@ class Profile extends React.Component {
         <div className="recent-trips">
           <div className="bio-div">
           <div className="bio">
-            Home base in {homeBase} <br></br>
-            {garage} - In the garage <hr></hr>
-            {bio} <hr></hr>
-            Ultimate Trip - {dreamTrips}<hr></hr>
-         
-
-            
+            Home base <span style={{color: "#fa6400"}}>{homeBase}</span> <hr></hr><br></br>
+            In the garage <span style={{color: "#fa6400"}}>{garage}</span> <hr></hr><br></br>
+            Ultimate Trip <span style={{color: "#fa6400"}}>{dreamTrips}</span><hr></hr><br></br>
+         <h4>INTERESTS</h4>
            {filteredIcons.map(icon =>  <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
           <SVG>
           {filteredIcons.map(icon =><label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
           </SVG>
            
-
-
-
 
             </div>
             <div className="profile-buttons">
@@ -118,37 +157,24 @@ class Profile extends React.Component {
 
           </div>
 
-<div className="caro-div">
-<Carousel
+          <div className="caro-div">
+            <Carousel
             infiniteLoop
             centerMode
             dynamicHeight={true}>
             
-            <div className="carousel-item">
-              <img src={recentTrips[0]} 
+            {recentTrips.map(trip => 
+              <div key={trip} className="carousel-item">
+              <img src={trip} 
               // style={{ width: "400px" }}
-                alt="Morroco"
+                alt=""
                 className="carousel-image" />
-              <p className="legend">Morroco</p>
+              <p className="legend"></p>
+            </div>)}
+            </Carousel>
             </div>
-            <div className="carousel-item">
-              <img src={recentTrips[1]}  
-              // style={{ width: "400px" }}
-                alt="Iceland"
-                className="carousel-image" />
-              <p className="legend">Iceland</p>
-            </div>
-            <div className="carousel-item">
-              <img src={recentTrips[2]} 
-              // style={{ width: "400px" }}
-                alt="Scotland"
-                className="carousel-image" />
-              <p className="legend">Scotland</p>
-            </div>
-          </Carousel>
-</div>
           
-        </div>
+          </div>
         
 
 

@@ -1,25 +1,36 @@
-
-
-
 import React from 'react'
-import MapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-import PolylineOverlay from '../../lib/mapOverlay'
+import Select from 'react-select'
+import { countries } from '../../lib/countries'
+
+
 
 class TripMap extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewport: {
-        latitude: 51.515,
-        longitude: -0.078,
-        zoom: 3.5,
-        bearing: 0,
-        pitch: 0
-      },
-      popupInfo: null,
-      points: [[51.515,-0.078],[51.315,-0.078]]
-    };
+  state = {
+    formData: {
+      startingPointCity: '',
+      startingPointCountry: '',
+      endPointCity: '',
+      endPointCoutry: '',
+    },
+    search: false
+  }
+
+  handleChange = event => {
+    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    this.setState({ formData })
+    console.log(formData)
+  }
+
+  handleMultiChange = selected => {
+    const formData = { ...this.state.formData, [selected.target.name]: selected.value }
+    console.log(formData)
+    this.setState({ formData })
+
+  }
+
+  handleSubmit = () => {
+    this.setState({search: !this.state.search})
   }
 
   _updateViewport = viewport => {
@@ -27,38 +38,69 @@ class TripMap extends React.Component {
   };
 
 render() {
-  const {viewport} = this.state;
+  const {formData} = this.state
+
 
   return (
     <div>
+            <div className="form-item">
+              <label> Starting Point City: </label>
+              <input type="text"
+                name="startingPointCity"
+                onChange={this.handleChange}
+                value={formData.startingPointCity}
+              />
+            </div>
+            <div className="form-item">
+              <label> Starting Point Country: </label>
+              <input type="text"
+                name="startingPointCountry"
+                onChange={this.handleChange}
+                value={formData.startingPointCountry}
+              />
+            </div>
+            {/* <Select 
+                  className="select"
+                  options={countries}
+                  name="startingPointCountry"
+                  onChange={this.handleMultiChange}
 
-    {/* <MapGL
-      {...viewport}
-      mapboxApiAccessToken='pk.eyJ1IjoiYnJvYm8xIiwiYSI6ImNrYTU2YWZ1aTAwNnozcHFrMjR3Ym1wbGEifQ.6oCNHwKPmFw0nOUHivbM9Q'
-      height={'50vh'}
-      width={'50vw'}
-      mapStyle="mapbox://styles/mapbox/dark-v9"
-      onViewportChange={this._updateViewport}
-      zoom={12}
-      > 
-    <PolylineOverlay points={this.state.points} />      
-        {/* <Marker
-        latitude="51.515"
-        longitude="-0.078"
-        >
-        <span role="img" aria-label="marker">🚲</span>
-        </Marker> */}
+                  // value={formData.tags}
+                /> */}
+            <div className="form-item">
+              <label> End Point City: </label>
+              <input type="text"
+                name="endPointCity"
+                onChange={this.handleChange}
+                value={formData.endPointCity}
+              />
+            </div>
+            <div className="form-item">
+              <label> End Point Country: </label>
+              <input type="text"
+                name="endPointCountry"
+                onChange={this.handleChange}
+                value={formData.endPointCountry}
+              />
+            </div>
+            {/* <Select 
+                  className="select"
+                  name="endPointCountry"
+                  options={countries}
+                  onChange={this.handleMultiChange}
+                  // value={formData.tags}
+                /> */}
 
-    {/* </MapGL> */} */}
-<iframe
-src="https://www.mapquest.com/embed/directions/from/gb/london/to/gb/birmingham"
-height={'500'}
-width={'500'}
-mapStyle="mapbox://styles/mapbox/dark-v9"
+          <button onClick={this.handleSubmit}>Submit</button><br></br>
 
-/>
+          <iframe
+          src={this.state.search? `https://www.mapquest.com/embed/directions/from/${formData.startingPointCountry}/${formData.startingPointCity}/to/${formData.endPointCountry}/${formData.endPointCity}` : ''} 
+          height={'500'}
+          width={'500'}
+          mapStyle="mapbox://styles/mapbox/dark-v9"
+          />
 
-      </div>
+    </div>
   )
 }
 }

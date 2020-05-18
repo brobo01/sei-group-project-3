@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 
-
+import TripForm from './TripForm'
 import TripFormExt from './TripFormExt'
 import { getSingleTrip, editTrip } from '../../lib/api'
 import { tags } from '../../lib/tags'
@@ -19,12 +19,12 @@ class TripEdit extends React.Component {
   }
 
 
-  async componentDidMount() {
-    this.setState({ formData: res.data })
-  } catch(err) {
-    console.log(err)
-    // this.props.history.push('/notfound')
-  }
+  // async componentDidMount() {
+  //     this.setState({ formData: res.data })
+  //   } catch (err) {
+  //     console.log(err)
+  //     // this.props.history.push('/notfound')
+  // }
 
   handleChange = event => {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }

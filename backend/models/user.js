@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
   homeBase: { type: String, required: true },
   profilePhoto: { type: Array },
   bio: { type: String },
+  tripPrefs: { type: Array, required: true },
   garage: { type: String },
   dreamTrips: { type: String },
   recentTrips: { type: Array }

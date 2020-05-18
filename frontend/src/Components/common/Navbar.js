@@ -6,7 +6,7 @@ import RTimage from '../../styles/assets/roadtrippers.png'
 const Navbar = () => {
   return (
   <div className="navbar">
-      <Link to='/'><img className="nav-logo" src={RTimage}/></Link>
+      <Link to='/'><img className="nav-logo" alt="logo" src={RTimage}/></Link>
 
                   <div className="navbar-links">
           <div className="links">

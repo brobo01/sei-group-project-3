@@ -18,7 +18,7 @@ class tripShow extends React.Component {
     this.setState({ trip: res.data })
     const startPoint = stringUpdate(this.state.trip.startingPoint)
     const endPoint = stringUpdate(this.state.trip.endPoint)
-    const mapUrl = `https://open.mapquestapi.com/embed/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
+    const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
 
     const updated = { ...res.data, routeImage: mapUrl }
     this.setState({ trip: updated })

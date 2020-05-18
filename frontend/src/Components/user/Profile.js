@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import ReactTooltip from "react-tooltip"
 
-// import "frontend/node_modules/react-tooltip/dist/index.js"
+import SVG from 'react-inlinesvg'
+import '../../styles/all-icons'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
@@ -49,6 +50,7 @@ class Profile extends React.Component {
 
 
   render() {
+// console.log(motorbike)
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
     return (
       <section>
@@ -70,7 +72,9 @@ class Profile extends React.Component {
               height="700" />
           </div>
         </div>
+        <SVG>
 
+        </SVG>
         
         <div className="recent-trips-title">
             Recent Trips
@@ -85,8 +89,10 @@ class Profile extends React.Component {
          
 
             
-           {tripPrefs.map(pref =>  <ReactTooltip id={pref} place="top" effect="solid">{pref}</ReactTooltip>)}
-           {tripPrefs.map(pref =><label data-tip data-for={pref}>{pref}</label>)}
+           {tripPrefs.map(pref =>  <ReactTooltip key={pref} id={pref} place="top" effect="solid">{pref}</ReactTooltip>)}
+           {tripPrefs.map(pref =><label key={pref} data-tip data-for={pref}>{pref}</label>)}
+
+
 
 
             </div>

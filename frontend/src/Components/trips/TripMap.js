@@ -1,69 +1,108 @@
 import React from 'react'
-import axios from 'axios'
-import mapboxgl, { Marker } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import Select from 'react-select'
+import { countries } from '../../lib/countries'
+
 
 
 class TripMap extends React.Component {
-// state = { bikepoints: [] }
+  state = {
+    formData: {
+      startingPointCity: '',
+      startingPointCountry: '',
+      endPointCity: '',
+      endPointCoutry: '',
+    },
+    search: false
+  }
 
-componentDidMount() {
-  this.map = new mapboxgl.Map({
-    container: this.mapContainer,
-    style: 'mapbox://styles/mapbox/streets-v9'
-  });
-}
+  handleChange = event => {
+    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
+    this.setState({ formData })
+    console.log(formData)
+  }
 
-componentWillUnmount() {
-  this.map.remove();
-}
+  handleMultiChange = selected => {
+    const formData = { ...this.state.formData, [selected.target.name]: selected.value }
+    console.log(formData)
+    this.setState({ formData })
 
-render() {
-  const style = {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    width: '100%'
+  }
+
+  handleSubmit = () => {
+    this.setState({search: !this.state.search})
+  }
+
+  _updateViewport = viewport => {
+    this.setState({viewport});
   };
 
-  return <div style={style} ref={el => this.mapContainer = el} />;
+render() {
+  const {formData} = this.state
+
+
+  return (
+    <div>
+            <div className="form-item">
+              <label> Starting Point City: </label>
+              <input type="text"
+                name="startingPointCity"
+                onChange={this.handleChange}
+                value={formData.startingPointCity}
+              />
+            </div>
+            <div className="form-item">
+              <label> Starting Point Country: </label>
+              <input type="text"
+                name="startingPointCountry"
+                onChange={this.handleChange}
+                value={formData.startingPointCountry}
+              />
+            </div>
+            {/* <Select 
+                  className="select"
+                  options={countries}
+                  name="startingPointCountry"
+                  onChange={this.handleMultiChange}
+
+                  // value={formData.tags}
+                /> */}
+            <div className="form-item">
+              <label> End Point City: </label>
+              <input type="text"
+                name="endPointCity"
+                onChange={this.handleChange}
+                value={formData.endPointCity}
+              />
+            </div>
+            <div className="form-item">
+              <label> End Point Country: </label>
+              <input type="text"
+                name="endPointCountry"
+                onChange={this.handleChange}
+                value={formData.endPointCountry}
+              />
+            </div>
+            {/* <Select 
+                  className="select"
+                  name="endPointCountry"
+                  options={countries}
+                  onChange={this.handleMultiChange}
+                  // value={formData.tags}
+                /> */}
+
+          <button onClick={this.handleSubmit}>Submit</button><br></br>
+
+          <iframe
+          src={this.state.search? `https://www.mapquest.com/embed/directions/from/${formData.startingPointCountry}/${formData.startingPointCity}/to/${formData.endPointCountry}/${formData.endPointCity}` : ''} 
+          height={'500'}
+          width={'500'}
+          mapStyle="mapbox://styles/mapbox/dark-v9"
+          />
+
+    </div>
+  )
 }
 }
-
-// async componentDidMount () {
-//   try {
-//     const res = await axios.get('https://api.tfl.gov.uk/bikepoint')
-//     console.log(res.data)
-//     this.setState({ bikepoints: res.data })
-//   } catch (err){
-//     console.log(err)
-//   }
-// }
-
-
-// render() {
-//   return (
-//     <MapGL
-//       mapboxApiAccessToken={'pk.eyJ1IjoiYnJvYm8xIiwiYSI6ImNrYTU2YWZ1aTAwNnozcHFrMjR3Ym1wbGEifQ.6oCNHwKPmFw0nOUHivbM9Q'}
-//       height={'50vh'}
-//       width={'50vw'}
-//       mapStyle='mapbox://styles/mapbox/streets-v11'
-//       latitude={51.515}
-//       longitude={-0.078}
-//       zoom={12}
-//       interactive="true"
-//     > 
-      {/* {bikepoints.map(bikepoint => (
-        <Marker
-          latitude={bikepoint.lat}
-          longitude={bikepoint.lon}
-          key={bikepoint.commonName}
-        >
-          <span role="img" aria-label="marker">🚲</span>
-        </Marker>
-      ))} */}
-//     </MapGL>
-//   )
-// }
-// }
 
 export default TripMap

@@ -7,7 +7,7 @@ import { getSingleTrip, editTrip } from '../../lib/api'
 import { tags } from '../../lib/tags'
 
 class TripEdit extends React.Component {
-  state= {
+  state = {
     formData: {
       name: '',
       startingPoint: '',
@@ -16,14 +16,14 @@ class TripEdit extends React.Component {
       tags: [''],
       description: ''
     },
-    }
+  }
 
 
   async componentDidMount() {
-      this.setState({ formData: res.data })
-    } catch (err) {
-      console.log(err)
-      // this.props.history.push('/notfound')
+    this.setState({ formData: res.data })
+  } catch(err) {
+    console.log(err)
+    // this.props.history.push('/notfound')
   }
 
   handleChange = event => {

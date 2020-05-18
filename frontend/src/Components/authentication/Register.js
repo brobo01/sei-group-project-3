@@ -17,7 +17,7 @@ class Register extends React.Component {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
     const errors = { ...this.state.errors, [event.target.name]: '' }
     this.setState({ formData, errors })
-    console.log(this.state.errors)
+
   }
 
   handleSubmit = async event => {
@@ -26,8 +26,9 @@ class Register extends React.Component {
       await registerUser(this.state.formData)
       this.props.history.push('/login')
     } catch (err) {
-      this.setState({ errors: err.response.data.errors })
-      console.log(this.state.errors)
+
+      this.setState({ errors: err.response.data })
+
     }
   }
 
@@ -79,7 +80,7 @@ class Register extends React.Component {
                   value={formData.homeBase}
                 />
               </div>
-              {errors.email && <small>{errors.email}</small>}
+              {errors.homeBase && <small>{errors.homeBase}</small>}
 
               <div className="form-item">
                 <label> Password: </label>

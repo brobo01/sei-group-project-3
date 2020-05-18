@@ -18,6 +18,7 @@ async function login(req, res, next) {
     console.log(user)
     if (!user || !user.validatePassword(req.body.password)) {
       console.log(req.body)
+      console.log(unauthorized)
       throw new Error(unauthorized)
 
     }
@@ -28,6 +29,7 @@ async function login(req, res, next) {
     })
     console.log(token)
   } catch (err) {
+    console.log('the next error ', err.message, ' klkl')
     next(err)
   }
 }

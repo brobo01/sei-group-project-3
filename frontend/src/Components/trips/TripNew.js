@@ -12,12 +12,14 @@ class TripNew extends React.Component {
       image: '',
       tags: [''],
       description: ''
-    }
+    },
+    errors: {}
   }
 
   handleChange = e => {
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
-    this.setState({ formData })
+    const errors = { ...this.state.errors, [e.target.name]: '' }
+    this.setState({ formData, errors })
 
   }
 
@@ -27,7 +29,8 @@ class TripNew extends React.Component {
       const res = await axios.post('/api/trips', this.state.formData)
       this.props.history.push(`/trips/${res.data._id}`)
     } catch (err) {
-      console.log(err)
+      this.setState({ errors: err.response.data })
+      console.log(this.state.errors)
     }
   }
 
@@ -39,6 +42,7 @@ class TripNew extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           formData={this.state.formData}
+          errors={this.state.errors}
           buttonText="Submit Trip"
           titleText="Create a Trip"
         />

@@ -9,6 +9,7 @@ import TripShow from './Components/trips/tripShow'
 import TripEdit from './Components/trips/tripEdit'
 import TripNew from './Components/trips/TripNew'
 import TripSearch from './Components/trips/TripSearch'
+import TripMap from './Components/trips/TripMap'
 import Navbar from './Components/common/Navbar'
 import Error from './Components/common/Error'
 
@@ -28,8 +29,9 @@ const App = () => {
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/trips/:id/edit" component={TripEdit} />
-            <Route path="/trips/:id" component={TripShow} />
             <Route path="/trips/new" component={TripNew} />
+            <Route path="/trips/map" component={TripMap} />
+            <Route path="/trips/:id" component={TripShow} />
             <Route path="/trips" component={TripsIndex} />
             <Route path="/users/:userId" component={Profile} />
             <Route path="/search" component={TripSearch} />

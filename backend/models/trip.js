@@ -33,4 +33,6 @@ const tripSchema = new mongoose.Schema({
   timestamps: true
 })
 
+tripSchema.plugin(require('mongoose-unique-validator'))
+
 module.exports = mongoose.model('Trip', tripSchema)

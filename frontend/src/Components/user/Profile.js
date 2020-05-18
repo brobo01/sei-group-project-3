@@ -1,5 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import ReactTooltip from "react-tooltip"
+
+// import "frontend/node_modules/react-tooltip/dist/index.js"
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 
@@ -15,7 +19,8 @@ class Profile extends React.Component {
       dreamTrips: null, 
       recentTrips: [],
       profilePhoto: [],
-      bio: null
+      bio: null,
+      tripPrefs: [],
     },
     userTrips: []
   }
@@ -23,10 +28,9 @@ class Profile extends React.Component {
   async componentDidMount() {
     try {
       
-      const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec1677d86db4bb27a34b098`)
+      // const userId = this.props.match.params.id
+      const res = await axios.get(`/api/users/5ec1904a7f5842e32239b257`)
       this.setState({ user: res.data })
-      console.log(res.data)
     } catch (err) {
       console.log(err)
     }
@@ -45,7 +49,7 @@ class Profile extends React.Component {
 
 
   render() {
-    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase } = this.state.user
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
     return (
       <section>
 
@@ -58,8 +62,6 @@ class Profile extends React.Component {
             </div>
             <div className="cover-left-title">{username}</div>
             <div className="cover-left-subtitle">{name}</div>
-            <button className="message">Send Message</button>
-    {/* <div className="cover-left-garage">{homeBase}<br></br>In the garage:<br></br>{garage}</div> */}
           </div>
           <div className="cover-right">
             <img src={recentTrips[0]} 
@@ -70,14 +72,30 @@ class Profile extends React.Component {
         </div>
 
         
-        <div className="title">
+        <div className="recent-trips-title">
             Recent Trips
             </div>
         <div className="recent-trips">
           <div className="bio-div">
-          <div className="bio">bio bits
-            {homeBase} - In the garage - {garage}
+          <div className="bio">
+            Home base in {homeBase} <br></br>
+            {garage} - In the garage <hr></hr>
+            {bio} <hr></hr>
+            Ultimate Trip - {dreamTrips}<hr></hr>
+         
+
+            
+           {tripPrefs.map(pref =>  <ReactTooltip id={pref} place="top" effect="solid">{pref}</ReactTooltip>)}
+           {tripPrefs.map(pref =><label data-tip data-for={pref}>{pref}</label>)}
+
+
             </div>
+            <div className="profile-buttons">
+            <button>Send Message</button>
+            <button>Follow</button>
+            </div>
+            
+
           </div>
 
 <div className="caro-div">

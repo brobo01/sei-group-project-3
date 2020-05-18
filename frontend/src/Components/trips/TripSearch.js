@@ -11,9 +11,24 @@ class TripSearch extends React.Component {
   }
 
   options = [
-    { value: 'mountain', label: 'Mountain' },
-    { value: 'andes', label: 'Andes' },
-    { value: 'calm', label: 'Calm' }
+    { value: 'route-66', label: 'Route 66' },
+    { value: 'vegas', label: 'Vegas' },
+    { value: 'hollywood', label: 'Hollywood' },
+    { value: 'chicago', label: 'Chicago' },
+    { value: 'mountains', label: 'Mountains' },
+    { value: 'scenery', label: 'Scenery' },
+    { value: 'villages', label: 'Villages' },
+    { value: 'beaches', label: 'Beaches' },
+    { value: 'convoy', label: 'Convoy' },
+    { value: 'hilly', label: 'Hilly' },
+    { value: 'good-times', label: 'Good Times' },
+    { value: 'atmosphere', label: 'Atmosphere' },
+    { value: 'calm', label: 'Calm' },
+    { value: 'rocky-landscape', label: 'Rocky Landscape' },
+    { value: 'lakes', label: 'Lakes' },
+    { value: 'greener', label: 'Greener' },
+    { value: 'south-america', label: 'South America' },
+    { value: 'andes', label: 'Andes' }
   ]
 
   async componentDidMount() {
@@ -27,22 +42,23 @@ class TripSearch extends React.Component {
 
   filterTrips = () => {
     const { searchVal, selectVal } = this.state
+    console.log('filter', selectVal, searchVal)
     const regexp = new RegExp(searchVal, 'i')
     return this.state.trips.filter(trip => (
-      (regexp.test(trip.startingPoint) || regexp.test(trip.endPoint)) && (trip.tags.includes(selectVal) || selectVal.length === 0)
+      (regexp.test(trip.startingPoint) || regexp.test(trip.endPoint)) && (selectVal?.every(tag => { return trip.tags.includes(tag.label) }) ?? true)
     ))
   }
 
   handleSearch = e => {
     const searchVal = e.target.value
     this.setState({ searchVal })
-    console.log(searchVal)
+
   }
 
   handleMultiChange = selected => {
-    const selectVal = selected
-    console.log(selectVal)
 
+    this.setState({ selectVal: selected })
+    console.log(this.state)
   }
 
   render() {
@@ -54,13 +70,15 @@ class TripSearch extends React.Component {
           <input className="input" type="text" onChange={this.handleSearch} />
         </div>
         <div>
-          <form>
+          <form >
             <label>Search Tages</label>
             <Select
               options={this.options}
               isMulti
+              searchable={true}
               onChange={this.handleMultiChange}
             />
+
           </form>
         </div>
         <div>

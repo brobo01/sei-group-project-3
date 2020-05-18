@@ -7,7 +7,7 @@ import { getSingleTrip, editTrip } from '../../lib/api'
 import { tags } from '../../lib/tags'
 
 class TripEdit extends React.Component {
-  state= {
+  state = {
     formData: {
       name: '',
       startingPoint: '',
@@ -16,7 +16,7 @@ class TripEdit extends React.Component {
       tags: [''],
       description: ''
     },
-    }
+  }
 
 
   // async componentDidMount() {

@@ -23,7 +23,7 @@ class Navbar extends React.Component {
         <div className="navbar-links">
           <div className="links">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} /></Link>
-            <Link to='/trips/new' className="link">Create a Trip</Link>
+            <Link to='/trips/new' className="link">Add Trip</Link>
             <Link to='/trips' className="link">Trips</Link>
             {!isAuthenticated() && <Link to='/login' className="link">Login</Link>}
             {!isAuthenticated() && <Link to='/register' className="link">Register</Link>}

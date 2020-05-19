@@ -32,7 +32,7 @@ render() {
     <main>
       <div className="index">
         <div className="index-container">
-          <div className="title"> WELCOME THE ROAD TRIPS </div>
+          <div className="title"> WELCOME TO THE ROAD TRIPS </div>
             <div className="all-index-divs">
             {trips.map(trip => 
               <TripCard key={trip._id} className="all-index-div"

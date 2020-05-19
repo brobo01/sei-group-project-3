@@ -38,15 +38,23 @@ class Login extends React.Component {
             <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
               alt=""
               height="100" />
+
             <div className="title">Log In</div>
+
             <form onSubmit={this.handleSubmit}>
+
               <div className="form">
+                <div className="error-msg">
+                  {error && <small>{error}</small>}
+                </div>
+
                 <div className="form-item">
                   <label> Email: </label>
                   <input type="email"
                     name="email"
                     onChange={this.handleChange}
                     value={formData.email}
+                    className={error ? 'error' : ''}
                   />
                 </div>
                 <div className="form-item">
@@ -55,9 +63,10 @@ class Login extends React.Component {
                     name="password"
                     onChange={this.handleChange}
                     value={formData.password}
+                    className={error ? 'error' : ''}
                   />
                 </div>
-                {error && <small>{error}</small>}
+
                 <button type='submit' className="submit-btn">Login</button>
               </div>
             </form>

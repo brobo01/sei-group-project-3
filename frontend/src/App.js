@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
+import SecureRoute from './Components/common/SecureRoute'
 import Home from './Components/common/Home'
 import Register from './Components/authentication/Register'
 import Login from './Components/authentication/Login'
@@ -29,7 +30,7 @@ const App = () => {
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/trips/:id/edit" component={TripEdit} />
-            <Route path="/trips/new" component={TripNew} />
+            <SecureRoute path="/trips/new" component={TripNew} />
             <Route path="/trips/map" component={TripMap} />
             <Route path="/trips/:id" component={TripShow} />
             <Route path="/trips" component={TripsIndex} />

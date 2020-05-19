@@ -2,14 +2,16 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true, maxlength: 50 },
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  homeBase: { type: String, required: true },
+  username: { type: String, required: [true, 'field required'], unique: true, maxlength: 50, uniqueCaseInsensitive: true },
+  name: { type: String, required: [true, 'field required'] },
+  email: {
+    type: String, required: [true, 'field required'], unique: true, uniqueCaseInsensitive: true
+  },
+  password: { type: String, required: [true, 'field required'] },
+  homeBase: { type: String, required: [true, 'field required'] },
   profilePhoto: { type: Array },
   bio: { type: String },
-  tripPrefs: { type: Array, required: true },
+  tripPrefs: { type: Array, required: [true, 'field required'] },
   garage: { type: String },
   dreamTrips: { type: String },
   recentTrips: { type: Array }
@@ -25,6 +27,8 @@ userSchema
     }
   })
 
+
+
 userSchema.methods.validatePassword = function (password) {
   return bcrypt.compareSync(password, this.password)
 }
@@ -38,7 +42,7 @@ userSchema
 userSchema
   .pre('validate', function (next) {
     if (this.isModified('password') && this._passwordConfirmation !== this.password) {
-      this.invalidate('passwordConfirmation', 'does not match')
+      this.invalidate('passwordConfirmation', 'passwords do not match')
     }
     next()
   })
@@ -51,6 +55,6 @@ userSchema
     next()
   })
 
-userSchema.plugin(require('mongoose-unique-validator'))
+userSchema.plugin(require('mongoose-unique-validator'), { message: '{PATH} is already in use' })
 
 module.exports = mongoose.model('User', userSchema)

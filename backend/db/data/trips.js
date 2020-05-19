@@ -9,8 +9,11 @@ module.exports = [
     routeImage: 'https://latam.beyondba.com/wp-content/uploads/2020/03/Ruta-40-Map-428x1024.jpg',
     image: 'https://blogpatagonia.australis.com/wp-content/uploads/2016/11/iStock-511670082.jpg',
     tags: [
-      { value: 'south-america', label: 'South America' },
-      { value: 'andes', label: 'Andes' }
+      'mountain',
+      'country side',
+      'desert',
+      'fast',
+      'offroad'
     ],
     ratings: {
       scenery: 5,
@@ -30,10 +33,11 @@ module.exports = [
     routeImage: 'https://www.tripsavvy.com/thmb/Fi12CRuXjxKzoWMNQKVnckDnn_k=/1000x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RoadTrip_Route66_NPS-566b0fbb3df78ce1615e75f6.jpg',
     image: 'https://img.redbull.com/images/c_fill,g_auto,w_860,h_573/q_auto,f_auto/redbullcom/2015/02/10/1331704370512_3/discover-the-world-on-your-bike-route-66',
     tags: [
-      { value: 'route-66', label: 'Route 66' },
-      { value: 'vegas', label: 'Vegas' },
-      { value: 'hollywood', label: 'Hollywood' },
-      { value: 'chicago', label: 'Chicago' }
+      'city life',
+      'cities',
+      'desert',
+      'fast',
+      'hotel'
     ],
     ratings: {
       scenery: 5,
@@ -53,10 +57,11 @@ module.exports = [
     routeImage: 'https://cuongs-motorbike-adventure.com/wp-content/uploads/2018/01/Ho-Chi-Minh-Trail-motorbike-tour-map.jpg',
     image: 'https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/06/Hai-Van-Pass-Da-Nang-Vietnam.jpg',
     tags: [
-      { value: 'mountains', label: 'Mountains' },
-      { value: 'scenery', label: 'Scenery' },
-      { value: 'villages', label: 'Villages' },
-      { value: 'beaches', label: 'Beaches' }
+      'mountain',
+      'country side',
+      'desert',
+      'solo',
+      'panoramic view'
     ],
     ratings: {
       scenery: 5,
@@ -75,10 +80,11 @@ module.exports = [
     routeImage: 'https://www.distantias.com/maps/distance-from-london-great_britain-to-paris-france.png',
     image: 'https://drive-my.com/media/k2/items/cache/dfa5bd35ee353a18219b16bd4f1ed9c3_XL.jpg',
     tags: [
-      { value: 'convoy', label: 'Convoy' },
-      { value: 'hilly', label: 'Hilly' },
-      { value: 'good-times', label: 'Good Times' },
-      { value: 'atmosphere', label: 'Atmosphere' }
+      'hills',
+      'country side',
+      'motor sport',
+      'architecture',
+      'flat road'
     ],
     ratings: {
       scenery: 5,
@@ -97,10 +103,10 @@ module.exports = [
     routeImage: 'https://www.northeasternontario.com/wp-content/uploads/2015/11/the-great-legends-route1.jpg',
     image: 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fe805c634-f9c6-11e6-bc87-4df02d30656d.jpg?crop=1500%2C844%2C0%2C78&resize=1180',
     tags: [
-      { value: 'calm', label: 'Calm' },
-      { value: 'rocky-landscape', label: 'Rocky Landscape' },
-      { value: 'lakes', label: 'Lakes' },
-      { value: 'greener', label: 'Greener' }
+      'mountain',
+      'sea',
+      'canyon',
+      'camping'
     ],
     ratings: {
       scenery: 5,

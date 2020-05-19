@@ -30,7 +30,7 @@ async function tripsCreate(req, res, next) {
 async function tripsShow(req, res, next) {
   const tripId = req.params.id
   try {
-    const trip = await Trips.findById(tripId).populate('user').populate('recommendations.user')
+    const trip = await Trips.findById(tripId).populate('user').populate('userName').populate('recommendations.user')
     if (!trip) throw new Error()
     res.status(200).json(trip)
 

@@ -9,6 +9,13 @@ export const logout = () => {
   localStorage.removeItem('token')
 }
 
+
+export const withHeaders = () => {
+  return {
+    headers: { Authorization: `Bearer ${getToken()}` }
+  }
+}
+
 export const getPayload = () => {
   const token = getToken()
   if (!token) return false

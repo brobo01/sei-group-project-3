@@ -4,7 +4,7 @@ const { notFound } = require('../lib/errorMessages')
 
 async function tripsIndex(req, res, next) {
   try {
-    const trips = await Trips.find().populate('user')
+    const trips = await Trips.find().populate('user').populate('recommendations.user')
     if (!trips) throw new Error(notFound)
     res.status(200).json(trips)
   } catch (err) {
@@ -75,9 +75,9 @@ async function tripsDelete(req, res, next) {
 
 async function recommendationsCreate(req, res, next) {
   try {
-    //req.body.user = req.currentUser
+    req.body.user = req.currentUser
     const tripId = req.params.id
-    const trip = await Trips.findById(tripId)
+    const trip = await Trips.findById(tripId).populate('user').populate('userName').populate('recommendations.user')
     if (!trip) throw new Error(notFound)
     trip.recommendations.push(req.body)
     await trip.save()

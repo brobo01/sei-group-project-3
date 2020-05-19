@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const recommendationSchema = new mongoose.Schema({
   text: { type: String, required: [true, 'field required'] },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User' }
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true
 })

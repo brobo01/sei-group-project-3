@@ -6,7 +6,8 @@ import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import SVG from 'react-inlinesvg'
-import  { icons } from  '../../styles/all-icons'
+import { icons } from '../../styles/all-icons'
+import { withHeaders, isAuthenticated } from '../../lib/auth'
 
 class tripShow extends React.Component {
   state = {
@@ -40,8 +41,9 @@ class tripShow extends React.Component {
 
       e.preventDefault()
       e.target.reset()
-      const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec })
+      const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec }, withHeaders())
       this.setState((state, props) => {
+        console.log(res.data.recommendations)
         state.trip.recommendations = res.data.recommendations
         return state
       })
@@ -57,8 +59,8 @@ class tripShow extends React.Component {
 
   render() {
     const { trip } = this.state
-    if(trip.length === 0) return null
-    const filteredIcons = (trip.tags.length===0 ? null :
+    if (trip.length === 0) return null
+    const filteredIcons = (trip.tags.length === 0 ? null :
       icons.filter(icon => trip.tags.includes(icon.name))
     )
 
@@ -70,28 +72,29 @@ class tripShow extends React.Component {
               src={trip.image}
               className="hero-image"
               height="400"
-              style={{ 
-                size: "cover" }}
-                />
-                </div>
-            <div className="hero-text-container">
-              <div className="hero-text">
-                <div className="hero-text-title">{trip.name}</div>
-                <div className="hero-text-distance">{trip.distance}</div>
-              </div>
+              style={{
+                size: "cover"
+              }}
+            />
+          </div>
+          <div className="hero-text-container">
+            <div className="hero-text">
+              <div className="hero-text-title">{trip.name}</div>
+              <div className="hero-text-distance">{trip.distance}</div>
             </div>
           </div>
+        </div>
         <div className="ratings">
           <div className="rating-values">
-          <div className="value">Scenery: {trip.ratings?.scenery}</div>
-          <div className="value">Enjoyment: {trip.ratings?.enjoyment}</div>
+            <div className="value">Scenery: {trip.ratings?.scenery}/5</div>
+            <div className="value">Enjoyment: {trip.ratings?.enjoyment}/5</div>
           </div>
-            <div className="icons">
-              <div className="value">Trip tags</div>
-              {filteredIcons.map(icon =>  <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
-              <SVG>
-              {filteredIcons.map(icon =><label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
-              </SVG>
+          <div className="icons">
+            <div className="value">Trip tags</div>
+            {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
+            <SVG>
+              {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
+            </SVG>
           </div>
         </div>
 
@@ -103,17 +106,17 @@ class tripShow extends React.Component {
             <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
           </div>
           <div className="body-right">
-            <img 
+            <img
               height="400"
               src={trip.routeImage}
-              />
+            />
           </div>
         </div>
 
         <div className="show-carousel">
           <Carousel
             infiniteLoop
-            centerMode
+          // centerMode
           >
             <div>
               <img src={trip.image}
@@ -133,39 +136,41 @@ class tripShow extends React.Component {
             Trip Recommendations from other Travellers:
           </div>
           <div className="comments">
-            {trip.recommendations?.map(obj => (
+            {this.state.trip.recommendations?.map(obj => (
               <div key={obj._id} className="comment">
                 <div className="comment-head">
-                  <Link to={`/users/${obj._id}`}>Writer Name</Link>
+                  <Link to={`/users/${obj._id}`}>{obj.user?.username}</Link>
                 </div>
                 <p className="comment-text">{obj.text}</p>
-                </div>
-              ))}
-            <form onSubmit={this.handleSubmit}>
-              <div className="add-comment">
-
-              <textarea
-                placeholder="Leave a recommendation..."
-                onChange={this.handleChange}
-                value={this.pendingRec}
-                className="comment-input"
-                />
-              <button className="comment-btn">+</button>
-                </div>
-            </form>
-                </div>
-
- 
-
-
-                
               </div>
+            ))}
+            {isAuthenticated() &&
+              <form onSubmit={this.handleSubmit}>
+                <div className="add-comment">
+
+                  <textarea
+                    placeholder="Leave a recommendation..."
+                    onChange={this.handleChange}
+                    value={this.pendingRec}
+                    className="comment-input"
+                  />
+                  <button className="comment-btn">+</button>
+                </div>
+              </form>
+            }
+          </div>
+
+
+
+
+
+        </div>
       </section>
 
     )
 
-  // }
-}
+    // }
+  }
 
 }
 

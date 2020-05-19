@@ -16,6 +16,7 @@ import Error from './Components/common/Error'
 
 import Footer from './Components/common/Footer'
 import Profile from './Components/user/Profile'
+import UserMessages from './Components/user/UserMessages'
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="/trips" component={TripsIndex} />
             <Route path="/users/:userId" component={Profile} />
             <Route path="/search" component={TripSearch} />
+            <Route path="/messages" component={UserMessages} />
             <Route path="/*" component={Error} />
 
           </Switch>

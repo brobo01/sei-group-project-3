@@ -37,7 +37,7 @@ async function indivProfileEdit(req, res, next) {
 
   try {
     // const user = await User.findById(req.currentUser._id)
-    const user = await User.findById('5ec3aa51f5bcf8903360cf4d')
+    const user = await User.findById('5ec46a1767791200cc6924c2')
     if (!user) throw new Error(notFound)
     Object.assign(user, req.body)
     await user.save()

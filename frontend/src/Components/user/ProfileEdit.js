@@ -3,8 +3,8 @@ import axios from 'axios'
 
 import ImageUpload from './ImageUpload'
 import ReactTooltip from "react-tooltip"
-import SVG from 'react-inlinesvg'
-import  { icons } from  '../../styles/all-icons'
+
+import { icons } from "../../styles/assets/icon-data"
 
 import { editProfile } from '../../lib/api'
 
@@ -20,7 +20,7 @@ class ProfileEdit extends React.Component {
       recentTrips: [''],
       profilePhoto: [''],
       bio: null,
-      tripPrefs: [''],
+      tripPrefs: ['']
     },
     image: ['']
   }
@@ -28,10 +28,9 @@ class ProfileEdit extends React.Component {
 
   async componentDidMount() {
     try {
-      
-      const userId = "5ec3aa51f5bcf8903360cf4d"
+      const userId = "5ec46a1767791200cc6924c2"
       const res = await axios.get(`/api/users/${userId}`)
-      console.log(res.data)
+
       this.setState({ userData: res.data })
     } catch (err) {
       console.log(err)
@@ -54,42 +53,76 @@ class ProfileEdit extends React.Component {
     }
   }
 
-  handleAddImage = () => {
-    const userData = { ...this.state.userData, image: [this.state.userData.image, ''] }
+  handleAddProfileImage = () => {
+    const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
     this.setState({ userData })
-    console.log(userData)
   }
-
-  handleImageChange = (event, i) => {
-    console.log(event.target.name)
-    console.log(event.target.value)
-    const images = [...this.state.userData[event.target.name]]
+  handleProfileImageChange = (event, i) => {
+    const images = [...this.state.userData.profilePhoto]
     const newImages = images.map((image, index) => {
       if (i === index) return event.target.value
       return image
     })
-    const userData = { ...this.state.userData, [event.target.name]: newImages }
+    const userData = { ...this.state.userData, profilePhoto: newImages }
     this.setState({ userData })
   }
 
-  addToPref = (event) => {
-    // const {tripPrefs} = this.state.userData
-    // if (tripPrefs.includes(event.target.id) {
-    //     // * remove it and change colour
-    // } else {
-    //   //* add it and change colour
-    // })
-    console.log(event.target.id)
+
+  handleAddTripsImage = () => {
+    const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
+    this.setState({ userData })
   }
-  
+  handleTripsImageChange = (event, i) => {
+    const images = [...this.state.userData.recentTrips]
+    const newImages = images.map((image, index) => {
+      if (i === index) return event.target.value
+      return image
+    })
+    const userData = { ...this.state.userData, recentTrips: newImages }
+    this.setState({ userData })
+  }
+
+
+  addToPref = (event) => {
+    const icon = event.target.id
+    const tripPrefsEdit = this.state.userData.tripPrefs
+    const index = tripPrefsEdit.indexOf(icon)
+    if (tripPrefsEdit.includes(icon)) {
+        tripPrefsEdit.splice(index, 1)
+        const color = ""
+        const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit}
+        this.changeCSS(icon, color)
+        this.setState({ userData }) 
+    } else {
+      tripPrefsEdit.push(icon)
+      const color = "white"
+      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit}
+      this.changeCSS(icon, color)
+      this.setState({ userData })
+    }
+  }
+
+  changeCSS = (icon, color) => {
+    document.getElementById(icon).setAttribute("style", `color: ${color}`)
+  }
+  preloadCSS = (filteredIcons) => {
+    filteredIcons.forEach(icon => 
+      document.getElementById(icon.name).setAttribute("style", "color: white"))
+  }
+
+
   render() {
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, email, tripPrefs } = this.state.userData
+
+    const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
+    this.preloadCSS(filteredIcons)
     return (
 
    <section>
    <>
 <h1> Edit your profile</h1>
 <form onSubmit={this.handleSubmit}>
+  <div className="top-section">
   <div className="edit-profile-details">
   <h3>Name</h3>
   <div className="input-box">
@@ -169,43 +202,47 @@ class ProfileEdit extends React.Component {
   </div>
   </div>
  
-
 <div className="edit-profile-photos">
 <div className="input-box">
-  <h3>Pfoile Photo</h3>
+  <h3>Profile Photo</h3>
   {this.state.image.map((image, index) => {
     return (
 <ImageUpload 
   key={index}
-  onChange={args => this.handleImageChange(args, index)}
-  name="profilePhoto"
+  onChange={args => this.handleProfileImageChange(args, index)}
+  className="profilePhoto"
   />
     )
   })}
-   <button onClick={this.handleAddImage}>Add Another Image</button>
+   <button onClick={this.handleAddProfileImage}>Add Another Image</button>
 
-<brb></brb><br></br>
-<h3>Recent Trips Photos</h3>
+
+<h3 className="recentTrips">Recent Trips Photos</h3>
 {this.state.image.map((image, index) => {
     return (
 <ImageUpload 
   key={index}
-  onChange={args => this.handleImageChange(args, index)}
-  name="recentTrips"
+  onChange={args => this.handleTripsImageChange(args, index)}
+  
   />
     )
   })}
   
-  <button onClick={this.handleAddImage}>Add Another Image</button>
+  <button onClick={this.handleAddTripsImage}>Add Another Image</button>
+</div>
+</div>
+  </div>
+ 
+  <h3>PREFERENCES</h3>
+<div className="bottom-section">
+<div className="edit-profile-icons">
+
+     
+          {icons.map(icon =><p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}<br></br>{icon.name} </p>)}
+        
 </div>
 </div>
 
-<div className="edit-profile-icons">
-<h3>PREFERENCES</h3>
-          <SVG>
-          {icons.map(icon =><p onClick={this.addToPref} key={icon.name} data-tip data-for={icon.name}>{icon.value}{icon.name}</p>)}
-          </SVG>
-</div>
 
   {/* <div className="input-box">
   <input 

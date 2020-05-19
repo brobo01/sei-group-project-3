@@ -1,10 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-
 import Modal from 'react-modal'
 import ReactTooltip from "react-tooltip"
-import SVG from 'react-inlinesvg'
-import  { icons } from  '../../styles/all-icons'
+
+import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
@@ -32,7 +31,7 @@ class Profile extends React.Component {
     try {
       
       // const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec3aa51f5bcf8903360cf4d`)
+      const res = await axios.get(`/api/users/5ec46a1767791200cc6924c2`)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -56,8 +55,12 @@ class Profile extends React.Component {
   }
   
   render() {
+    console.log(icons[0].name)
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
+    console.log(filteredIcons)
+
     const modalStyle = {
     content : {
             position: "fixed",
@@ -125,10 +128,13 @@ class Profile extends React.Component {
             In the garage <span style={{color: "#fa6400"}}>{garage}</span> <hr></hr><br></br>
             Ultimate Trip <span style={{color: "#fa6400"}}>{dreamTrips}</span><hr></hr><br></br>
          <h4>PREFERENCES</h4>
+
+
            {filteredIcons.map(icon =>  <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
-          <SVG >
+         
           {filteredIcons.map(icon =><label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
-          </SVG>
+    
+          
             </div>
             <div className="profile-buttons">
             <button>Send Message</button>

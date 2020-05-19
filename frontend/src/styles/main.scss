@@ -420,7 +420,7 @@ padding-bottom: 90px;
       justify-content: space-evenly;
       color: black;
       height: 100%;
-      width: 300px;
+      width: 444px;
       font-weight: bold;
     }
     .icons{
@@ -692,6 +692,47 @@ color: #b8b7ad;
   justify-content: space-between;
 }
 
+
+//* Profile Edit Page
+.top-section {
+display: flex;
+justify-content: space-around;
+
+  .edit-profile-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .edit-profile-photos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .recentTrips{
+      margin-top: 50px;
+    }
+  }
+}
+.bottom-section{
+  display: flex;
+  width: 75%;
+  justify-content: center;
+  .edit-profile-icons{
+    display: flex;
+    flex-wrap: wrap;
+    // margin-left: 70px;
+    // flex-direction: column;
+    .icons{
+      margin-left: 22px;
+      margin-bottom: 10px;
+      // justify-content: center;
+      // display: flex;
+      // flex-direction: column;
+	align-content: space-around;
+    }
+  }
+}
 
 
 

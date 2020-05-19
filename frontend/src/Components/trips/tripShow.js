@@ -5,8 +5,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
-import SVG from 'react-inlinesvg'
-import  { icons } from  '../../styles/all-icons'
+// import SVG from 'react-inlinesvg'
+// import  { icons } from  '../../styles/all-icons'
+import { icons } from "../../styles/assets/icon-data"
 
 class tripShow extends React.Component {
   state = {
@@ -83,15 +84,15 @@ class tripShow extends React.Component {
           </div>
         <div className="ratings">
           <div className="rating-values">
-          <div className="value">Scenery: {trip.ratings?.scenery}</div>
-          <div className="value">Enjoyment: {trip.ratings?.enjoyment}</div>
+          <div className="value">Scenery: {trip.ratings ? `⭐ `.repeat(trip.ratings.scenery) : ""}</div>
+          <div className="value">Enjoyment: {trip.ratings? `⭐ `.repeat(trip.ratings.enjoyment) : ""}</div>
           </div>
             <div className="icons">
               <div className="value">Trip tags</div>
               {filteredIcons.map(icon =>  <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
-              <SVG>
+              {/* <SVG> */}
               {filteredIcons.map(icon =><label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
-              </SVG>
+              {/* </SVG> */}
           </div>
         </div>
 

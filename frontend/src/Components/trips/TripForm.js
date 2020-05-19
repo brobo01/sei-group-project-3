@@ -52,7 +52,6 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             </div>
             {errors.tags && <small>{errors.tags}</small>}
 
-
             <div className="form-item">
               <label> Description: </label>
               <textarea type="text"

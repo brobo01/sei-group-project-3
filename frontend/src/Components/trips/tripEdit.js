@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
+import { Link } from 'react-router-dom'
 
+import RTimage from '../../styles/assets/roadtrippers.png'
 import TripForm from './TripForm'
 import TripFormExt from './TripFormExt'
 import { getSingleTrip, editTrip } from '../../lib/api'
@@ -16,6 +18,7 @@ class TripEdit extends React.Component {
       tags: [''],
       description: ''
     },
+    errors: {}
   }
 
 
@@ -55,15 +58,22 @@ class TripEdit extends React.Component {
   render() {
     return (
       <section className="section">
-        <div className="container">
-          <TripForm
-            formData={this.state.formData}
-            tags={tags}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            buttonText="Edit my Trip"
-          />
-        </div>
+              <div className="header">
+                <div className="header-left">
+                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
+                </div>
+                <div className="header-right"></div>
+              </div>        
+            <div className="container">
+            <TripForm
+              formData={this.state.formData}
+              tags={tags}
+              errors={this.state.errors}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              buttonText="Edit my Trip"
+            />
+          </div>
       </section>
     )
   }

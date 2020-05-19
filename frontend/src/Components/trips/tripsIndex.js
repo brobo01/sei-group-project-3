@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
+import RTimage from '../../styles/assets/roadtrippers.png'
 import TripCard from './TripCard'
 import { getAllTrips } from '../../lib/api'
 
@@ -30,6 +32,12 @@ render() {
   const { trips } = this.state
   return (
     <main>
+              <div className="header">
+                <div className="header-left">
+                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
+                </div>
+                <div className="header-right"></div>
+              </div>
       <div className="index">
         <div className="index-container">
           <div className="title"> WELCOME TO THE ROAD TRIPS </div>

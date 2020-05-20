@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import { Link } from 'react-router-dom'
+
+import RTimage from '../../styles/assets/roadtrippers.png'
 import TripForm from './TripForm'
 
 class TripNew extends React.Component {
@@ -36,16 +39,22 @@ class TripNew extends React.Component {
 
   render() {
     return (
-      <section className="new-trip">
-        <h1>create a trip and get reccomendation from other travellers</h1>
-        <TripForm
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          formData={this.state.formData}
-          errors={this.state.errors}
-          buttonText="Submit Trip"
-          titleText="Create a Trip"
-        />
+      <section>
+      <div className="header">
+      <div className="header-left">
+      <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
+      </div>
+      <div className="header-right"></div>
+    </div>      
+          <h1>create a trip and get reccomendation from other travellers</h1>
+          <TripForm
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            formData={this.state.formData}
+            errors={this.state.errors}
+            buttonText="Submit Trip"
+            titleText="Create a Trip"
+          />
       </section>
     )
   }

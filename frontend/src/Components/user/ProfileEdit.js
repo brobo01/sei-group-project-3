@@ -1,12 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-
 import ImageUpload from './ImageUpload'
 import ReactTooltip from "react-tooltip"
-
 import { icons } from "../../styles/assets/icon-data"
-
 import { editProfile } from '../../lib/api'
+// import ProfileDeets from './ProfileDeets'
 
 class ProfileEdit extends React.Component {
   state = {
@@ -114,6 +112,9 @@ class ProfileEdit extends React.Component {
   render() {
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, email, tripPrefs } = this.state.userData
 
+    const { handleChange } = this
+    console.log(handleChange)
+
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
     return (
@@ -134,6 +135,13 @@ class ProfileEdit extends React.Component {
   value={name ? name : ""}
   />
   </div>
+
+  {/* <ProfileDeets 
+  title={'Name'}
+  prop={name}
+  onChange={handleChange}
+  // value={name ? name : ""}
+  /> */}
 
 <h3>username</h3>
   <div className="input-box">

@@ -7,12 +7,12 @@ import RTimage from '../../styles/assets/roadtrippers.png'
 const Home = () => {
   return (
     <div>
-              <div className="header">
-                <div className="header-left">
-                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
-                </div>
-                <div className="header-right"></div>
-              </div>      <div className="hero">
+      <div className="header">
+        <div className="header-left">
+          <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+        </div>
+        <div className="header-right"></div>
+      </div>      <div className="hero">
         <div className="hero-left">
           <div className="hero-left-title">Welcome to Road Trippin</div>
           <div className="hero-left-subtitle">Home of the Wanderer</div>
@@ -20,12 +20,12 @@ const Home = () => {
         </div>
         <div className="hero-right"></div>
       </div>
-        {/* <div className="recent-trips">
+      {/* <div className="recent-trips">
         <div className="title"> */}
-          {/* Recent Trips
+      {/* Recent Trips
         </div> */}
 
-        {/* <div className="show-carousel">
+      {/* <div className="show-carousel">
             <Carousel
               infiniteLoop
               centerMode
@@ -50,9 +50,9 @@ const Home = () => {
               </div>
             </Carousel>
           </div> */}
-                    {/* </div> */}
+      {/* </div> */}
 
-  
+
     </div>
   )
 }

@@ -68,12 +68,12 @@ class TripSearch extends React.Component {
 
     return (
       <section>
-              <div className="header">
-                <div className="header-left">
-                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
-                </div>
-                <div className="header-right"></div>
-              </div>        <div>
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right"></div>
+        </div>        <div>
           <label>Search Locations</label>
           <input className="input" type="text" onChange={this.handleSearch} />
         </div>

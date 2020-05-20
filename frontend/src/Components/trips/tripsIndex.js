@@ -18,41 +18,41 @@ class tripsIndex extends React.Component {
     } catch (err) {
       console.log(err)
     }
-  } 
+  }
 
-//  handleHover = async (element) => {
-// this.setState({ hover: true })
-//   }
+  //  handleHover = async (element) => {
+  // this.setState({ hover: true })
+  //   }
 
   // handleUnhover = async (element) => {
   //   this.setState({ hover: false })
   // }
 
-render() {
-  const { trips } = this.state
-  return (
-    <main>
-              <div className="header">
-                <div className="header-left">
-                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
-                </div>
-                <div className="header-right"></div>
-              </div>
-      <div className="index">
-        <div className="index-container">
-          <div className="title"> WELCOME TO THE ROAD TRIPS </div>
-            <div className="all-index-divs">
-            {trips.map(trip => 
-              <TripCard key={trip._id} className="all-index-div"
-              {...trip}
-              // hover={this.state.hover}
-              // handleHover={this.handleHover}
-              // handleUnhover={this.handleUnhover}
-              />)}
-            </div>
+  render() {
+    const { trips } = this.state
+    return (
+      <main>
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right"></div>
         </div>
-      </div>
-    </main>
+        <div className="index">
+          <div className="index-container">
+            <div className="title"> WELCOME TO THE ROAD TRIPS </div>
+            <div className="all-index-divs">
+              {trips.map(trip =>
+                <TripCard key={trip._id} className="all-index-div"
+                  {...trip}
+                // hover={this.state.hover}
+                // handleHover={this.handleHover}
+                // handleUnhover={this.handleUnhover}
+                />)}
+            </div>
+          </div>
+        </div>
+      </main>
 
     )
   }

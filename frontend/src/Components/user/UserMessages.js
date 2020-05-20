@@ -1,41 +1,59 @@
 import React from 'react'
 import axios from 'axios'
-import { getProfile } from '../../lib/api'
+import { getOwnProfile } from '../../lib/api'
 
 class UserMessages extends React.Component {
   state = {
-    users: []
+    user: null
   }
-
   async componentDidMount() {
     try {
-      const res = getProfile()
-      this.setState({ users: res.data })
 
+
+      const res = await getOwnProfile()
+      this.setState({ user: res.data })
+      console.log(this.state.user)
     } catch (err) {
       console.log(err)
     }
   }
 
-  // messages that were sent to you - this will be on your own user-schema, filter for user schema
+  // set the profile to state which contains all the info of sent and recieved messages
 
-  receivedMessages = () => {
-    const res = 'hi'
+  // 
+  // filterSent = () => {
+  //   const res = {
+  //     this.state.user.filter(obj => (
+  //       obj.messages.recipient.username === this.state.username
+  //     ))
+  //   }
+  //   console.log('sent', res)
+  // }
 
-    return res
-  }
-
-  // messages that were sent by you - this will be on other user's user-schema, filter for every instance of your id on a message the senders
-
-
+  // filterReceived = () => {
+  //   const res = {state.user.filter(obj => (
+  //       obj.messages.sender.username === this.state.username
+  //     ))
+  //   }
+  //   console.log('received', res)
+  // }
 
 
   render() {
-
+    const { user } = this.state
+    if (!user) return <p>Loading</p>
+    if (user.messages.length === 0) return null
     return (
       <section>
+        <p>hi</p>
+        {user.messages.map(obj => (
+          <div>
+            <p>To: {obj.recipient.username}</p>
+            <p>{obj.text}</p>
+            <p>To: {obj.sender.username}</p>
+          </div>
 
-
+        ))}
       </section>
     )
   }

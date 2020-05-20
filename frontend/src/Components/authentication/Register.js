@@ -46,12 +46,12 @@ class Register extends React.Component {
     const { formData, errors } = this.state
     return (
       <div className="section">
-              <div className="header">
-                <div className="header-left">
-                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
-                </div>
-                <div className="header-right"></div>
-              </div>        <div className="container">
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right"></div>
+        </div>        <div className="container">
           <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
             alt=""
             height="100" />

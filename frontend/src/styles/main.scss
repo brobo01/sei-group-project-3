@@ -711,8 +711,15 @@ justify-content: space-around;
   .edit-profile-photos{
     display: flex;
     flex-direction: column;
+    width: 50%;
     align-items: center;
     justify-content: space-around;
+
+    .edit-photos{
+      display: flex;
+    flex-wrap: wrap;
+    }
+
     .recentTrips{
       margin-top: 50px;
     }

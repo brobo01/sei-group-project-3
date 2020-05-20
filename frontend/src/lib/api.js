@@ -34,5 +34,9 @@ export const editTrip = (id, formData) => {
 }
 
 export const editProfile = (id, userData) => {
-  return axios.put(`${baseUrl}/profile/${id}/edit`, userData )
+  return axios.put(`${baseUrl}/profile/${id}/edit`, userData)
+}
+
+export const getMessages = () => {
+  return axios.get(`${baseUrl}/users`)
 }

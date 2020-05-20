@@ -1,4 +1,4 @@
-const User = require('../models/user')
+const { User } = require('../models/user')
 const jwt = require('jsonwebtoken')
 const { unauthorized } = require('../lib/errorMessages')
 const { secret } = require('../config/environment')

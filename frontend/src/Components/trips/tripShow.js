@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated } from '../../lib/auth'
+
 //* no longer using SVG, it defeated me. Now have a much simple lib of icons. enjoy.
 // import SVG from 'react-inlinesvg'
 // import  { icons } from  '../../styles/all-icons'
@@ -152,7 +153,7 @@ class tripShow extends React.Component {
                   <p className="comment-text">{obj.text}</p>
                 </div>
               ))}
-              {isAuthenticated() &&
+              {isAuthenticated() ?
                 <form onSubmit={this.handleSubmit}>
                   <div className="add-comment">
                     <textarea
@@ -164,7 +165,7 @@ class tripShow extends React.Component {
                     <button className="comment-btn">+</button>
                   </div>
                 </form>
-              }
+                : <p>Login to add your recommendation </p>}
             </div>
           </div>
         </section>

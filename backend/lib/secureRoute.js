@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { secret } = require('../config/environment')
-const User = require('../models/user')
+const { User } = require('../models/user')
 
 async function secureRoute(req, res, next) {
   try {

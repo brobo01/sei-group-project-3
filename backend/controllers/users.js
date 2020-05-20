@@ -1,10 +1,13 @@
-const User = require('../models/user')
+const { User, Message } = require('../models/user')
 const { notFound } = require('../lib/errorMessages')
 
 async function userProfile(req, res, next) {
   const userId = req.params.userId
   try {
-    const user = await User.findById(userId).populate('user').populate('userName').populate('message.user')
+    const user = await User.findById(userId).populate('user').populate('userName').populate('message.user').lean()
+    const receivedMessages = await Message.find({ recipient: userId }).lean()
+    const sentMessages = await Message.find({ user: userId }).lean()
+    user.messages = receivedMessages.concat(sentMessages)
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {
@@ -48,15 +51,10 @@ async function indivProfileEdit(req, res, next) {
 
 async function messageCreate(req, res, next) {
   try {
-    req.body.user = req.currentUser
-    console.log(req.body)
-    const receiveId = req.params.userId
-    console.log(receiveId)
-    const user = await User.findById(receiveId).populate('user').populate('userName').populate('message.user')
-    if (!user) throw new Error(notFound)
-    user.message.push(req.body)
-    await user.save()
-    res.status(201).json(user)
+    req.body.sender = req.currentUser
+    req.body.recipient = req.params.userId
+    const message = await Message.create(req.body)
+    res.status(201).json(message)
   } catch (err) {
     next(err)
   }

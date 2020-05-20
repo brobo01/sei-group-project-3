@@ -6,25 +6,30 @@ import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated } from '../../lib/auth'
+
 //* no longer using SVG, it defeated me. Now have a much simple lib of icons. enjoy.
 // import SVG from 'react-inlinesvg'
 // import  { icons } from  '../../styles/all-icons'
 import { icons } from "../../styles/assets/icon-data"
 import RTimage from '../../styles/assets/roadtrippers.png'
+import TripMap from '../trips/TripMap'
+
 class tripShow extends React.Component {
   state = {
     trip: [],
     pendingRec: '',
+    search: true
   }
   async componentDidMount() {
     const tripId = this.props.match.params.id
     const res = await axios.get(`/api/trips/${tripId}`)
     this.setState({ trip: res.data })
-    const startPoint = stringUpdate(this.state.trip.startingPoint)
-    const endPoint = stringUpdate(this.state.trip.endPoint)
-    const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
-    const updated = { ...res.data, routeImage: mapUrl }
-    this.setState({ trip: updated })
+    console.log(this.state.trip.endPointCity)
+    // const startPoint = stringUpdate(this.state.trip.startingPoint)
+    // const endPoint = stringUpdate(this.state.trip.endPoint)
+    // const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
+    // const updated = { ...res.data, routeImage: mapUrl }
+    // this.setState({ trip: updated })
   }
   handleChange = e => {
     const text = e.target.value
@@ -101,10 +106,20 @@ class tripShow extends React.Component {
               <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
             </div>
             <div className="body-right">
-              <img
+            <TripMap
+            formData={trip}
+            search={this.state.search}
+            height={'500'}
+            width={'500'}
+          />
+
+
+
+
+              {/* <img
                 height="400"
                 src={trip.routeImage}
-              />
+              /> */}
             </div>
           </div>
           <div className="show-carousel">
@@ -138,7 +153,7 @@ class tripShow extends React.Component {
                   <p className="comment-text">{obj.text}</p>
                 </div>
               ))}
-              {isAuthenticated() &&
+              {isAuthenticated() ?
                 <form onSubmit={this.handleSubmit}>
                   <div className="add-comment">
                     <textarea
@@ -150,7 +165,7 @@ class tripShow extends React.Component {
                     <button className="comment-btn">+</button>
                   </div>
                 </form>
-              }
+                : <p>Login to add your recommendation </p>}
             </div>
           </div>
         </section>

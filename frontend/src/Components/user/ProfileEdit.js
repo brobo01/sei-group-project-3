@@ -3,7 +3,7 @@ import axios from 'axios'
 import ImageUpload from './ImageUpload'
 import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
-import { editProfile } from '../../lib/api'
+import { editProfile, getOwnProfile } from '../../lib/api'
 // import ProfileDetails from './ProfileDeets'
 
 class ProfileEdit extends React.Component {
@@ -26,9 +26,8 @@ class ProfileEdit extends React.Component {
 
   async componentDidMount() {
     try {
-      const userId = "5ec52e53837d547b3dfc7459"
-      const res = await axios.get(`/api/users/${userId}`)
-console.log(res.data)
+      // const userId = "5ec52e53837d547b3dfc7459"
+      const res = await getOwnProfile()
       this.setState({ userData: res.data })
     } catch (err) {
       console.log(err)
@@ -44,9 +43,9 @@ console.log(res.data)
   handleSubmit = async event => {
     event.preventDefault()
     try {
-      const userId = "5ec52e53837d547b3dfc7459"
-      await editProfile(userId, this.state.userData)
-      this.props.history.push(`/users/${userId}`)
+      // const userId = "5ec52e53837d547b3dfc7459"
+      await editProfile(this.state.userData)
+      this.props.history.push('/profile')
     } catch (err) {
       console.log(err.response)
     }

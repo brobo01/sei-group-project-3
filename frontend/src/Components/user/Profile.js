@@ -7,6 +7,8 @@ import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
+import { getOwnProfile } from '../../lib/api'
+
 
 
 class Profile extends React.Component {
@@ -31,7 +33,7 @@ class Profile extends React.Component {
     try {
       
       // const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec52e53837d547b3dfc7459`)
+      const res = await getOwnProfile()
       console.log("profile state after upload", res)
       this.setState({ user: res.data })
     } catch (err) {

@@ -1,5 +1,6 @@
 import axios from 'axios'
-// import { getToken } from './auth'
+import { getToken } from './auth'
+import { withHeaders } from './auth'
 
 // const withHeaders = () => {
 //   return {
@@ -33,6 +34,14 @@ export const editTrip = (id, formData) => {
   return axios.put(`${baseUrl}/trips/${id}`, formData)
 }
 
-export const editProfile = (id, userData) => {
-  return axios.put(`${baseUrl}/profile/${id}/edit`, userData )
+export const editProfile = (userData) => {
+  return axios.put(`${baseUrl}/profile/edit`, userData, withHeaders())
+}
+
+export const getOwnProfile = () => {
+  return axios.get(`${baseUrl}/profile`, withHeaders())
+}
+
+export const getMessages = () => {
+  return axios.get(`${baseUrl}/users`)
 }

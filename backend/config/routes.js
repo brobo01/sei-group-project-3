@@ -37,11 +37,11 @@ router.route('/users/:userId')
 
 
 //* indiv user profile
-router.route('/profile/:id')
-  .get(user.showProfile)
+router.route('/profile')
+  .get(secureRoute, user.showProfile)
 
-router.route('/profile/:id/edit')
-  .put(user.editProfile)
+router.route('/profile/edit')
+  .put(secureRoute, user.editProfile)
 
 
 

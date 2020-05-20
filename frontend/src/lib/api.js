@@ -32,3 +32,7 @@ export const getSingleTrip = id => {
 export const editTrip = (id, formData) => {
   return axios.put(`${baseUrl}/trips/${id}`, formData)
 }
+
+export const editProfile = (id, userData) => {
+  return axios.put(`${baseUrl}/profile/${id}/edit`, userData )
+}

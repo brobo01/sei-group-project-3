@@ -3,7 +3,7 @@ import Select from 'react-select'
 
 
 
-const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, tags, buttonText, titleText }) => {
+const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, tags, buttonText, titleText, errors }) => {
   return (
     <div className="section">
       <div className="container">
@@ -43,19 +43,19 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
 
             <div className="form-item">
               <label> Tags: </label>
-              {/* <input type="text"
+              <input type="text"
                 name="tags"
                 onChange={handleChange}
                 value={formData.tags}
-                /> */}
+                />
 
-                <Select 
+                {/* <Select 
                   className="select"
                   options={tags}
                   isMulti
                   onChange={handleMultiChange}
                   // value={formData.tags}
-                />
+                /> */}
 
 
             </div>

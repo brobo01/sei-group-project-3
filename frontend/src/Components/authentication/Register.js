@@ -1,5 +1,8 @@
 import React from 'react'
 import { registerUser } from '../../lib/api'
+import { Link } from 'react-router-dom'
+
+import RTimage from '../../styles/assets/roadtrippers.png'
 
 class Register extends React.Component {
   state = {
@@ -43,7 +46,12 @@ class Register extends React.Component {
     const { formData, errors } = this.state
     return (
       <div className="section">
-        <div className="container">
+              <div className="header">
+                <div className="header-left">
+                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
+                </div>
+                <div className="header-right"></div>
+              </div>        <div className="container">
           <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
             alt=""
             height="100" />
@@ -126,7 +134,6 @@ class Register extends React.Component {
                   onChange={this.handleChange}
                   value={formData.passwordConfirmation}
                   className={errors.passwordConfirmation ? 'error' : ''}
-
                 />
               </div>
               <div className="error-msg">

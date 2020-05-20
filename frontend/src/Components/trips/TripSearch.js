@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import RTimage from '../../styles/assets/roadtrippers.png'
 import { getAllTrips } from '../../lib/api'
 import TripCard from './TripCard'
 import Select from 'react-select'
@@ -65,7 +68,12 @@ class TripSearch extends React.Component {
 
     return (
       <section>
-        <div>
+              <div className="header">
+                <div className="header-left">
+                <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
+                </div>
+                <div className="header-right"></div>
+              </div>        <div>
           <label>Search Locations</label>
           <input className="input" type="text" onChange={this.handleSearch} />
         </div>

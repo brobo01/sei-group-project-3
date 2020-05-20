@@ -15,6 +15,7 @@ import Navbar from './Components/common/Navbar'
 import Error from './Components/common/Error'
 
 import Footer from './Components/common/Footer'
+import ProfileEdit from './Components/user/ProfileEdit'
 import Profile from './Components/user/Profile'
 import UserMessages from './Components/user/UserMessages'
 
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/trips/map" component={TripMap} />
             <Route path="/trips/:id" component={TripShow} />
             <Route path="/trips" component={TripsIndex} />
+            <Route path="/users/:userId/edit" component={ProfileEdit} />
             <Route path="/users/:userId" component={Profile} />
             <Route path="/search" component={TripSearch} />
             <Route path="/messages" component={UserMessages} />

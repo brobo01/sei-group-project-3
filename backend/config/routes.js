@@ -34,12 +34,17 @@ router.route('/users/:userId')
   .get(user.userProfile)
   .post(secureRoute, user.messageCreate)
 
+
+
 //* indiv user profile
 router.route('/profile/:id')
   .get(user.showProfile)
-// .put(secureRoute, user.editProfile)
 
-// router.route('/profile/:userId/edit')
+router.route('/profile/:id/edit')
+  .put(user.editProfile)
+
+
+
 
 router.route('/register')
   .post(auth.register)

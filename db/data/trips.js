@@ -3,9 +3,11 @@
 module.exports = [
   {
     name: 'Ruta 40, Argentina',
-    startingPointCity: 'La Quiaca',
+    startingPointCity: 'Punta-Loyola',
+    startingPointState: '',
     startingPointCountry: 'AR',
-    endPointCity: 'Cabo Virgenes',
+    endPointCity: 'Pichanal',
+    endPointState: '',
     endPointCountry: 'AR',
     distance: '5.194 km / 3,227m',
     routeImage: 'https://latam.beyondba.com/wp-content/uploads/2020/03/Ruta-40-Map-428x1024.jpg',
@@ -31,8 +33,10 @@ module.exports = [
     name: 'Chicago to LA - Route 66',
 
     startingPointCity: 'Chicago',
+    startingPointState: 'IL',
     startingPointCountry: 'US',
-    endPointCity: 'Los+Angeles',
+    endPointCity: 'Albuquerque',
+    endPointState: 'NM',
     endPointCountry: 'US', 
     distance: '1115km / 693m',
     routeImage: 'https://www.tripsavvy.com/thmb/Fi12CRuXjxKzoWMNQKVnckDnn_k=/1000x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RoadTrip_Route66_NPS-566b0fbb3df78ce1615e75f6.jpg',
@@ -56,11 +60,12 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'Ho Chi Minh Trail, Vietnam',
-
     startingPointCity: 'Hanoi',
+    startingPointState: '',
     startingPointCountry: 'VN',
-    endPointCity: 'Ho+Chi+Minh',
-    endPointCountry: 'VN',
+    endPointCity: 'Phuket',
+    endPointState: '',
+    endPointCountry: 'TH',
     distance: '1870 km / 1162m',
     routeImage: 'https://cuongs-motorbike-adventure.com/wp-content/uploads/2018/01/Ho-Chi-Minh-Trail-motorbike-tour-map.jpg',
     image: 'https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/06/Hai-Van-Pass-Da-Nang-Vietnam.jpg',
@@ -83,8 +88,10 @@ module.exports = [
   }, {
     name: 'London to Le Mans',
     startingPointCity: 'London',
+    startingPointState: '',
     startingPointCountry: 'GB',
     endPointCity: 'Paris',
+    endPointState: '',
     endPointCountry: 'FR',
     distance: '587km / 365m',
     routeImage: 'https://www.distantias.com/maps/distance-from-london-great_britain-to-paris-france.png',
@@ -107,9 +114,11 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'The Great Legends Tour, Canada',
-    startingPointCity: 'Ontario',
+    startingPointCity: 'Ottowa',
+    startingPointState: 'ON',
     startingPointCountry: 'CA',
     endPointCity: 'Vancouver',
+    endPointState: 'BC',
     endPointCountry: 'CA',
     distance: '1350 km / 839m',
     routeImage: 'https://www.northeasternontario.com/wp-content/uploads/2015/11/the-great-legends-route1.jpg',

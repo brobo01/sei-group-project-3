@@ -4,7 +4,7 @@ import TripForm from './TripForm'
 import { getSingleTrip, editTrip } from '../../lib/api'
 
 class TripEdit extends React.Component {
-  state = {
+  state= {
     formData: {
       name: '',
       startingPoint: '',

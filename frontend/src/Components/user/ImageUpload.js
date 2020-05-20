@@ -27,18 +27,18 @@ class ImageUpload extends React.Component {
     const { image } = this.state
     return (
       <>
-      {image ? 
-      <div>
-        <img src={image} alt="selected"/>
-      </div>
-      :
-      <>
-      <label>Upload Image</label>
-      <input
-      type="file"
-    onChange={this.handleUpload}
-  />
-  </>}
+        {image ?
+          <div>
+            <img src={image} alt="selected" />
+          </div>
+          :
+          <>
+            <label>Upload Image</label>
+            <input
+              type="file"
+              onChange={this.handleUpload}
+            />
+          </>}
       </>
     )
   }

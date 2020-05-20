@@ -15,14 +15,14 @@ class TripEdit extends React.Component {
     }
   }
 
-getIframe = () => {
-  const iframe = document.querySelector('iframe')
-  const inputs = iframe.contentWindow.document.body.querySelectorAll('input')
-  console.log(inputs)
-}
-  
-async componentDidMount() {
-  console.log('mounting')
+  getIframe = () => {
+    const iframe = document.querySelector('iframe')
+    const inputs = iframe.contentWindow.document.body.querySelectorAll('input')
+    console.log(inputs)
+  }
+
+  async componentDidMount() {
+    console.log('mounting')
     const tripId = this.props.match.params.id
     try {
       const res = await getSingleTrip(tripId)

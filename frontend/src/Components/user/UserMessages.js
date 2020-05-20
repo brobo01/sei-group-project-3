@@ -1,64 +1,59 @@
 import React from 'react'
 import axios from 'axios'
-import { getMessages } from '../../lib/api'
+import { getOwnProfile } from '../../lib/api'
 
 class UserMessages extends React.Component {
   state = {
-    users: []
+    user: null
   }
-
   async componentDidMount() {
     try {
-      const res = await getMessages()
-      this.setState({ users: res.data })
 
+
+      const res = await getOwnProfile()
+      this.setState({ user: res.data })
+      console.log(this.state.user)
     } catch (err) {
       console.log(err)
     }
   }
 
-  // messages that were sent to you - this will be on your own user-schema, filter for user schema
+  // set the profile to state which contains all the info of sent and recieved messages
 
-  receivedMessages = () => {
+  // 
+  // filterSent = () => {
+  //   const res = {
+  //     this.state.user.filter(obj => (
+  //       obj.messages.recipient.username === this.state.username
+  //     ))
+  //   }
+  //   console.log('sent', res)
+  // }
 
-
-    const res = this.state.users.filter(user => (
-      user._id === '5ec42bd6298b126482a3e566'
-    ))
-
-    return res
-  }
-
-  // messages that were sent by you - this will be on other user's user-schema, filter for every instance of your id on a message
-  //look through every user and return when it contains a message w/ 5ec42bd6298b126482a3e566 
-
-  sentMessages = () => {
-
-    const res = this.state.users.filter(user => (
-      user.message.length > 0
-    ))
-    console.log(res)
-    const rewNew = res.filter(item => (
-      item.message._id === '5ec42bd6298b126482a3e566'
-    ))
-    console.log(rewNew)
-  }
-
+  // filterReceived = () => {
+  //   const res = {state.user.filter(obj => (
+  //       obj.messages.sender.username === this.state.username
+  //     ))
+  //   }
+  //   console.log('received', res)
+  // }
 
 
   render() {
-
+    const { user } = this.state
+    if (!user) return <p>Loading</p>
+    if (user.messages.length === 0) return null
     return (
       <section>
-        {this.receivedMessages().map(item => (
-          item.message.map(message => (
-            <p>{message.text} from {message.user.username}</p>
-          ))
+        <p>hi</p>
+        {user.messages.map(obj => (
+          <div>
+            <p>To: {obj.recipient.username}</p>
+            <p>{obj.text}</p>
+            <p>To: {obj.sender.username}</p>
+          </div>
+
         ))}
-
-
-        {this.sentMessages().users}
-
       </section>
     )
   }

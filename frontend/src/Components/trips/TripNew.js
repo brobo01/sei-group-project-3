@@ -39,11 +39,11 @@ class TripNew extends React.Component {
   }
 
   _updateViewport = viewport => {
-    this.setState({viewport});
+    this.setState({ viewport });
   };
 
   handleMapSearch = () => {
-    this.setState({search: !this.state.search})
+    this.setState({ search: !this.state.search })
     console.log(this.state.search)
   }
 
@@ -52,25 +52,25 @@ class TripNew extends React.Component {
   render() {
     return (
       <section>
-      <div className="header">
-      <div className="header-left">
-      <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50"/></Link>
-      </div>
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
 
 
 
-      <div className="header-right"></div>
-    </div>      
-          <h1>create a trip and get reccomendation from other travellers</h1>
-          <TripForm
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            handleMapSearch={this.handleMapSearch}
-            formData={this.state.formData}
-            errors={this.state.errors}
-            buttonText="Submit Trip"
-            titleText="Create a Trip"
-          />
+          <div className="header-right"></div>
+        </div>
+        <h1>create a trip and get reccomendation from other travellers</h1>
+        <TripForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleMapSearch={this.handleMapSearch}
+          formData={this.state.formData}
+          errors={this.state.errors}
+          buttonText="Submit Trip"
+          titleText="Create a Trip"
+        />
       </section>
     )
   }

@@ -14,7 +14,7 @@ class ProfileEdit extends React.Component {
       email: null,
       homeBase: null,
       garage: null,
-      dreamTrips: null, 
+      dreamTrips: null,
       recentTrips: [''],
       profilePhoto: [''],
       bio: null,
@@ -33,6 +33,10 @@ class ProfileEdit extends React.Component {
 
   handleChange = event => {
     const userData = { ...this.state.userData, [event.target.name]: event.target.value }
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
     this.setState({ userData })
   }
 
@@ -84,15 +88,15 @@ class ProfileEdit extends React.Component {
     const tripPrefsEdit = this.state.userData.tripPrefs
     const index = tripPrefsEdit.indexOf(icon)
     if (tripPrefsEdit.includes(icon)) {
-        tripPrefsEdit.splice(index, 1)
-        const color = ""
-        const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit}
-        this.changeCSS(icon, color)
-        this.setState({ userData }) 
+      tripPrefsEdit.splice(index, 1)
+      const color = ""
+      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit }
+      this.changeCSS(icon, color)
+      this.setState({ userData })
     } else {
       tripPrefsEdit.push(icon)
       const color = "white"
-      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit}
+      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit }
       this.changeCSS(icon, color)
       this.setState({ userData })
     }
@@ -102,17 +106,24 @@ class ProfileEdit extends React.Component {
     document.getElementById(icon).setAttribute("style", `color: ${color}`)
   }
   preloadCSS = (filteredIcons) => {
-    filteredIcons.forEach(icon => 
+    filteredIcons.forEach(icon =>
       document.getElementById(icon.name).setAttribute("style", "color: white"))
   }
 
 
   render() {
+<<<<<<< HEAD
     // if(!this.state.userData.recentTrips) return null
     const { username, name, garage, dreamTrips, bio, homeBase, email, tripPrefs } = this.state.userData
+=======
+
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, email, tripPrefs } = this.state.userData
+
+>>>>>>> development
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
 
+<<<<<<< HEAD
     return (
   <section>
   <>
@@ -132,12 +143,33 @@ class ProfileEdit extends React.Component {
   </div>
 
   {/* <ProfileDeets 
+=======
+      <section>
+        <>
+          <h1> Edit your profile</h1>
+          <form onSubmit={this.handleSubmit}>
+            <div className="top-section">
+              <div className="edit-profile-details">
+                <h3>Name</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="name"
+                    name="name"
+                    onChange={this.handleChange}
+                    value={name ? name : ""}
+                  />
+                </div>
+
+                {/* <ProfileDeets 
+>>>>>>> development
   title={'Name'}
   prop={name}
   onChange={handleChange}
   // value={name ? name : ""}
   /> */}
 
+<<<<<<< HEAD
 <h3>username</h3>
   <div className="input-box">
   <input 
@@ -279,6 +311,131 @@ onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
 
 
   {/* <div className="input-box">
+=======
+                <h3>username</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="username"
+                    name="username"
+                    onChange={this.handleChange}
+                    value={username ? username : ""}
+                  />
+                </div>
+
+                <h3>Email</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="email"
+                    name="email"
+                    onChange={this.handleChange}
+                    value={email ? email : ""}
+                  />
+                </div>
+
+                <h3>Home Base</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="home base"
+                    name="homeBase"
+                    onChange={this.handleChange}
+                    defaultValue={homeBase ? homeBase : ""}
+                  />
+                </div>
+
+                <h3>Garage</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="whats your ride?"
+                    name="garage"
+                    onChange={this.handleChange}
+                    defaultValue={garage ? garage : ""}
+                  />
+                </div>
+
+                <h3>Dream Trips</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="dream trip"
+                    name="dreamTrips"
+                    onChange={this.handleChange}
+                    defaultValue={dreamTrips ? dreamTrips : ""}
+                  />
+                </div>
+
+                <h3>Bio</h3>
+                <div className="input-box">
+                  <input
+                    className="input"
+                    // placeholder="bio"
+                    name="bio"
+                    onChange={this.handleChange}
+                    defaultValue={bio ? bio : ""}
+                  />
+                </div>
+              </div>
+
+
+              <div className="edit-profile-photos">
+                <h3>Your Profile Photos</h3>
+                <div className="photos-box">
+
+                  <div className="edit-photos">
+                    {this.state.userData.profilePhoto.map(photo =>
+                      photo ?
+                        (<div>
+                          <img key={photo} style={{ width: "150px", height: "84px" }} src={photo} alt="selected" />
+                        </div>)
+                        :
+                        (<ImageUpload
+                          key={photo}
+                          onChange={this.handleAddImage}
+                          name="profilePhoto"
+                        />)
+                    )}
+
+                  </div>
+                  {this.state.userData.profilePhoto.length < 10 && <button name="profilePhoto" type="button" onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}
+                </div>
+
+                <div className="photos-box"></div>
+                <h3 className="recent-photos">Recent Photos</h3>
+                <div className="edit-photos">
+                  {this.state.userData.recentTrips.map(photo =>
+                    photo ?
+                      (<div>
+                        <img key={photo} style={{ width: "150px", height: "84px" }} src={photo} alt="selected" />
+                      </div>)
+                      :
+                      (<ImageUpload
+                        key={photo}
+                        onChange={this.handleAddImage}
+                        name="recentTrips"
+                      />)
+                  )}
+                </div>
+                {this.state.userData.recentTrips.length < 10 && <button type="button" name="recentTrips" onClick={this.handleAddExtraImage}>Add another Recent Photo</button>}
+
+              </div>
+            </div>
+
+            <h3>PREFERENCES</h3>
+            <div className="bottom-section">
+              <div className="edit-profile-icons">
+
+
+                {icons.map(icon => <p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}{icon.name} </p>)}
+
+              </div>
+            </div>
+
+
+            {/* <div className="input-box">
+>>>>>>> development
   <input 
   className="input"
   // placeholder="recent trips"
@@ -288,7 +445,7 @@ onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
   />
   </div> */}
 
-  {/* <div className="input-box">
+            {/* <div className="input-box">
   <input 
   className="input"
   // placeholder="profile photo"
@@ -297,7 +454,7 @@ onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
   />
   </div> */}
 
-  {/* <div className="input-box">
+            {/* <div className="input-box">
   <input 
   className="input"
   // placeholder="your preferences"
@@ -305,11 +462,11 @@ onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
   defaultValue={userData ? userData.tripPrefs : ""}
   />
   </div> */}
-  <button type="submit">Submit</button>
-</form>
-</>
-   
- </section> 
+            <button type="submit">Submit</button>
+          </form>
+        </>
+
+      </section>
     )
   }
 }

@@ -5,9 +5,9 @@ async function userProfile(req, res, next) {
   const userId = req.params.userId
   try {
     const user = await User.findById(userId).populate('user').populate('userName').populate('message.user').lean()
-    const receivedMessages = await Message.find({ recipient: userId }).lean()
-    const sentMessages = await Message.find({ user: userId }).lean()
-    user.messages = receivedMessages.concat(sentMessages)
+    const messages = await Message.find({ $or: [{ recipient: userId }, { sender: userId }] }).populate('sender').populate('recipient').lean()
+    user.messages = messages
+    console.log('yo ' + messages)
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {
@@ -27,7 +27,9 @@ async function userIndex(req, res, next) {
 
 async function indivProfile(req, res, next) {
   try {
-    const user = await User.findById(req.currentUser._id)
+    const user = await User.findById(req.currentUser._id).populate('user').populate('userName').populate('message.user').lean()
+    const messages = await Message.find({ $or: [{ recipient: req.currentUser._id }, { sender: req.currentUser._id }] }).populate('sender').populate('recipient').lean()
+    user.messages = messages
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {
@@ -49,10 +51,12 @@ async function indivProfileEdit(req, res, next) {
   }
 }
 
+
 async function messageCreate(req, res, next) {
   try {
-    req.body.sender = req.currentUser
+    req.body.sender = req.currentUser._id
     req.body.recipient = req.params.userId
+    console.log(req.body)
     const message = await Message.create(req.body)
     res.status(201).json(message)
   } catch (err) {

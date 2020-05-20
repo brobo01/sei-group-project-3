@@ -45,7 +45,6 @@ router.route('/profile/edit')
 
 
 
-
 router.route('/register')
   .post(auth.register)
 

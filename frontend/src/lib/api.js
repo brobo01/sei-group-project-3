@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { getToken } from './auth'
-import { withHeaders } from './auth'
+import { getToken, withHeaders } from './auth'
+
 
 // const withHeaders = () => {
 //   return {
@@ -10,9 +10,9 @@ import { withHeaders } from './auth'
 
 export const baseUrl = '/api'
 
-// export const getProfile = () => {
-//   return axios.get(`${baseUrl}/profile`, withHeaders)
-// }
+export const getProfile = () => {
+  return axios.get(`${baseUrl}/profile`, withHeaders)
+}
 
 export const loginUser = formData => {
   return axios.post(`${baseUrl}/login`, formData)

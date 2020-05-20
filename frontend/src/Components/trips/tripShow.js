@@ -12,7 +12,7 @@ import { isAuthenticated } from '../../lib/auth'
 // import  { icons } from  '../../styles/all-icons'
 import { icons } from "../../styles/assets/icon-data"
 import RTimage from '../../styles/assets/roadtrippers.png'
-import TripMap from '../trips/TripMap'
+import TripMap from './TripMap'
 
 class tripShow extends React.Component {
   state = {
@@ -106,12 +106,12 @@ class tripShow extends React.Component {
               <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
             </div>
             <div className="body-right">
-            <TripMap
-            formData={trip}
-            search={this.state.search}
-            height={'500'}
-            width={'500'}
-          />
+              <TripMap
+                formData={trip}
+                search={this.state.search}
+                height={'500'}
+                width={'500'}
+              />
 
 
 

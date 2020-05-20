@@ -2,10 +2,16 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 
+const commentSchema = new mongoose.Schema({
+  text: { type: String, required: [true, 'field required'] },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+})
+
 const messageSchema = new mongoose.Schema({
   text: { type: String, required: [true, 'field required'] },
   sender: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  recipient: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  recipient: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  comment: [commentSchema]
 }, {
   timestamps: true
 })
@@ -23,8 +29,8 @@ const userSchema = new mongoose.Schema({
   tripPrefs: [{ type: String, required: [true, 'field required'] }],
   garage: { type: String },
   dreamTrips: { type: String },
-  recentTrips: [{ type: String }],
-  message: [messageSchema]
+  recentTrips: [{ type: String }]
+  // message: [messageSchema]
 })
 
 userSchema

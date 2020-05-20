@@ -37,13 +37,13 @@ const tripSchema = new mongoose.Schema({
   timestamps: true
 })
 
-tripSchema
-  .pre('validate', function (next) {
-    if (this.startingPointCity.toUpperCase() === this.endPointCity.toUpperCase()) {
-      this.invalidate('End Point must be different from Start Point')
-    }
-    next()
-  })
+// tripSchema
+//   .pre('validate', function (next) {
+//     if (this.startingPointCity.toUpperCase() === this.endPointCity.toUpperCase()) {
+//       this.invalidate('End Point must be different from Start Point')
+//     }
+//     next()
+//   })
 
 
 tripSchema.plugin(require('mongoose-unique-validator'), { message: '{PATH} has already been taken' })

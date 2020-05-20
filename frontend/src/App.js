@@ -18,6 +18,7 @@ import Footer from './components/common/Footer'
 import ProfileEdit from './components/user/ProfileEdit'
 import Profile from './components/user/Profile'
 import UserMessages from './components/user/UserMessages'
+import PublicProfile from './components/user/PublicProfile'
 
 
 const App = () => {
@@ -39,7 +40,8 @@ const App = () => {
             <Route path="/profile/edit" component={ProfileEdit} />
             <Route path="/profile" component={Profile} />
             <Route path="/search" component={TripSearch} />
-            <Route path="/messages" component={UserMessages} />
+            <Route path="/messages/:id" component={UserMessages} />
+            <Route path="/users/:id" component={PublicProfile} />
             <Route path="/*" component={Error} />
 
           </Switch>

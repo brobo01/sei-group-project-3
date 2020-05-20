@@ -1,17 +1,17 @@
 import axios from 'axios'
-// import { getToken } from './auth'
+import { getToken } from './auth'
 
-// const withHeaders = () => {
-//   return {
-//     headers: { Authorization: `Bearer ${getToken()}` }
-//   }
-// }
+const withHeaders = () => {
+  return {
+    headers: { Authorization: `Bearer ${getToken()}` }
+  }
+}
 
 export const baseUrl = '/api'
 
-// export const getProfile = () => {
-//   return axios.get(`${baseUrl}/profile`, withHeaders)
-// }
+export const getProfile = () => {
+  return axios.get(`${baseUrl}/profile`, withHeaders)
+}
 
 export const loginUser = formData => {
   return axios.post(`${baseUrl}/login`, formData)

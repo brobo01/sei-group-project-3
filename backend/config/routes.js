@@ -45,7 +45,6 @@ router.route('/profile/:id/edit')
 
 
 
-
 router.route('/register')
   .post(auth.register)
 

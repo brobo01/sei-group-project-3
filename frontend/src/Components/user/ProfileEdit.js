@@ -1,7 +1,7 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import ImageUpload from './ImageUpload'
-import ReactTooltip from "react-tooltip"
+// import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
 import { editProfile, getOwnProfile } from '../../lib/api'
 // import ProfileDetails from './ProfileDeets'
@@ -10,8 +10,8 @@ class ProfileEdit extends React.Component {
   state = {
     userData: {
       name: null,
-      username: "broboBeardMan",
-      email: "ben@email",
+      username: null,
+      email: null,
       homeBase: null,
       garage: null,
       dreamTrips: null, 
@@ -51,17 +51,31 @@ class ProfileEdit extends React.Component {
     }
   }
 
-  handleAddProfileImage = (event) => {
-    const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
-    userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
+  handleAddImage = (event) => {
+    if (event.target.name === 'profilePhoto') {
+      const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
+      userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
+      console.log(userData)
+      this.setState({ userData })
+    } else {
+      const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips] }
+    userData.recentTrips[userData.recentTrips.length - 1] = event.target.value
     console.log(userData)
     this.setState({ userData })
+    }
+
+
+    
   }
 
-  handleAddExtraImage = () => {
-    const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
-    console.log(userData)
-    this.setState({ userData })
+  handleAddExtraImage = (e) => {
+    if (e.target.name === 'profilePhoto') {
+      const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
+      this.setState({ userData })
+    } else {
+      const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
+      this.setState({ userData })
+    }
   }
 
   // handleAddTripsImage = () => {
@@ -121,7 +135,6 @@ class ProfileEdit extends React.Component {
   render() {
     
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, email, tripPrefs } = this.state.userData
-    console.log(profilePhoto)
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
@@ -180,7 +193,7 @@ class ProfileEdit extends React.Component {
   // placeholder="home base"
   name="homeBase"
   onChange={this.handleChange}
-  defaultValue={this.homeBase ? homeBase : ""}
+  defaultValue={homeBase ? homeBase : ""}
   />
   </div>
 
@@ -218,40 +231,47 @@ class ProfileEdit extends React.Component {
   </div>
   </div>
  
-<div className="edit-profile-photos">
-<div className="input-box">
-  <h3>Profile Photo</h3>
 
+<div className="edit-profile-photos">
+<h3>Your Profile Photos</h3>
+<div className="photos-box">
+
+<div className="edit-photos">
 {this.state.userData.profilePhoto.map(photo => 
 photo ? 
 (<div>
-<img style={{ width: "auto", height: "150px"}} src={photo} alt="selected"/>
+<img key={photo} style={{ width: "150px", height: "84px"}} src={photo} alt="selected"/>
 </div>)
 :
   (<ImageUpload 
   key={photo}
-  onChange={this.handleAddProfileImage}
+  onChange={this.handleAddImage}
   name="profilePhoto"
   />)
   )}
 
-    
-
-<button type="button" onClick={this.handleAddExtraImage}>Add Another Image</button>
-
-{/* { <h3 className="recentTrips">Recent Trips Photos</h3> }
-{this.state.image.map((image, index) => {
-    return (
-<ImageUpload 
-  key={index}
-  onChange={this.handleTripsImageChange}
-  name="recentTrips"
-  />
-    )
-  })} */}
-  
-{/* {this.state.image.length < 4 && <button onClick={this.handleAddTripsImage}>Add Another Image</button> } */}
 </div>
+{this.state.userData.profilePhoto.length < 10 && <button name="profilePhoto" type="button" onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}
+</div>
+
+<div className="photos-box"></div>
+<h3 className="recent-photos">Recent Photos</h3> 
+<div className="edit-photos">
+{this.state.userData.recentTrips.map(photo => 
+photo ? 
+(<div>
+<img key={photo} style={{ width: "150px", height: "84px"}} src={photo} alt="selected"/>
+</div>)
+:
+  (<ImageUpload 
+  key={photo}
+  onChange={this.handleAddImage}
+  name="recentTrips"
+  />)
+  )}
+</div> 
+{this.state.userData.recentTrips.length < 10 && <button type="button" name="recentTrips" onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
+
 </div>
   </div>
  

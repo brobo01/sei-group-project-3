@@ -3,8 +3,10 @@
 module.exports = [
   {
     name: 'Ruta 40, Argentina',
-    startingPoint: 'La Quiaca, Argentina',
-    endPoint: 'Cabo Virgenes, Argentina',
+    startingPointCity: 'La Quiaca',
+    startingPointCountry: 'AR',
+    endPointCity: 'Cabo Virgenes',
+    endPointCountry: 'AR',
     distance: '5.194 km / 3,227m',
     routeImage: 'https://latam.beyondba.com/wp-content/uploads/2020/03/Ruta-40-Map-428x1024.jpg',
     image: 'https://blogpatagonia.australis.com/wp-content/uploads/2016/11/iStock-511670082.jpg',
@@ -27,8 +29,11 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'Chicago to LA - Route 66',
-    startingPoint: 'Chicago',
-    endPoint: 'Los Angeles',
+
+    startingPointCity: 'Chicago',
+    startingPointCountry: 'US',
+    endPointCity: 'Los+Angeles',
+    endPointCountry: 'US', 
     distance: '1115km / 693m',
     routeImage: 'https://www.tripsavvy.com/thmb/Fi12CRuXjxKzoWMNQKVnckDnn_k=/1000x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RoadTrip_Route66_NPS-566b0fbb3df78ce1615e75f6.jpg',
     image: 'https://img.redbull.com/images/c_fill,g_auto,w_860,h_573/q_auto,f_auto/redbullcom/2015/02/10/1331704370512_3/discover-the-world-on-your-bike-route-66',
@@ -51,8 +56,11 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'Ho Chi Minh Trail, Vietnam',
-    startingPoint: 'Hanoi, Vietnam',
-    endPoint: 'Ho Chi Minh, Vietnam',
+
+    startingPointCity: 'Hanoi',
+    startingPointCountry: 'VN',
+    endPointCity: 'Ho+Chi+Minh',
+    endPointCountry: 'VN',
     distance: '1870 km / 1162m',
     routeImage: 'https://cuongs-motorbike-adventure.com/wp-content/uploads/2018/01/Ho-Chi-Minh-Trail-motorbike-tour-map.jpg',
     image: 'https://d36tnp772eyphs.cloudfront.net/blogs/1/2019/06/Hai-Van-Pass-Da-Nang-Vietnam.jpg',
@@ -74,8 +82,10 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'London to Le Mans',
-    startingPoint: 'London, UK',
-    endPoint: 'Le Mans, France',
+    startingPointCity: 'London',
+    startingPointCountry: 'GB',
+    endPointCity: 'Paris',
+    endPointCountry: 'FR',
     distance: '587km / 365m',
     routeImage: 'https://www.distantias.com/maps/distance-from-london-great_britain-to-paris-france.png',
     image: 'https://drive-my.com/media/k2/items/cache/dfa5bd35ee353a18219b16bd4f1ed9c3_XL.jpg',
@@ -97,8 +107,10 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'The Great Legends Tour, Canada',
-    startingPoint: 'Mattawa, Canada',
-    endPoint: 'vancouver, Canada',
+    startingPointCity: 'Ontario',
+    startingPointCountry: 'CA',
+    endPointCity: 'Vancouver',
+    endPointCountry: 'CA',
     distance: '1350 km / 839m',
     routeImage: 'https://www.northeasternontario.com/wp-content/uploads/2015/11/the-great-legends-route1.jpg',
     image: 'https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fe805c634-f9c6-11e6-bc87-4df02d30656d.jpg?crop=1500%2C844%2C0%2C78&resize=1180',

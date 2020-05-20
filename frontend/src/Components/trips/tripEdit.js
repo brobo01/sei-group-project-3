@@ -15,15 +15,25 @@ class TripEdit extends React.Component {
     }
   }
 
-  async componentDidMount() {
+getIframe = () => {
+  const iframe = document.querySelector('iframe')
+  const inputs = iframe.contentWindow.document.body.querySelectorAll('input')
+  console.log(inputs)
+}
+  
+async componentDidMount() {
+  console.log('mounting')
     const tripId = this.props.match.params.id
     try {
       const res = await getSingleTrip(tripId)
-      this.setState({ formData: res.data })
+      console.log(res.data)
+      this.setState({ formData: res.data }, this.getIframe)
     } catch (err) {
       console.log(err)
     }
   }
+
+
 
   handleChange = event => {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
@@ -42,6 +52,7 @@ class TripEdit extends React.Component {
   }
 
   render() {
+    console.log('rendering', this.state.formData)
     return (
       <section className="section">
         <div className="container">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfileDeets = ({ prop, title }) => (
+const ProfileDetails = ({ prop, title }) => (
 <>
 <h3>{title}</h3>
   <div className="input-box">
@@ -15,4 +15,4 @@ const ProfileDeets = ({ prop, title }) => (
 </>
 )
 
-export default ProfileDeets
+export default ProfileDetails

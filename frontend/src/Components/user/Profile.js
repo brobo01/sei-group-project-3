@@ -31,7 +31,8 @@ class Profile extends React.Component {
     try {
       
       // const userId = this.props.match.params.id
-      const res = await axios.get(`/api/users/5ec46a1767791200cc6924c2`)
+      const res = await axios.get(`/api/users/5ec52e53837d547b3dfc7459`)
+      console.log("profile state after upload", res)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -55,11 +56,11 @@ class Profile extends React.Component {
   }
   
   render() {
-    console.log(icons[0].name)
+    // console.log(icons[0].name)
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
-    console.log(filteredIcons)
+    // console.log(filteredIcons)
 
     const modalStyle = {
     content : {
@@ -112,7 +113,7 @@ class Profile extends React.Component {
             <div className="cover-left-subtitle">{name}</div>
           </div>
           <div className="cover-right">
-            <img src={recentTrips[1]} 
+            <img src={recentTrips[0]} 
             className="image"
               alt=""
               height="700" />

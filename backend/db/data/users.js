@@ -8,11 +8,7 @@ module.exports = [
     homeBase: 'SW London',
     profilePhoto: ['https://cdn-1.motorsport.com/images/amp/27vbxEx0/s6/67-ford-chip-ganassi-racing-fo.jpg', 'https://cdn-6.motorsport.com/images/mgl/6O1bQjW2/s8/69-ford-chip-ganassi-racing-fo-1.jpg', 'https://cdn-2.motorsport.com/images/mgl/2y3axep6/s8/67-ford-chip-ganassi-racing-fo-1.jpg'],
     bio: 'Boats are my first love, motorbikes are my mistresses',
-<<<<<<< HEAD
-    tripPrefs: ['vineyard', 'sea', 'track', 'motorbike', 'art and culture', 'mechanics', 'gastronomy', 'history', 'forest', 'hills', 'twisty', 'friends'],
-=======
     tripPrefs: ['vineyard', 'sea', 'track', 'car', 'art and culture', 'mechanics', 'gastronomy', 'history','forest', 'hills', 'twisty', 'friends'],
->>>>>>> development
     garage: '2020 Harley Davidson CVO',
     dreamTrips: 'Winner of Le Mans race',
     recentTrips: ['https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg', 'https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg', 'https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg']

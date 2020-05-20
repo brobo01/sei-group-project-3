@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 const uploadUrl = 'https://api.cloudinary.com/v1_1/a-der/image/upload'
+
+//* obscure later .env folder
 const uploadPreset = 'ambkscwe'
 
 class ImageUpload extends React.Component {

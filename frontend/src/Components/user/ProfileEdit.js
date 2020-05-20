@@ -4,7 +4,7 @@ import ImageUpload from './ImageUpload'
 import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
 import { editProfile } from '../../lib/api'
-// import ProfileDeets from './ProfileDeets'
+// import ProfileDetails from './ProfileDeets'
 
 class ProfileEdit extends React.Component {
   state = {
@@ -19,16 +19,16 @@ class ProfileEdit extends React.Component {
       profilePhoto: [''],
       bio: null,
       tripPrefs: ['']
-    },
-    image: ['']
+    }
+    // image: ['']
   }
 
 
   async componentDidMount() {
     try {
-      const userId = "5ec46a1767791200cc6924c2"
+      const userId = "5ec52e53837d547b3dfc7459"
       const res = await axios.get(`/api/users/${userId}`)
-
+console.log(res.data)
       this.setState({ userData: res.data })
     } catch (err) {
       console.log(err)
@@ -37,13 +37,14 @@ class ProfileEdit extends React.Component {
 
   handleChange = event => {
     const userData = { ...this.state.userData, [event.target.name]: event.target.value }
+    
     this.setState({ userData })
   }
 
   handleSubmit = async event => {
     event.preventDefault()
     try {
-      const userId = "5ec3aa51f5bcf8903360cf4d"
+      const userId = "5ec52e53837d547b3dfc7459"
       await editProfile(userId, this.state.userData)
       this.props.history.push(`/users/${userId}`)
     } catch (err) {
@@ -51,34 +52,43 @@ class ProfileEdit extends React.Component {
     }
   }
 
-  handleAddProfileImage = () => {
+  handleAddProfileImage = (event) => {
+    const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
+    userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
+    console.log(userData)
+    this.setState({ userData })
+  }
+
+  handleAddExtraImage = () => {
     const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
-    this.setState({ userData })
-  }
-  handleProfileImageChange = (event, i) => {
-    const images = [...this.state.userData.profilePhoto]
-    const newImages = images.map((image, index) => {
-      if (i === index) return event.target.value
-      return image
-    })
-    const userData = { ...this.state.userData, profilePhoto: newImages }
+    console.log(userData)
     this.setState({ userData })
   }
 
+  // handleAddTripsImage = () => {
+  //   const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
+  //   this.setState({ userData })
+  // }
+  // handleTripsImageChange = (event) => {
+  //   const value = event.target.value
+  //   const userData = { ...this.state.userData, recentTrips: value }
+  //   this.setState({ userData })
+  // }
 
-  handleAddTripsImage = () => {
-    const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
-    this.setState({ userData })
-  }
-  handleTripsImageChange = (event, i) => {
-    const images = [...this.state.userData.recentTrips]
-    const newImages = images.map((image, index) => {
-      if (i === index) return event.target.value
-      return image
-    })
-    const userData = { ...this.state.userData, recentTrips: newImages }
-    this.setState({ userData })
-  }
+
+  // handleAddTripsImage = () => {
+  //   const image = { ...this.state, image: [...this.state.image, ''] }
+  //   this.setState({ image })
+  // }
+  // handleTripsImageChange = (event, i) => {
+  //   const images = [...this.state.userData.recentTrips]
+  //   const newImages = images.map((image, index) => {
+  //     if (i === index) return event.target.value
+  //     return image
+  //   })
+  //   const userData = { ...this.state.userData, recentTrips: newImages }
+  //   this.setState({ userData })
+  // }
 
 
   addToPref = (event) => {
@@ -110,10 +120,9 @@ class ProfileEdit extends React.Component {
 
 
   render() {
+    
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, email, tripPrefs } = this.state.userData
-
-    const { handleChange } = this
-    console.log(handleChange)
+    console.log(profilePhoto)
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
@@ -213,30 +222,36 @@ class ProfileEdit extends React.Component {
 <div className="edit-profile-photos">
 <div className="input-box">
   <h3>Profile Photo</h3>
-  {this.state.image.map((image, index) => {
-    return (
-<ImageUpload 
-  key={index}
-  onChange={args => this.handleProfileImageChange(args, index)}
-  className="profilePhoto"
-  />
-    )
-  })}
-   <button onClick={this.handleAddProfileImage}>Add Another Image</button>
 
+{this.state.userData.profilePhoto.map(photo => 
+photo ? 
+(<div>
+<img style={{ width: "auto", height: "150px"}} src={photo} alt="selected"/>
+</div>)
+:
+  (<ImageUpload 
+  key={photo}
+  onChange={this.handleAddProfileImage}
+  name="profilePhoto"
+  />)
+  )}
 
-<h3 className="recentTrips">Recent Trips Photos</h3>
+    
+
+<button type="button" onClick={this.handleAddExtraImage}>Add Another Image</button>
+
+{/* { <h3 className="recentTrips">Recent Trips Photos</h3> }
 {this.state.image.map((image, index) => {
     return (
 <ImageUpload 
   key={index}
-  onChange={args => this.handleTripsImageChange(args, index)}
-  
+  onChange={this.handleTripsImageChange}
+  name="recentTrips"
   />
     )
-  })}
+  })} */}
   
-  <button onClick={this.handleAddTripsImage}>Add Another Image</button>
+{/* {this.state.image.length < 4 && <button onClick={this.handleAddTripsImage}>Add Another Image</button> } */}
 </div>
 </div>
   </div>
@@ -246,7 +261,7 @@ class ProfileEdit extends React.Component {
 <div className="edit-profile-icons">
 
      
-          {icons.map(icon =><p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}<br></br>{icon.name} </p>)}
+          {icons.map(icon =><p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}{icon.name} </p>)}
         
 </div>
 </div>

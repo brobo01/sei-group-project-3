@@ -34,7 +34,7 @@ class TripEdit extends React.Component {
     event.preventDefault()
     const tripId = this.props.match.params.id
     try {
-      await editTrip(cheeseId, this.state.formData)
+      await editTrip(tripId, this.state.formData)
       this.props.history.push(`/trips/${tripId}`)
     } catch (err) {
       console.log(err.response)

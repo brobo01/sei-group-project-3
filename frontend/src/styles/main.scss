@@ -720,20 +720,21 @@ justify-content: space-around;
 }
 .bottom-section{
   display: flex;
-  width: 75%;
   justify-content: center;
+  margin-right: 223px;
+  margin-left: 223px;
   .edit-profile-icons{
     display: flex;
     flex-wrap: wrap;
-    // margin-left: 70px;
-    // flex-direction: column;
     .icons{
-      margin-left: 22px;
-      margin-bottom: 10px;
-      // justify-content: center;
-      // display: flex;
-      // flex-direction: column;
-	align-content: space-around;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: stretch;
+      padding: 13px;
+      margin-bottom: 30px;
     }
   }
 }

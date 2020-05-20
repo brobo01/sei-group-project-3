@@ -1,15 +1,12 @@
 import React from 'react'
-import axios from 'axios'
 import Modal from 'react-modal'
 import ReactTooltip from "react-tooltip"
-
+import { Link } from 'react-router-dom'
+import RTimage from '../../styles/assets/roadtrippers.png'
 import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-
 import { getOwnProfile } from '../../lib/api'
-
-
 
 class Profile extends React.Component {
   state = {
@@ -31,8 +28,6 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     try {
-
-      // const userId = this.props.match.params.id
       const res = await getOwnProfile()
       console.log("profile state after upload", res)
       this.setState({ user: res.data })
@@ -58,12 +53,8 @@ class Profile extends React.Component {
   }
 
   render() {
-    // console.log(icons[0].name)
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
-
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
-    // console.log(filteredIcons)
-
     const modalStyle = {
       content: {
         position: "fixed",
@@ -79,6 +70,12 @@ class Profile extends React.Component {
     }
     return (
       <section>
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right"></div>
+        </div>
         <div>
           <Modal
             isOpen={this.state.showModal}
@@ -127,17 +124,13 @@ class Profile extends React.Component {
         <div className="recent-trips">
           <div className="bio-div">
             <div className="bio">
+              {/* {[homeBase, garage, dreamTrips].map(i =><> <span style={{ color: "#fa6400" }}key={i}>{i}</span><hr></hr><br></br></>)} */}
               Home base <span style={{ color: "#fa6400" }}>{homeBase}</span> <hr></hr><br></br>
             In the garage <span style={{ color: "#fa6400" }}>{garage}</span> <hr></hr><br></br>
             Ultimate Trip <span style={{ color: "#fa6400" }}>{dreamTrips}</span><hr></hr><br></br>
               <h4>PREFERENCES</h4>
-
-
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
-
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
-
-
             </div>
             <div className="profile-buttons">
               <button>Send Message</button>
@@ -155,7 +148,7 @@ class Profile extends React.Component {
                   <img src={trip}
                     alt=""
                     className="carousel-image" />
-                  <p className="legend"></p>
+                  {/* <p className="legend"></p> */}
                 </div>)}
             </Carousel>
           </div>

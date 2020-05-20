@@ -8,7 +8,7 @@ background-image: url(https://millionmilesecrets.com/wp-content/uploads/shutters
 background-size: cover;
 
 .background{
-  background: radial-gradient(circle, rgba(53,79,82,0.95) 0%, rgba(33,49,51,0.95) 98%);
+  background: radial-gradient(circle, rgba(53,79,82,0.95) 0%, rgba(33,49,51,0.95) 92%);
   height: 100%;
   min-height: 100vh;
   margin-bottom:50px;
@@ -648,6 +648,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: #373a47;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
+
+  *:focus {
+    outline: none;
+  }
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -683,7 +687,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
     width: 17vw;
   }
   .link {
-color: #b8b7ad;
+    margin-top: 15px;
+    color: #fffffb;
     padding: 0.8em;
     text-decoration: none;
   }
@@ -698,53 +703,84 @@ color: #b8b7ad;
 
 
 //* Profile Edit Page
-.top-section {
-display: flex;
-justify-content: space-around;
+.edit-profile-page {
+  margin-left: 22px;
 
-  .edit-profile-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .finish-edit {
+    background-color: #31B94D;
+        color: white;
+        padding: 6px;
+        margin-bottom: 6px;
+        border-radius: 20px;
   }
 
-  .edit-profile-photos{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-    justify-content: space-around;
-
-    .edit-photos{
-      display: flex;
-    flex-wrap: wrap;
-    }
-
-    .recentTrips{
-      margin-top: 50px;
-    }
+  .edit-title{
+    color: white;
+    padding: 10px 0 8px;
   }
-}
-.bottom-section{
+  
+  .top-section {
   display: flex;
-  justify-content: center;
-  margin-right: 223px;
-  margin-left: 223px;
-  .edit-profile-icons{
-    display: flex;
-    flex-wrap: wrap;
-    .icons{
+  justify-content: space-around;
+  
+    .edit-profile-details{
       display: flex;
       flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: center;
       align-items: center;
-      align-content: stretch;
-      padding: 13px;
-      margin-bottom: 30px;
+    }
+  
+    .edit-profile-photos{
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      align-items: center;
+      justify-content: space-around;
+  
+      .edit-photos{
+        display: flex;
+      flex-wrap: wrap;
+
+      .delete-photo {
+        margin-right: 4px; 
+        color: #800000;
+        background: #d46d5b;
+        border-radius: 25px;
+        border-color: #800000;
+        transform: translate(-13px)
+        }
+      }
+      .add-photo {
+        background-color: #f5891d;
+        color: white;
+        padding: 6px;
+        margin-bottom: 6px;
+        border-radius: 20px;
+      }
+    }
+  }
+  .bottom-section{
+    display: flex;
+    justify-content: center;
+    // margin-right: 223px;
+    // margin-left: 223px;
+    margin-bottom: 20px;
+    .edit-profile-icons{
+      display: flex;
+      flex-wrap: wrap;
+      .icons{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+        padding: 13px;
+        // margin-bottom: 20px;
+      }
     }
   }
 }
+
 
 
 .header{
@@ -755,7 +791,7 @@ justify-content: space-around;
 
   height:80px;
   width:100%;
-  // background-color: red;
+  background-color: rgba(250, 100, 0, 0.4);
   .header-left{
     padding-left: 10px;
     // width: 70px;
@@ -763,7 +799,7 @@ justify-content: space-around;
   .header-right{
     width:95px;
     height:100%;
-    background-color:#9d0208;
+    // background-color:#9d0208;
     margin-right:30px;
   }
 }

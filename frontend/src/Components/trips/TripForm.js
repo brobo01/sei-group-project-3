@@ -5,8 +5,8 @@ import TripMap from './TripMap'
 const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors , search , _updateViewport , handleMapSearch }) => {
   return (
     <div>
-    // <div className="section">
-    //   <div className="container">
+      <div className="section">
+      <div className="container">
         {/* <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
           alt=""
           height="100" /> */}

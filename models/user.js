@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: [true, 'field required'] },
   homeBase: { type: String, required: [true, 'field required'] },
   profilePhoto: [{ type: String }],
-  bio: { type: String },
   tripPrefs: [{ type: String, required: [true, 'field required'] }],
   garage: { type: String },
   dreamTrips: { type: String },

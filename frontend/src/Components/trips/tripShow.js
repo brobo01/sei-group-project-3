@@ -11,20 +11,24 @@ import { isAuthenticated } from '../../lib/auth'
 // import  { icons } from  '../../styles/all-icons'
 import { icons } from "../../styles/assets/icon-data"
 import RTimage from '../../styles/assets/roadtrippers.png'
+import TripMap from '../trips/TripMap'
+
 class tripShow extends React.Component {
   state = {
     trip: [],
     pendingRec: '',
+    search: true
   }
   async componentDidMount() {
     const tripId = this.props.match.params.id
     const res = await axios.get(`/api/trips/${tripId}`)
     this.setState({ trip: res.data })
-    const startPoint = stringUpdate(this.state.trip.startingPoint)
-    const endPoint = stringUpdate(this.state.trip.endPoint)
-    const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
-    const updated = { ...res.data, routeImage: mapUrl }
-    this.setState({ trip: updated })
+    console.log(this.state.trip.endPointCity)
+    // const startPoint = stringUpdate(this.state.trip.startingPoint)
+    // const endPoint = stringUpdate(this.state.trip.endPoint)
+    // const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
+    // const updated = { ...res.data, routeImage: mapUrl }
+    // this.setState({ trip: updated })
   }
   handleChange = e => {
     const text = e.target.value
@@ -101,10 +105,20 @@ class tripShow extends React.Component {
               <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
             </div>
             <div className="body-right">
-              <img
+            <TripMap
+            formData={trip}
+            search={this.state.search}
+            height={'500'}
+            width={'500'}
+          />
+
+
+
+
+              {/* <img
                 height="400"
                 src={trip.routeImage}
-              />
+              /> */}
             </div>
           </div>
           <div className="show-carousel">

@@ -3,7 +3,7 @@ const { dbURI } = require('../config/environment')
 
 const tripData = require('./data/trips')
 const Trip = require('../models/trip')
-const User = require('../models/user')
+const { User } = require('../models/user')
 const userData = require('./data/users')
 
 mongoose.connect(

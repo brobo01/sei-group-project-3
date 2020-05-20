@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt')
 
 const messageSchema = new mongoose.Schema({
   text: { type: String, required: [true, 'field required'] },
-  user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  sender: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  recipient: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true
 })
@@ -22,8 +23,8 @@ const userSchema = new mongoose.Schema({
   tripPrefs: { type: Array, required: [true, 'field required'] },
   garage: { type: String },
   dreamTrips: { type: String },
-  recentTrips: { type: Array },
-  message: [messageSchema]
+  recentTrips: { type: Array }
+  // message: [messageSchema]
 })
 
 userSchema
@@ -65,4 +66,9 @@ userSchema
 
 userSchema.plugin(require('mongoose-unique-validator'), { message: '{PATH} is already in use' })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = {
+
+  User: mongoose.model('User', userSchema),
+  Message: mongoose.model('Message', messageSchema)
+}
+

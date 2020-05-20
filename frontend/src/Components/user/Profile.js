@@ -122,7 +122,7 @@ class Profile extends React.Component {
           </div>
         </div>
         <div className="recent-trips-title">
-            Recent Trips
+            Recent Photos
             </div>
         <div className="recent-trips">
           <div className="bio-div">

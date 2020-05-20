@@ -18,17 +18,17 @@ const tripSchema = new mongoose.Schema({
   distance: { type: String },
   routeImage: { type: String },
   image: { type: String },
-  tags: { type: Array, required: [true, 'field required'] },
+  tags: [{ type: String, required: [true, 'field required'] }],
   ratings: {
     scenery: { type: Number },
     enjoyment: { type: Number }
   },
-  photoGallery: { type: Array },
-  videos: { type: Array },
+  photoGallery: [{ type: String }],
+  videos: [{ type: String }],
   description: { type: String, required: [true, 'field required'] },
   timeOfYear: { type: String },
-  highlights: { type: Array },
-  pastTravellers: { type: Array },
+  highlights: [{ type: String }],
+  pastTravellers: [{ type: String }],
   recommendations: [recommendationSchema],
   user: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {

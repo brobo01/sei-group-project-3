@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
-import Select from 'react-select'
+import React from 'react'
 
 import TripForm from './TripForm'
-import TripFormExt from './TripFormExt'
 import { getSingleTrip, editTrip } from '../../lib/api'
-import { tags } from '../../lib/tags'
 
 class TripEdit extends React.Component {
   state = {
@@ -15,38 +12,30 @@ class TripEdit extends React.Component {
       image: '',
       tags: [''],
       description: ''
-    },
+    }
   }
 
-
-  // async componentDidMount() {
-  //     this.setState({ formData: res.data })
-  //   } catch (err) {
-  //     console.log(err)
-  //     // this.props.history.push('/notfound')
-  // }
+  async componentDidMount() {
+    const tripId = this.props.match.params.id
+    try {
+      const res = await getSingleTrip(tripId)
+      this.setState({ formData: res.data })
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   handleChange = event => {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
     this.setState({ formData })
   }
 
-  handleMultiChange = selected => {
-    console.log('hello')
-    const selectedItems = selected ? selected.map(item => item.value) : []
-    console.log(selectedItems)
-    const formData = { ...this.state.formData, tags: selectedItems }
-    this.setState({ formData })
-    console.log(this.state.tags)
-  }
-
   handleSubmit = async event => {
     event.preventDefault()
     const tripId = this.props.match.params.id
-    console.log(this.state)
     try {
-      await editTrip(tripId, this.state.formData)
-      // this.props.history.push(`/trips/${tripId}`)
+      await editTrip(cheeseId, this.state.formData)
+      this.props.history.push(`/trips/${tripId}`)
     } catch (err) {
       console.log(err.response)
     }
@@ -58,7 +47,6 @@ class TripEdit extends React.Component {
         <div className="container">
           <TripForm
             formData={this.state.formData}
-            tags={tags}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             buttonText="Edit my Trip"

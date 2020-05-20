@@ -26,7 +26,6 @@ async function userIndex(req, res, next) {
 }
 
 async function indivProfile(req, res, next) {
-
   try {
     const user = await User.findById(req.currentUser._id).populate('user').populate('userName').populate('message.user').lean()
     const messages = await Message.find({ $or: [{ recipient: req.currentUser._id }, { sender: req.currentUser._id }] }).populate('sender').populate('recipient').lean()
@@ -41,8 +40,8 @@ async function indivProfile(req, res, next) {
 async function indivProfileEdit(req, res, next) {
 
   try {
-    // const user = await User.findById(req.currentUser._id)
-    const user = await User.findById('5ec46a1767791200cc6924c2')
+    const user = await User.findById(req.currentUser._id)
+    // const user = await User.findById('5ec52e53837d547b3dfc7459')
     if (!user) throw new Error(notFound)
     Object.assign(user, req.body)
     await user.save()

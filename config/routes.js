@@ -40,7 +40,7 @@ router.route('/users/:userId')
 router.route('/profile')
   .get(secureRoute, user.showProfile)
 
-router.route('/profile/:id/edit')
+router.route('/profile/edit')
   .put(secureRoute, user.editProfile)
 
 

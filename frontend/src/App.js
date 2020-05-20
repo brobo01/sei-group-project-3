@@ -1,23 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import SecureRoute from './Components/common/SecureRoute'
-import Home from './Components/common/Home'
-import Register from './Components/authentication/Register'
-import Login from './Components/authentication/Login'
-import TripsIndex from './Components/trips/tripsIndex'
-import TripShow from './Components/trips/tripShow'
-import TripEdit from './Components/trips/tripEdit'
-import TripNew from './Components/trips/TripNew'
-import TripSearch from './Components/trips/TripSearch'
-import TripMap from './Components/trips/TripMap'
-import Navbar from './Components/common/Navbar'
-import Error from './Components/common/Error'
+import SecureRoute from './components/common/SecureRoute'
+import Home from './components/common/Home'
+import Register from './components/authentication/Register'
+import Login from './components/authentication/Login'
+import TripsIndex from './components/trips/tripsIndex'
+import TripShow from './components/trips/tripShow'
+import TripEdit from './components/trips/tripEdit'
+import TripNew from './components/trips/TripNew'
+import TripSearch from './components/trips/TripSearch'
+import TripMap from './components/trips/TripMap'
+import Navbar from './components/common/Navbar'
+import Error from './components/common/Error'
 
-import Footer from './Components/common/Footer'
-import ProfileEdit from './Components/user/ProfileEdit'
-import Profile from './Components/user/Profile'
-import UserMessages from './Components/user/UserMessages'
+import Footer from './components/common/Footer'
+import ProfileEdit from './components/user/ProfileEdit'
+import Profile from './components/user/Profile'
+import UserMessages from './components/user/UserMessages'
 
 
 const App = () => {
@@ -36,8 +36,8 @@ const App = () => {
             <Route path="/trips/map" component={TripMap} />
             <Route path="/trips/:id" component={TripShow} />
             <Route path="/trips" component={TripsIndex} />
-            <Route path="/users/:userId/edit" component={ProfileEdit} />
-            <Route path="/users/:userId" component={Profile} />
+            <Route path="/profile/edit" component={ProfileEdit} />
+            <Route path="/profile" component={Profile} />
             <Route path="/search" component={TripSearch} />
             <Route path="/messages" component={UserMessages} />
             <Route path="/*" component={Error} />

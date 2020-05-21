@@ -6,15 +6,9 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
   console.log(finalTrip)
   return (
     <div>
-<<<<<<< HEAD
       <div className="section">
       <div className="container">
-        {/* <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
-=======
-      {/* <div className="section">
-        <div className="container"> */}
-        <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
->>>>>>> development
+      <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
           alt=""
           height="100" />
         <div className="title">{titleText}</div>
@@ -29,9 +23,9 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
                 value={formData.name}
               />
             </div>
-            {errors.name && <small>{errors.name}</small>}
+            {errors.name} && <small>{errors.name}</small>
 
-{/* //* HANDLE MAP INPUTS -------------------------------------------------------------------
+ {/* HANDLE MAP INPUTS -------------------------------------------------------------------
 //? STARTING POINT INPUTS ----------------------------- */}
 
             <div className="form-item">
@@ -149,9 +143,10 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             <button type='submit' className="submit-btn">{buttonText}</button>
           </div>
         </form>
+        
       </div>
-    // </div>
-    // </div>
+      </div>
+      </div>
   )
 }
 

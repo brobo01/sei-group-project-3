@@ -20,7 +20,6 @@ class Profile extends React.Component {
       dreamTrips: null,
       recentTrips: [''],
       profilePhoto: [''],
-      bio: null,
       tripPrefs: ['']
     },
     userTrips: []
@@ -29,7 +28,6 @@ class Profile extends React.Component {
   async componentDidMount() {
     try {
       const res = await getOwnProfile()
-      console.log("profile state after upload", res)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -53,7 +51,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     const modalStyle = {
       content: {
@@ -132,10 +130,8 @@ class Profile extends React.Component {
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
-            <div className="profile-buttons">
-              <button>Send Message</button>
-              <button>Follow</button>
-            </div>
+            {/* <div className="profile-buttons">
+            </div> */}
           </div>
           <div className="caro-div">
             <Carousel

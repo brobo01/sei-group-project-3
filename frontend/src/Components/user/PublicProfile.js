@@ -22,7 +22,6 @@ class PublicProfile extends React.Component {
       dreamTrips: null,
       recentTrips: [''],
       profilePhoto: [''],
-      bio: null,
       tripPrefs: ['']
     },
     userTrips: []
@@ -59,7 +58,7 @@ class PublicProfile extends React.Component {
 
   render() {
     // console.log(icons[0].name)
-    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     // console.log(filteredIcons)

@@ -11,14 +11,12 @@ const recommendationSchema = new mongoose.Schema({
 
 const tripSchema = new mongoose.Schema({
   name: { type: String, required: [true, 'field required'], unique: true, maxlength: 100 },
-  finalTrip: {
-    startingPointCity: { type: String, required: [true, 'field required'] },
-    startingPointState: { type: String },
-    startingPointCountry: { type: String, required: [true, 'field required'] },
-    endPointState: { type: String },
-    endPointCity: { type: String, required: [true, 'field required'] },
-    endPointCountry: { type: String, required: [true, 'field required'] }
-  },
+  startingPointCity: { type: String, required: [true, 'field required'] },
+  startingPointState: { type: String },
+  startingPointCountry: { type: String, required: [true, 'field required'] },
+  endPointState: { type: String },
+  endPointCity: { type: String, required: [true, 'field required'] },
+  endPointCountry: { type: String, required: [true, 'field required'] },
   distance: { type: String },
   routeImage: { type: String },
   image: { type: String },

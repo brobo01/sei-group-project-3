@@ -150,12 +150,14 @@ background-size: cover;
   color: white;
   font-size: 15px;
 }
-
+.message-holder {
+  margin: 30px
+}
 
 
 .profile-messages {
   
-  margin-top: 5px;
+  margin: 15px;
    background-color: rgba(0,0,0,0.5);
     border-radius: 5px;
   padding: 20px;
@@ -432,10 +434,12 @@ textarea {
               object-fit: cover;
               height: 300px;
               width: 300px;
+             
               }
           }
           .crop img {
             position: absolute;
+             
           }
           .blurb {
             //* this is for the text that shows up when you hover over an image on index page
@@ -683,8 +687,15 @@ padding-bottom: 90px;
       height:30px;
       border-radius: 15px;
       font-weight: bold;
-    }  
+    } 
+    
   }
+  .comment-holder {
+      margin: 20px;
+      text-align: center;
+      color: white;
+      
+    } 
 }
 }
 

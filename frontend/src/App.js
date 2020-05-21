@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/trips/:id/edit" component={TripEdit} />
             <SecureRoute path="/trips/new" component={TripNew} />
             <Route path="/trips/map" component={TripMap} />
-            <Route path="/trips/:id" component={TripShow} />
+            <SecureRoute path="/trips/:id" component={TripShow} />
             <Route path="/trips" component={TripsIndex} />
             <Route path="/profile/edit" component={ProfileEdit} />
             <Route path="/profile" component={Profile} />

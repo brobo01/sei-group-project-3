@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 // import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
-import { isAuthenticated, withHeaders } from '../../lib/auth'
+import { isAuthenticated, withHeaders, isOwner } from '../../lib/auth'
 import { icons } from "../../styles/assets/icon-data"
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripMap from './TripMap'
@@ -18,9 +18,10 @@ class tripShow extends React.Component {
   }
   async componentDidMount() {
     const tripId = this.props.match.params.id
-    const res = await axios.get(`/api/trips/${tripId}`)
+    const res = await axios.get(`/api/trips/${tripId}`, withHeaders())
     this.setState({ trip: res.data })
-    console.log(this.state.trip)
+    console.log(this.state.trip.user._id)
+
     // const startPoint = stringUpdate(this.state.trip.startingPoint)
     // const endPoint = stringUpdate(this.state.trip.endPoint)
     // const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
@@ -99,7 +100,7 @@ class tripShow extends React.Component {
               <Link to={`/users/${trip.user?._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
               <p>{trip.description}</p><br></br>
               <p>Time of year: {trip.timeOfYear}</p><br></br>
-              <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
+              {isOwner(trip.user._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
             </div>
             <div className="body-right">
               <TripMap
@@ -149,7 +150,7 @@ class tripShow extends React.Component {
                   <p className="comment-text">{obj.text}</p>
                 </div>
               ))}
-              {isAuthenticated() ?
+              {isAuthenticated ?
                 <form onSubmit={this.handleSubmit}>
                   <div className="add-comment">
                     <textarea
@@ -161,7 +162,7 @@ class tripShow extends React.Component {
                     <button className="comment-btn">+</button>
                   </div>
                 </form>
-                : <p>Please login to add your recommendation </p>}
+                : <p className="comment-holder">Please login to add your recommendation </p>}
             </div>
           </div>
         </section>

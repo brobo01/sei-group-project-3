@@ -7,7 +7,7 @@ module.exports = [
     passwordConfirmation: 'pass',
     homeBase: 'SW London',
     profilePhoto: ['https://cdn-1.motorsport.com/images/amp/27vbxEx0/s6/67-ford-chip-ganassi-racing-fo.jpg', 'https://cdn-6.motorsport.com/images/mgl/6O1bQjW2/s8/69-ford-chip-ganassi-racing-fo-1.jpg', 'https://cdn-2.motorsport.com/images/mgl/2y3axep6/s8/67-ford-chip-ganassi-racing-fo-1.jpg'],
-    tripPrefs: ['vineyard', 'sea', 'track', 'car', 'art and culture', 'mechanics', 'gastronomy', 'history','forest', 'hills', 'twisty', 'friends'],
+    tripPrefs: ['vineyard', 'sea', 'track', 'car', 'art and culture', 'mechanics', 'gastronomy', 'history', 'forest', 'hills', 'twisty', 'friends'],
     garage: '2020 Harley Davidson CVO',
     dreamTrips: 'Winner of Le Mans race',
     recentTrips: ['https://www.kunstler.it/wp-content/uploads/2017/07/MG_3533.jpg', 'https://expertvagabond.com/wp-content/uploads/ring-road-iceland-guide-900x600.jpg', 'https://independenttravelcats.com/wp-content/uploads/2017/10/NC500-Roads-8.jpg']
@@ -22,7 +22,7 @@ module.exports = [
     tripsPrefs: ['hilly', 'rural'],
     garage: '1957 Classic Cadillac de Ville',
     dreamTrips: 'Car trip around Morroco',
-    recentTrips: []
+    recentTrips: ['https://www.fairmont.com/assets/0/104/1821/1826/5036/5037/4d1d7da9-5d63-4e91-a26d-f02bb67f7d89.jpg', 'https://d1bv4heaa2n05k.cloudfront.net/user-images/1535025032242/shutterstock-1142567063_main_1535025093424.jpeg']
   }, {
     username: 'A-Der',
     name: 'Assia Deramchi',
@@ -34,6 +34,78 @@ module.exports = [
     tripPrefs: ['country side', 'curvy'],
     garage: 'Yamaha XT225 Serow',
     dreamTrips: 'North to South of the Americas',
-    recentTrips: []
+    recentTrips: ['https://www.smartertravel.com/uploads/2017/06/road_trip_tips_hero-1400x500.jpg', 'https://specials-images.forbesimg.com/imageserve/1145661962/960x0.jpg?fit=scale']
+  }, {
+    username: 'syntacticsugarbear',
+    name: 'Jack May',
+    email: 'jack@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'London',
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UF7T00ANN-9e0ffcda6506-512', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/14618/thumb_Screen_Shot_2019-05-30_at_16.42.14.png'],
+    tripPrefs: ['sea', 'friends'],
+    garage: 'Vauxhall Viva',
+    dreamTrips: 'Through the center of Australia',
+    recentTrips: ['https://hips.hearstapps.com/esq.h-cdn.co/assets/15/41/1444408765-road-trip.jpg?resize=980:*', 'https://thetravelintern.com/wp-content/uploads/2018/12/Watching-Sea-Lions-at-Pier-39-SF-to-LA-Road-Trip-Itinerary.jpg']
+  }, {
+    username: 'charizard',
+    name: 'Charlotte Morgan',
+    email: 'charlotte@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'London',
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UDC194EAH-3d2a5f44ffa8-512', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/20206/thumb_IMG_5116.jpg'],
+    tripPrefs: ['fast', 'riverside'],
+    garage: 'BMW R1250GS',
+    dreamTrips: 'Driving across Iceland',
+    recentTrips: ['https://www.ecopetit.cat/wpic/mpic/162-1627677_aesthetic-road-trip-background.jpg', 'https://media.frankandoak.com/media/assets/handbook/2019/07/roadtrip/3-roadtrip.jpg?imwidth=2000']
+  }, {
+    username: 'AF',
+    name: 'Abi Foreman',
+    email: 'abi@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'London',
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UPF4VBW6A-aa58c07cbaf1-512'],
+    tripPrefs: ['off road', 'camping'],
+    garage: 'Honda CB500X',
+    dreamTrips: 'West Coast New Zealand',
+    recentTrips: ['https://bloximages.newyork1.vip.townnews.com/sandiegomagazine.com/content/tncms/assets/v3/editorial/b/08/b087e7a7-d7a2-56c6-9df1-8d271c93e5e5/5e15057eac014.image.jpg?resize=786%2C525', 'https://media.frankandoak.com/media/assets/handbook/2019/07/roadtrip/4-roadtrip.jpg?imwidth=2000']
+  }, {
+    username: 'ledge',
+    name: 'Guy Routledge',
+    email: 'guy@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'London',
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-USL1A41QB-2ed929f7e01e-512'],
+    tripPrefs: ['gastronomy', 'canyon'],
+    garage: 'Triumph Speed Twin',
+    dreamTrips: 'North Eastern Brazil',
+    recentTrips: ['https://images.squarespace-cdn.com/content/v1/57b88db03e00be38aec142b0/1538459873414-EEIIN5LIYOM5A4CYRFXK/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/image-asset.jpeg?format=1500w', 'https://img.theculturetrip.com/1440x/smart/wp-content/uploads/2016/09/recife_carnival_-_recife_pernambuco_brazil.jpg']
+  }, {
+    username: 'BoJo',
+    name: 'Boris Johnson',
+    email: 'bojo@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'London',
+    profilePhoto: ['https://www.telegraph.co.uk/content/dam/women/2019/06/17/TELEMMGLPICT000101650504_trans_NvBQzQNjv4Bqd2YoQY3XRytG6zBmMwBxdH4c1BluzUsKInVBvLXOw-8.jpeg?imwidth=1400', 'https://assets.heart.co.uk/2011/30/boris-johnson-1311676139-view-0.jpg', 'https://i.redd.it/7vn83ent14c31.jpg'],
+    tripPrefs: ['vineyard', 'cities', 'friends'],
+    garage: '1978 AMC Concord',
+    dreamTrips: 'Village Hopping in the Cotswolds',
+    recentTrips: ['https://hg-images.condecdn.net/image/KE7aPGDEO1L/crop/1620/0.586/f/Britannia-Bay-house-10apr15_pr_b_1.jpg']
+  }, {
+    username: 'Tru',
+    name: 'Justin Trudeau',
+    email: 'jt@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'Parliament Hill',
+    profilePhoto: ['https://external-preview.redd.it/x9KFqyzWq0XWBatQcHs9GhNmQAnjHRlairOuOb7-v7A.jpg?auto=webp&s=cc86733bdba4d47233c2db079dc4e83a3bd98b99'],
+    tripPrefs: ['camping', 'riverside', 'sports'],
+    garage: 'Toyota Tundra',
+    dreamTrips: 'All of the TransCanada Highway',
+    recentTrips: ['https://www.cicnews.com/2020/01/quebec-invited-305-skilled-worker-candidates-over-two-arrima-draws-0113473.html', 'https://muskokagetaway.com/wp-content/uploads/2018/03/muskoka.jpg']
   }
 ]

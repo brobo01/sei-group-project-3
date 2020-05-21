@@ -107,6 +107,7 @@ class ProfileEdit extends React.Component {
   changeCSS = (icon, color) => {
     document.getElementById(icon).setAttribute("style", `color: ${color}`)
   }
+  
   preloadCSS = (filteredIcons) => {
     filteredIcons.forEach(icon =>
       document.getElementById(icon.name).setAttribute("style", "color: white"))

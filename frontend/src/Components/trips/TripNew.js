@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripForm from './TripForm'
 import { withHeaders } from '../../lib/auth'
+import { icons } from "../../styles/assets/icon-data"
+
 
 class TripNew extends React.Component {
   state = {
@@ -62,7 +64,30 @@ class TripNew extends React.Component {
     this.setState({ formData })
   }
 
+  addToTags = (event) => {
+    const icon = event.target.id
+    const tripPrefsEdit = this.state.formData.tags
+    const index = tripPrefsEdit.indexOf(icon)
+    if (tripPrefsEdit.includes(icon)) {
+      tripPrefsEdit.splice(index, 1)
+      const color = ""
+      const formData = { ...this.state.formData, tags: tripPrefsEdit }
+      this.changeCSS(icon, color)
+      this.setState({ formData })
+      console.log(this.state.formData.tags)
+    } else {
+      tripPrefsEdit.push(icon)
+      const color = "white"
+      const formData = { ...this.state.formData, tags: tripPrefsEdit }
+      this.changeCSS(icon, color)
+      this.setState({ formData })
+      console.log(this.state.formData.tags)
+    }
+  }
 
+  changeCSS = (icon, color) => {
+    document.getElementById(icon).setAttribute("style", `color: ${color}`)
+  }
 
   render() {
 
@@ -74,13 +99,14 @@ class TripNew extends React.Component {
           </div>
           <div className="header-right"></div>
         </div>
-        <h1>create a trip and get reccomendation from other travellers</h1>
         <TripForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           handleMapChange={this.handleMapChange}
           handleMapSearch={this.handleMapSearch}
           handleTripSearch={this.handleTripSearch}
+          addToTags={this.addToTags}
+          icons={icons}
           formData={this.state.formData}
           tempTrip={this.state.tempTrip}
           errors={this.state.errors}

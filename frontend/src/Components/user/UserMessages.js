@@ -22,10 +22,12 @@ class UserMessages extends React.Component {
   filterMessages = () => {
     const messageId = this.props.match.params.id
     console.log(messageId)
+    console.log(messageId)
+
     const res = this.state.user.messages.filter(message => (
       message._id === messageId
     ))
-    console.log(res[0])
+    console.log(res)
     return res[0]
   }
 
@@ -66,8 +68,8 @@ class UserMessages extends React.Component {
 
         <h3>Conversation between
 
-          {this.filterMessages().sender._id === this.state.user._id
-            ? 'You'
+          {this.filterMessages()?.sender._id === this.state.user._id
+            ? ' You '
             : ` ${this.filterMessages().sender.username} `
 
           }

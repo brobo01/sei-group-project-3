@@ -7,8 +7,8 @@ const user = require('../controllers/users')
 
 router.route('/trips')
   .get(trips.index)
-  .post(trips.create)
-// .post(secureRoute, trips.create)
+  // .post(trips.create)
+  .post(secureRoute, trips.create)
 
 router.route('/trips/:id')
   .get(trips.show)

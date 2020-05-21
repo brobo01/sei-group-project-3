@@ -69,7 +69,7 @@ class Profile extends React.Component {
     }
     return (
       <section>
-        <div className="header">
+         <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
@@ -100,7 +100,7 @@ class Profile extends React.Component {
 
             <button style={{ background: "red", borderRadius: "30px", color: "white" }} onClick={this.handleCloseModal}>X</button>
           </Modal>
-        </div>
+        </div> 
 
         <div className="cover">
           <div className="cover-left">
@@ -135,6 +135,35 @@ class Profile extends React.Component {
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
+
+            {/* view your own messages */}
+            <div className="profile-messages">
+
+              <p>Your current conversations:</p>
+              <hr />
+              <div className="profile-messages-main">
+                {this.state.user.messages?.map(message => (
+                  <div key={message._id}>
+                    <Link to={`/messages/${message._id}`} className="link">
+                      {message.sender._id === this.state.user._id
+                        ? 'You '
+                        : `${message.sender.username} `
+
+                      }
+             &
+            {message.recipient._id === this.state.user._id
+                        ? ' You'
+                        : ` ${message.recipient.username}`
+
+                      }
+                      {/* {message.sender?.username} & {message.recipient?.username} */}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+            </div>
+
             {/* <div className="profile-buttons">
             </div> */}
           </div>

@@ -768,7 +768,29 @@ justify-content: space-around;
   }
 }
 
-
+.message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  .message-body {
+    width: 30vw;
+    p {
+  text-align: right;
+    }
+    
+    .you {
+      text-align: right;
+   
+    
+    }
+    .them {
+      text-align: left;
+      
+      
+    }
+  }
+}
 
 // @media only (max-width: 500px) {
 

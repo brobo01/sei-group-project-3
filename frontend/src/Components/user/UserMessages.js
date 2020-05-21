@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { getOwnProfile } from '../../lib/api'
 import { withHeaders } from '../../lib/auth'
-import SingleMessage from './SingleMessage'
+
 
 class UserMessages extends React.Component {
   state = {
@@ -25,7 +25,8 @@ class UserMessages extends React.Component {
     const res = this.state.user.messages.filter(message => (
       message._id === messageId
     ))
-    console.log(res)
+    console.log(res[0])
+    return res[0]
   }
 
   handleSubmit = async e => {
@@ -59,15 +60,46 @@ class UserMessages extends React.Component {
     if (!user) return <p>Loading</p>
 
     return (
-      <section>
-        <h1>Your Messages</h1>
-
-        <div>
-          <p>Your conversation with: </p>
-          <p>{this.filterMessages()}</p>
+      <section className="message">
 
 
-          <br />
+
+        <h3>Conversation between
+
+          {this.filterMessages().sender._id === this.state.user._id
+            ? 'You'
+            : this.filterMessages().sender.username
+
+          }
+             and
+            {this.filterMessages().recipient._id === this.state.user._id
+            ? ' You'
+            : this.filterMessages().recipient.username
+
+          } </h3>
+
+        <div className="message-body">
+          <p className={
+
+            this.filterMessages().sender._id === this.state.user._id
+              ? 'you'
+              : 'them'
+
+          }>{this.filterMessages().text}</p>
+          {this.filterMessages().comment.map(comment => (
+            <div className={
+              comment.user === this.state.user._id
+                ? 'you'
+                : 'them'
+
+            }>
+              <p key={comment._id}>{comment.text}</p>
+
+            </div>
+
+          ))}
+
+
 
           <div>
             <form onSubmit={this.handleSubmit}>

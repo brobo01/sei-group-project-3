@@ -21,7 +21,7 @@ async function tripsCreate(req, res, next) {
     const newTrip = await Trips.create(req.body)
     res.status(201).json(newTrip)
   } catch (err) {
-
+    console.log(req.body)
     next(err)
   }
 }

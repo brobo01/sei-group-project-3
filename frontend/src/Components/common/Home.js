@@ -14,7 +14,7 @@ const Home = () => {
         <div className="header-right"></div>
       </div>      <div className="hero">
         <div className="hero-left">
-          <div className="hero-left-title">Welcome to Road Trippin</div>
+          <div className="hero-left-title">Welcome to Roadtrippers</div>
           <div className="hero-left-subtitle">Home of the Wanderer</div>
           <Link to='/trips' className="hero-left-btn">Get started</Link>
         </div>

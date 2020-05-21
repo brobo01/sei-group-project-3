@@ -34,7 +34,7 @@ class ImageUpload extends React.Component {
           </div>
           :
           <>
-            <label>Upload Image</label>
+            
             <input
               type="file"
               onChange={this.handleUpload}

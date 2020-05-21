@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import axios from 'axios'
+import { isAuthenticated, withHeaders, isOwner } from '../../lib/auth'
+
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripFormExt from './TripFormExt'
 import { getSingleTrip, editTrip } from '../../lib/api'
@@ -40,7 +43,7 @@ class TripEdit extends React.Component {
   async componentDidMount() {
     const tripId = this.props.match.params.id
     try {
-      const res = await getSingleTrip(tripId)
+      const res = await axios.get(`/api/trips/${tripId}`, withHeaders())
       const tempTrip = { ...this.state.tempTrip, ...res.data}
       this.setState({ formData: res.data , tempTrip})
       console.log(this.state.tempTrip)

@@ -6,26 +6,26 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
   console.log(finalTrip)
   return (
     <div>
-      {/* <div className="section">
-        <div className="container"> */}
+      <div className="section">
+      <div className="container">
       <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
-        alt=""
-        height="100" />
-      <div className="title">{titleText}</div>
-      <form onSubmit={handleSubmit}>
-        <div className="form">
+          alt=""
+          height="100" />
+        <div className="title">{titleText}</div>
+        <form onSubmit={handleSubmit}>
+          <div className="form">
 
-          <div className="form-item">
-            <label> Name: </label>
-            <input type="text"
-              name="name"
-              onChange={handleChange}
-              value={formData.name}
-            />
-          </div>
-          {errors.name && <small>{errors.name}</small>}
+            <div className="form-item">
+              <label> Name: </label>
+              <input type="text"
+                name="name"
+                onChange={handleChange}
+                value={formData.name}
+              />
+            </div>
+            {errors.name} && <small>{errors.name}</small>
 
-          {/* //* HANDLE MAP INPUTS -------------------------------------------------------------------
+ {/* HANDLE MAP INPUTS -------------------------------------------------------------------
 //? STARTING POINT INPUTS ----------------------------- */}
 
           <div className="form-item">
@@ -128,6 +128,7 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
               value={formData.description}
             />
           </div>
+<<<<<<< HEAD
           {errors.description && <small>{errors.description}</small>}
 
           <div className="form-item">
@@ -146,6 +147,13 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
     </div>
     // </div>
     // </div>
+=======
+        </form>
+        
+      </div>
+      </div>
+      </div>
+>>>>>>> development
   )
 }
 

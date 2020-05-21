@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
-import { stringUpdate } from '../../lib/map'
+// import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated, withHeaders } from '../../lib/auth'
 
@@ -70,6 +70,7 @@ class tripShow extends React.Component {
           <div className="hero">
             <div className="hero-image-container">
               <img
+              alt=""
                 src={trip.image}
                 className="hero-image"
                 height="400"

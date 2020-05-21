@@ -3,8 +3,10 @@ import React from 'react'
 import ImageUpload from './ImageUpload'
 // import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
+import { Link } from 'react-router-dom'
+import RTimage from '../../styles/assets/roadtrippers.png'
 import { editProfile, getOwnProfile } from '../../lib/api'
-import ProfileDetails from './ProfileDetails'
+// import ProfileDetails from './ProfileDetails'
 
 class ProfileEdit extends React.Component {
   state = {
@@ -49,12 +51,11 @@ class ProfileEdit extends React.Component {
     if (event.target.name === 'profilePhoto') {
       const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
       userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
-      console.log(userData)
+
       this.setState({ userData })
     } else {
       const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips] }
     userData.recentTrips[userData.recentTrips.length - 1] = event.target.value
-    console.log(userData)
     this.setState({ userData })
     }}
 
@@ -86,13 +87,13 @@ class ProfileEdit extends React.Component {
     if (tripPrefsEdit.includes(icon)) {
       tripPrefsEdit.splice(index, 1)
       const color = ""
-      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit }
+      const userData = { ...this.state.userData, tripPrefs: tripPrefsEdit }
       this.changeCSS(icon, color)
       this.setState({ userData })
     } else {
       tripPrefsEdit.push(icon)
       const color = "white"
-      const userData = { ... this.state.userData, tripPrefs: tripPrefsEdit }
+      const userData = { ...this.state.userData, tripPrefs: tripPrefsEdit }
       this.changeCSS(icon, color)
       this.setState({ userData })
     }
@@ -111,112 +112,43 @@ class ProfileEdit extends React.Component {
     const { username, name, garage, dreamTrips, homeBase, email, tripPrefs } = this.state.userData
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
-    
 
     return (
-  <section className="edit-profile-page">
-  <>
-<h1 className="edit-title"> Edit your profile</h1>
+      <>
+      <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <h1 className="edit-title"> Edit your profile</h1>
+          <div className="header-right"></div>
+        </div>
+      <section className="edit-profile-page">
 <form onSubmit={this.handleSubmit}> 
-<button className="finish-edit" type="submit">Finish Editting</button>
+
   <div className="top-section">
-  <div className="edit-profile-details">
-
-    {/* <ProfileDetails 
-    name="username"
-    onChange={this.handleChange}
-    value={username ? username : ""}
-    /> */}
-
-  <h3>Name</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="name"
-  name="name"
-  handleChange={this.handleChange}
-  value={name ? name : ""}
-  />
-  </div>
-
-<h3>Username</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="username"
-  name="username"
-  onChange={this.handleChange}
-  value={username ? username : ""}
-  />
-  </div>
-
-<h3>Email</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="email"
-  name="email"
-  onChange={this.handleChange}
-  value={email ? email : ""}
-  />
-  </div>
-
-<h3>Home Base</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="home base"
-  name="homeBase"
-  onChange={this.handleChange}
-  defaultValue={homeBase ? homeBase : ""}
-  />
-  </div>
-
-<h3>Garage</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="whats your ride?"
-  name="garage"
-  onChange={this.handleChange}
-  defaultValue={garage ? garage : ""}
-  />
-  </div>
-
-<h3>Dream Trips</h3>
-  <div className="input-box">
-  <input 
-  className="input"
-  // placeholder="dream trip"
-  name="dreamTrips"
-  onChange={this.handleChange}
-  defaultValue={dreamTrips ? dreamTrips : ""}
-  />
-  </div>
-  </div>
- 
-
 <div className="edit-profile-photos">
-<h3 className="edit-title">Your Profile Photos</h3>
-{this.state.userData.profilePhoto.length < 7 && 
+<h3 className="edit-title">Your Profile Photos {this.state.userData.profilePhoto.length < 7 && 
 <button
 className="add-photo"
 name="profilePhoto" 
 type="button" 
-onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}
-<div className="photos-box">
+onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}</h3>
 
+<div className="photos-box">
 <div className="edit-photos">
 {this.state.userData.profilePhoto.map(photo => 
 photo ? 
-(<span>
-<img key={photo} style={{ width: "150px", height: "84px", borderRadius: "15px"}} src={photo} alt="selected"/>
+(
+<div key={photo} style={{ width: "150px", height: "84px", margin: "5px", borderRadius: "15px",
+backgroundImage: `url(${photo})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
 <button onClick={this.handleRemoveImage} 
 name="profilePhoto" 
 value={photo} 
 type="button" 
 className="delete-photo">X</button>
-</span>)
+</div>
+
+)
 :
   (<ImageUpload 
   key={photo}
@@ -229,26 +161,27 @@ className="delete-photo">X</button>
 </div>
 
 <div className="photos-box"></div>
-<h3 className="edit-title">Your Recent Photos</h3> 
-{this.state.userData.recentTrips.length < 7 && 
+<h3 className="edit-title">Your Recent Photos {this.state.userData.recentTrips.length < 7 && 
 <button 
 className="add-photo"
 type="button" 
 name="recentTrips" 
-onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }
+onClick={this.handleAddExtraImage}>Add another Recent Photo</button> }</h3> 
+
 <div className="edit-photos">
 {this.state.userData.recentTrips.map(photo => 
 photo ? 
 (
-  <span>
-<img key={photo} style={{ width: "150px", height: "84px", borderRadius: "15px"}} src={photo} alt="selected"/>
-<button onClick={this.handleRemoveImage}
-name="recentTrips" 
-type="button" 
-value={photo} 
-className="delete-photo">X</button>
-</span>
-)
+  <div key={photo} style={{ width: "150px", height: "84px", margin: "5px", borderRadius: "15px",
+  backgroundImage: `url(${photo})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
+  <button onClick={this.handleRemoveImage} 
+  name="profilePhoto" 
+  value={photo} 
+  type="button" 
+  className="delete-photo">X</button>
+  </div>
+  
+  )
 :
   (<ImageUpload 
   key={photo}
@@ -257,9 +190,9 @@ className="delete-photo">X</button>
   />)
   )}
 </div> 
-
 </div>
   </div>
+  <hr className="line-break"></hr>
   <h3 className="edit-title">Your Riding Style</h3>
 <div className="bottom-section">
 <div className="edit-profile-icons">
@@ -267,10 +200,87 @@ className="delete-photo">X</button>
         
 </div>
 </div>
-            
+<hr className="line-break"></hr>
+<div className="edit-profile-details">
+
+{/* <ProfileDetails 
+name="username"
+onChange={this.handleChange}
+value={username ? username : ""}
+/> */}
+
+<div className="input-box">
+<h3 className="edit-titles">Name</h3>
+<input 
+className="input"
+// placeholder="name"
+name="name"
+onChange={this.handleChange}
+value={name ? name : ""}
+/>
+</div>
+
+<div className="input-box">
+<h3 className="edit-titles">Username</h3>
+<input 
+className="input"
+// placeholder="username"
+name="username"
+onChange={this.handleChange}
+value={username ? username : ""}
+/>
+</div>
+
+<div className="input-box">
+<h3 className="edit-titles">Email</h3>
+<input 
+className="input"
+// placeholder="email"
+name="email"
+onChange={this.handleChange}
+value={email ? email : ""}
+/>
+</div>
+
+<div className="input-box">
+<h3 className="edit-titles">Home Base</h3>
+<input 
+className="input"
+// placeholder="home base"
+name="homeBase"
+onChange={this.handleChange}
+defaultValue={homeBase ? homeBase : ""}
+/>
+</div>
+
+<div className="input-box">
+<h3 className="edit-titles">Garage</h3>
+<input 
+className="input"
+// placeholder="whats your ride?"
+name="garage"
+onChange={this.handleChange}
+defaultValue={garage ? garage : ""}
+/>
+</div>
+
+<div className="input-box">
+<h3 className="edit-titles">Dream Trips</h3>
+
+<input 
+className="input"
+// placeholder="dream trip"
+name="dreamTrips"
+onChange={this.handleChange}
+defaultValue={dreamTrips ? dreamTrips : ""}
+/>
+</div>
+</div>
+<button className="finish-edit" type="submit">Finish Editting</button>
           </form>
-        </>
+      
       </section>
+      </>
     )
   }
 }

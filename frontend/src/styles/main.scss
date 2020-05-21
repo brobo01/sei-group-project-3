@@ -140,6 +140,84 @@ background-size: cover;
   }
 }
 
+.profile-messages {
+  
+  margin-top: 5px;
+   background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+  padding: 20px;
+  .profile-messages-main {
+
+    max-width: 455px;
+    max-height: 110px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    text-align:justify; 
+    .link {
+    
+text-decoration: none;
+    color: rgb(250, 100, 0);
+    }
+    .link:hover{
+      text-decoration: underline;
+      color: white;
+    
+    }
+    
+  }
+}
+
+//* message page
+.message {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  h3 {
+    margin: 20px;
+    color: white;
+  }
+  .message-body {
+    width: 30vw;
+    margin: auto;
+    padding: 15px;
+    max-width: 455px;
+    max-height: 550px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    background-color: #52796f;
+    border-radius: 5px;
+    p {
+  text-align: right;
+    }
+    
+    .you {
+      text-align: right;
+   
+    
+    }
+    .them {
+      text-align: left;
+      
+      
+    }
+  }
+  
+
+textarea {
+    width: 465px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+   
+  }
+  
+ 
+  
+ 
+}
+
+
 //* Profile Page
 .cover{
   display: flex;
@@ -703,38 +781,27 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 
 //* Profile Edit Page
+.edit-title{
+  color: white;
+  padding: 10px 0 8px;
+}
 .edit-profile-page {
-  margin-left: 22px;
+  margin: 22px;
 
-  .finish-edit {
-    background-color: #31B94D;
-        color: white;
-        padding: 6px;
-        margin-bottom: 6px;
-        border-radius: 20px;
-  }
-
-  .edit-title{
-    color: white;
-    padding: 10px 0 8px;
+  .line-break {
+    margin: 12px;
   }
   
   .top-section {
   display: flex;
   justify-content: space-around;
   
-    .edit-profile-details{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
     .edit-profile-photos{
       display: flex;
-      flex-direction: column;
-      width: 50%;
+      flex-direction: row;
+      // width: 50%;
       align-items: center;
-      justify-content: space-around;
+      // justify-content: space-around;
   
       .edit-photos{
         display: flex;
@@ -746,7 +813,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
         background: #d46d5b;
         border-radius: 25px;
         border-color: #800000;
-        transform: translate(-13px)
+        transform: translate(590%, 375% )
         }
       }
       .add-photo {
@@ -779,7 +846,37 @@ Note: Beware of modifying this element as it can break the animations - you shou
       }
     }
   }
-}
+
+  .edit-profile-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // margin: 50px;
+    height: 200px;
+    // align-content: space-around;
+    
+    .input-box{
+      padding: 8px;
+        margin-bottom: 10px;
+      h3.edit-titles{
+        color: white;
+      }
+      .input{
+        padding: 10px;
+        width: 75%;
+        border-radius: 5px;
+        font-size: medium;
+      }}}
+      button.finish-edit {
+        background-color: #31B94D;
+            color: white;
+            position: relative;
+            left: 45%;
+            font-size: small;
+            padding: 15px 35px 15px 35px;
+            margin-bottom: 15px;
+            border-radius: 20px;
+      }}
 
 
 
@@ -791,7 +888,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
   height:80px;
   width:100%;
-  background-color: rgba(250, 100, 0, 0.4);
+  background-color: rgba(250, 100, 0, 0.7);
   .header-left{
     padding-left: 10px;
     // width: 70px;
@@ -804,29 +901,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
-.message {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  .message-body {
-    width: 30vw;
-    p {
-  text-align: right;
-    }
-    
-    .you {
-      text-align: right;
-   
-    
-    }
-    .them {
-      text-align: left;
-      
-      
-    }
-  }
-}
+
 
 // @media only (max-width: 500px) {
 

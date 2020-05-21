@@ -114,7 +114,7 @@ module.exports = [
     pastTravellers: ['user123', 'fakeuser12']
   }, {
     name: 'The Great Legends Tour, Canada',
-    startingPointCity: 'Ottowa',
+    startingPointCity: 'Ottawa',
     startingPointState: 'ON',
     startingPointCountry: 'CA',
     endPointCity: 'Vancouver',

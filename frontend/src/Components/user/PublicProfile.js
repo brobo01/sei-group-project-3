@@ -6,6 +6,7 @@ import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { isAuthenticated, withHeaders } from '../../lib/auth'
 
 
 
@@ -22,10 +23,10 @@ class PublicProfile extends React.Component {
       dreamTrips: null,
       recentTrips: [''],
       profilePhoto: [''],
-      bio: null,
       tripPrefs: ['']
     },
-    userTrips: []
+    userTrips: [],
+    pending: ''
   }
 
   async componentDidMount() {
@@ -49,6 +50,30 @@ class PublicProfile extends React.Component {
   //   this.setState({ userTrips })
   // }
 
+  handleChange = e => {
+    const text = e.target.value
+    console.log(text)
+    this.setState({ pending: text })
+  }
+  handleSubmit = async e => {
+    const userId = this.props.match.params.id
+    try {
+      e.preventDefault()
+      e.target.reset()
+      const res = await axios.post(`/api/users/${userId}`, { text: this.state.pending }, withHeaders())
+      this.setState((state, props) => {
+        console.log(res.data)
+        state.user.messages = { ...state.user.messages, ...res.data }
+        console.log(state.user)
+        return state
+      })
+      this.props.history.push(`/messages/${res.data._id}`)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
   handleOpenModal = () => {
     this.setState({ showModal: true })
   }
@@ -59,7 +84,7 @@ class PublicProfile extends React.Component {
 
   render() {
     // console.log(icons[0].name)
-    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     // console.log(filteredIcons)
@@ -140,8 +165,20 @@ class PublicProfile extends React.Component {
 
             </div>
             <div className="profile-buttons">
-              <button>Send Message</button>
-              <button>Follow</button>
+              {isAuthenticated() ?
+                <form onSubmit={this.handleSubmit}>
+                  <div className="add-message">
+                    <textarea
+                      placeholder="Start a new Conversation"
+                      onChange={this.handleChange}
+                      className="comment-input"
+                    />
+                    <button className="comment-btn">+</button>
+                  </div>
+                </form>
+                : <p>Please login to send a message </p>}
+
+              {/* <button>Follow</button> */}
             </div>
           </div>
           <div className="caro-div">

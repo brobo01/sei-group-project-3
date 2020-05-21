@@ -68,13 +68,13 @@ class UserMessages extends React.Component {
 
           {this.filterMessages().sender._id === this.state.user._id
             ? 'You'
-            : this.filterMessages().sender.username
+            : ` ${this.filterMessages().sender.username} `
 
           }
-             and
+             &
             {this.filterMessages().recipient._id === this.state.user._id
             ? ' You'
-            : this.filterMessages().recipient.username
+            : ` ${this.filterMessages().recipient.username}`
 
           } </h3>
 
@@ -86,8 +86,8 @@ class UserMessages extends React.Component {
               : 'them'
 
           }>{this.filterMessages().text}</p>
-          {this.filterMessages().comment.map(comment => (
-            <div className={
+          {this.filterMessages().comment?.map(comment => (
+            <div key={comment._id} className={
               comment.user === this.state.user._id
                 ? 'you'
                 : 'them'
@@ -101,20 +101,20 @@ class UserMessages extends React.Component {
 
 
 
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <textarea
-                placeholder="Leave a message..."
-                className="comment-input"
-                onChange={this.handleChange}
-              />
-              <button className="comment-btn">+</button>
-            </form>
-          </div>
+
 
         </div>
 
-
+        <div>
+          <form onSubmit={this.handleSubmit} className="submit-message">
+            <textarea
+              placeholder="Leave a message..."
+              className="comment-input"
+              onChange={this.handleChange}
+            />
+            <button className="comment-btn">+</button>
+          </form>
+        </div>
       </section>
     )
   }

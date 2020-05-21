@@ -20,7 +20,6 @@ class Profile extends React.Component {
       dreamTrips: null,
       recentTrips: [''],
       profilePhoto: [''],
-      bio: null,
       tripPrefs: ['']
     },
     userTrips: []
@@ -29,7 +28,6 @@ class Profile extends React.Component {
   async componentDidMount() {
     try {
       const res = await getOwnProfile()
-      console.log("profile state after upload", res)
       this.setState({ user: res.data })
     } catch (err) {
       console.log(err)
@@ -53,7 +51,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, bio, homeBase, tripPrefs } = this.state.user
+    const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     const modalStyle = {
       content: {
@@ -70,13 +68,13 @@ class Profile extends React.Component {
     }
     return (
       <section>
-        <div className="header">
+        {/* <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
           <div className="header-right"></div>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <Modal
             isOpen={this.state.showModal}
             contentLabel="onRequestClose Example"
@@ -97,7 +95,7 @@ class Profile extends React.Component {
 
             <button style={{ background: "red", borderRadius: "30px", color: "white" }} onClick={this.handleCloseModal}>X</button>
           </Modal>
-        </div>
+        </div> */}
 
         <div className="cover">
           <div className="cover-left">
@@ -132,10 +130,37 @@ class Profile extends React.Component {
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
-            <div className="profile-buttons">
-              <button>Send Message</button>
-              <button>Follow</button>
+
+            {/* view your own messages */}
+            <div className="profile-messages">
+
+              <p>Your current conversations:</p>
+              <hr />
+              <div className="profile-messages-main">
+                {this.state.user.messages?.map(message => (
+                  <div key={message._id}>
+                    <Link to={`/messages/${message._id}`} className="link">
+                      {message.sender._id === this.state.user._id
+                        ? 'You '
+                        : `${message.sender.username} `
+
+                      }
+             &
+            {message.recipient._id === this.state.user._id
+                        ? ' You'
+                        : ` ${message.recipient.username}`
+
+                      }
+                      {/* {message.sender?.username} & {message.recipient?.username} */}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
             </div>
+
+            {/* <div className="profile-buttons">
+            </div> */}
           </div>
           <div className="caro-div">
             <Carousel

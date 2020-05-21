@@ -24,7 +24,7 @@ class tripShow extends React.Component {
     const tripId = this.props.match.params.id
     const res = await axios.get(`/api/trips/${tripId}`)
     this.setState({ trip: res.data })
-    console.log(this.state.trip.endPointCity)
+    console.log(this.state.trip)
     // const startPoint = stringUpdate(this.state.trip.startingPoint)
     // const endPoint = stringUpdate(this.state.trip.endPoint)
     // const mapUrl = `https://open.mapquestapi.com/staticmap/v5/map?start=${startPoint}&end=${endPoint}&size=600,400@2x&key=2X2ei5QqYNRJ7InGpBh7UIRRYdKv5AsJ`
@@ -87,8 +87,8 @@ class tripShow extends React.Component {
           </div>
           <div className="ratings">
             <div className="rating-values">
-              <div className="value">Scenery: {trip.ratings ? `⭐`.repeat(trip.ratings.scenery) : ""}</div>
-              <div className="value">Enjoyment: {trip.ratings ? `⭐`.repeat(trip.ratings.enjoyment) : ""}</div>
+              <div className="value">Scenery: {trip.scenery ? `⭐`.repeat(trip.scenery) : ""}</div>
+              <div className="value">Enjoyment: {trip.enjoyment ? `⭐`.repeat(trip.enjoyment) : ""}</div>
             </div>
             <div className="icons">
               <div className="value">Trip tags</div>
@@ -110,7 +110,7 @@ class tripShow extends React.Component {
                 formData={trip}
                 search={this.state.search}
                 height={'500'}
-                width={'500'}
+                width={'400'}
               />
 
 

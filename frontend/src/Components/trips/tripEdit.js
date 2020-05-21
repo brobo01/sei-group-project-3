@@ -1,41 +1,54 @@
 import React from 'react'
 
-import TripForm from './TripForm'
+import TripFormExt from './TripFormExt'
 import { getSingleTrip, editTrip } from '../../lib/api'
 
 class TripEdit extends React.Component {
   state = {
     formData: {
       name: '',
-      startingPoint: '',
-      endPoint: '',
       image: '',
       tags: [''],
-      description: ''
+      description: '',
+      startingPointCity:'',
+      startingPointState:'',
+      startingPointCountry:'',
+      endPointCity:'',
+      endPointState:'',
+      endPointCountry:'',
+      scenery: '',
+      enjoyment: '',
+      distance:'',
+      timeOfYear:'',
+      highlights:''
+    },
+    errors: {},
+    tempTrip: {
+      startingPointCity:'',
+      startingPointState:'',
+      startingPointCountry:'',
+      endPointCity:'',
+      endPointState:'',
+      endPointCountry:'',
     }
   }
 
-  getIframe = () => {
-    const iframe = document.querySelector('iframe')
-    const inputs = iframe.contentWindow.document.body.querySelectorAll('input')
-    console.log(inputs)
-  }
-
   async componentDidMount() {
-    console.log('mounting')
     const tripId = this.props.match.params.id
     try {
       const res = await getSingleTrip(tripId)
-      console.log(res.data)
-      this.setState({ formData: res.data }, this.getIframe)
+      const tempTrip = { ...this.state.tempTrip, ...res.data}
+      this.setState({ formData: res.data , tempTrip})
+      console.log(this.state.tempTrip)
     } catch (err) {
       console.log(err)
     }
   }
 
-  handleChange = event => {
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData })
+  handleChange = e => {
+    const formData = { ...this.state.formData, [e.target.name]: e.target.value }
+    const errors = { ...this.state.errors, [e.target.name]: '' }
+    this.setState({ formData, errors })
   }
 
   handleSubmit = async event => {
@@ -49,15 +62,35 @@ class TripEdit extends React.Component {
     }
   }
 
+  handleMapChange = e => {
+    const tempTrip = { ...this.state.tempTrip, [e.target.name]: e.target.value }
+    this.setState({ tempTrip }) 
+  }
+
+  handleTripSearch = () => {
+    const finalTrip = {...this.state.tempTrip}
+    const formData = {...this.state.formData , ...finalTrip}
+    // console.log(state)
+    this.setState({ formData })
+  }
+
+
+
+
   render() {
-    console.log('rendering', this.state.formData)
     return (
       <section className="section">
         <div className="container">
-          <TripForm
-            formData={this.state.formData}
+          <TripFormExt
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            handleMapChange={this.handleMapChange}
+            handleMapSearch={this.handleMapSearch}
+            handleTripSearch={this.handleTripSearch}
+            formData={this.state.formData}
+            tempTrip={this.state.tempTrip}
+            errors={this.state.errors}
+            titleText="Create a Trip"
             buttonText="Edit my Trip"
           />
         </div>

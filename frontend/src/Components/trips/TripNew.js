@@ -22,7 +22,6 @@ class TripNew extends React.Component {
       endPointCountry:'GB'
     },
     errors: {},
-    search: true,
     tempTrip: {
       startingPointCity:'',
       startingPointState:'',
@@ -73,9 +72,6 @@ class TripNew extends React.Component {
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-
-
-
           <div className="header-right"></div>
         </div>
         <h1>create a trip and get reccomendation from other travellers</h1>
@@ -87,7 +83,6 @@ class TripNew extends React.Component {
           handleTripSearch={this.handleTripSearch}
           formData={this.state.formData}
           tempTrip={this.state.tempTrip}
-          finalTrip={this.state.finalTrip}
           errors={this.state.errors}
           buttonText="Add some more details"
           titleText="Create a Trip"

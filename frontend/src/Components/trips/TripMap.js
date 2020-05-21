@@ -1,13 +1,12 @@
 import React from 'react'
 
 
-const TripMap = ({ formData, height, width, search, handleMapSearch , finalTrip}) => {
-  // console.log(formData)
+const TripMap = ({ formData, height, width }) => {
+
   return (
     <div>
-      {/* <button onClick={handleMapSearch} >Search</button> */}
       <iframe
-        src={`https://www.mapquest.com/embed/directions/from/${formData.startingPointCountry}/${formData.       startingPointState}/${formData.startingPointCity}/to/${formData.endPointCountry}/${formData.endPointState}/${formData.endPointCity}`}
+        src={`https://www.mapquest.com/embed/directions/from/${formData.startingPointCountry}/${formData.startingPointState}/${formData.startingPointCity}/to/${formData.endPointCountry}/${formData.endPointState}/${formData.endPointCity}`}
         height={height}
         width={width}
         mapStyle="mapbox://styles/mapbox/dark-v9"

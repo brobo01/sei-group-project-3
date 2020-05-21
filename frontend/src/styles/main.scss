@@ -140,6 +140,84 @@ background-size: cover;
   }
 }
 
+.profile-messages {
+  
+  margin-top: 5px;
+   background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+  padding: 20px;
+  .profile-messages-main {
+
+    max-width: 455px;
+    max-height: 110px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    text-align:justify; 
+    .link {
+    
+text-decoration: none;
+    color: rgb(250, 100, 0);
+    }
+    .link:hover{
+      text-decoration: underline;
+      color: white;
+    
+    }
+    
+  }
+}
+
+//* message page
+.message {
+    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  h3 {
+    margin: 20px;
+    color: white;
+  }
+  .message-body {
+    width: 30vw;
+    margin: auto;
+    padding: 15px;
+    max-width: 455px;
+    max-height: 550px; 
+    overflow-x: hidden; 
+    overflow-x: auto; 
+    background-color: #52796f;
+    border-radius: 5px;
+    p {
+  text-align: right;
+    }
+    
+    .you {
+      text-align: right;
+   
+    
+    }
+    .them {
+      text-align: left;
+      
+      
+    }
+  }
+  
+
+textarea {
+    width: 465px;
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+   
+  }
+  
+ 
+  
+ 
+}
+
+
 //* Profile Page
 .cover{
   display: flex;
@@ -804,29 +882,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   }
 }
 
-.message {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  .message-body {
-    width: 30vw;
-    p {
-  text-align: right;
-    }
-    
-    .you {
-      text-align: right;
-   
-    
-    }
-    .them {
-      text-align: left;
-      
-      
-    }
-  }
-}
+
 
 // @media only (max-width: 500px) {
 

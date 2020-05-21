@@ -6,7 +6,9 @@ import { icons } from "../../styles/assets/icon-data"
 import { Link } from 'react-router-dom'
 import RTimage from '../../styles/assets/roadtrippers.png'
 import { editProfile, getOwnProfile } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 // import ProfileDetails from './ProfileDetails'
+
 
 class ProfileEdit extends React.Component {
   state = {
@@ -47,11 +49,6 @@ class ProfileEdit extends React.Component {
       console.log(err.response)
     }}
 
-    // handleSelectProfilePhoto = (event) => {
-    //   console.log(event.target.style)
-    // }
-
-
     handleAddImage = (event) => {
       if (event.target.name === 'profilePhoto') {
         const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
@@ -75,13 +72,13 @@ class ProfileEdit extends React.Component {
 
     handleRemoveImage = (e) => {
       if (e.target.name === 'profilePhoto') {
-       const photos = this.state.userData.profilePhoto.filter(photo => photo !== e.target.value)
-       const userData= { ...this.state.userData, profilePhoto: photos} 
+      const photos = this.state.userData.profilePhoto.filter(photo => photo !== e.target.value)
+      const userData= { ...this.state.userData, profilePhoto: photos} 
         this.setState({ userData })
       } else if (e.target.name === 'recentTrips'){
         const photos = this.state.userData.recentTrips.filter(photo => photo !== e.target.value)
         const userData= { ...this.state.userData, recentTrips: photos} 
-         this.setState({ userData })
+        this.setState({ userData })
       }
     }
 
@@ -119,13 +116,14 @@ class ProfileEdit extends React.Component {
     this.preloadCSS(filteredIcons)
 
     return (
-      <>
+      <section>
       <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-          <h1 className="edit-title"> Edit your profile</h1>
-          <div className="header-right"></div>
+          <h2 className="edit-title"> Edit your profile</h2>
+          <div className="header-right"> {isAuthenticated() && <Link to='/profile'><button className="edit-your-profile" type="button">Finish</button></Link> } </div>
+         
         </div>
       <section className="edit-profile-page">
 <form onSubmit={this.handleSubmit}> 
@@ -144,7 +142,7 @@ onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}</h3>
 {this.state.userData.profilePhoto.map(photo => 
 photo ? 
 (
-<div onClick={this.handleSelectProfilePhoto} key={photo} style={{ width: "150px", height: "84px", margin: "5px", borderRadius: "15px",
+<div key={photo} style={{ width: "150px", height: "84px", borderRadius: "15px", margin: "5px",
 backgroundImage: `url(${photo})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
 <button onClick={this.handleRemoveImage} 
 name="profilePhoto" 
@@ -285,7 +283,7 @@ defaultValue={dreamTrips ? dreamTrips : ""}
           </form>
       
       </section>
-      </>
+      </section>
     )
   }
 }

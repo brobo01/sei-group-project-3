@@ -23,6 +23,8 @@ class Profile extends React.Component {
       profilePhoto: [''],
       tripPrefs: ['']
     },
+    currentProfPic: null,
+    currentCoverPic: null,
     userTrips: []
   }
 
@@ -51,8 +53,21 @@ class Profile extends React.Component {
     this.setState({ showModal: false })
   }
 
+
+  // handleSelectProfilePhoto = (event) => {
+  //   const pic = event.target.value
+  //   this.setState({ ...this.state, currentProfPic: pic })
+  // }
+
+  handleSelectPhoto = (event) => {
+    const pic = event.target.value
+    const target = event.target.id
+    this.setState({ ...this.state, [target]: pic })
+  }
+
   render() {
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
+    const { currentProfPic, currentCoverPic } = this.state
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     const modalStyle = {
       content: {
@@ -67,6 +82,14 @@ class Profile extends React.Component {
         height: "55%"
       }
     }
+    const choosePicStyle = {
+        color: "whitesmoke",
+        background: "rgba(128, 128, 128, 0.5)",
+        border: "black",
+        borderRadius: "5px",
+        marginBottom: "3px"
+    }
+
     return (
       <section>
          <div className="header">
@@ -74,7 +97,6 @@ class Profile extends React.Component {
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
           <div className="header-right">
-
           {isAuthenticated() && <Link to='/profile/edit'><button className="edit-your-profile" type="button">Edit Profile</button></Link> } 
           </div>
         </div>
@@ -93,20 +115,20 @@ class Profile extends React.Component {
               dynamicHeight={true}
             >
 
-              {profilePhoto.map(photo => <div key={photo} className="carousel-item">
+              {profilePhoto.map(photo =>
+              <div id={photo} key={photo} className="carousel-item">
+              {isAuthenticated() && <button style={choosePicStyle} className="choose-pic" onClick={this.handleSelectPhoto} id="currentProfPic" value={photo}>make profile pic</button>}
                 <img src={photo} alt="" className="carousel-image" />
               </div>)}
             </Carousel>
 
-            <button style={{ background: "red", borderRadius: "30px", color: "white" }} onClick={this.handleCloseModal}>X</button>
           </Modal>
         </div> 
-
         <div className="cover">
           <div className="cover-left">
             <div className="cover-left-image">
               <div onClick={this.handleOpenModal} style={{ height: "200px", width: "300px" }}>
-                <img className="display-image" src={profilePhoto[0]}
+                <img className="display-image" src={currentProfPic ? currentProfPic : profilePhoto[0]}
                   alt=""
                   height="200px" />
               </div>
@@ -115,7 +137,7 @@ class Profile extends React.Component {
             <div className="cover-left-subtitle">{name}</div>
           </div>
           <div className="cover-right">
-            <img src={recentTrips[0]}
+            <img src={currentCoverPic ? currentCoverPic : recentTrips[0]}
               className="image"
               alt=""
               height="700" />
@@ -175,6 +197,7 @@ class Profile extends React.Component {
 
               {recentTrips.map(trip =>
                 <div key={trip} className="carousel-item">
+                   {isAuthenticated() && <button style={choosePicStyle} onClick={this.handleSelectPhoto} id="currentCoverPic" value={trip}>make cover pic</button>}
                   <img src={trip}
                     alt=""
                     className="carousel-image" />

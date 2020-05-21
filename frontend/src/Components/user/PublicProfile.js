@@ -61,7 +61,7 @@ class PublicProfile extends React.Component {
     try {
       e.preventDefault()
       e.target.reset()
-      const res = await axios.post(`/api/users/${userId}`, { text: this.state.pending }, withHeaders())
+      const res = await axios.get(`/api/users/${userId}/conversation`, withHeaders())
       this.setState((state, props) => {
         console.log(res.data)
         state.user.messages = { ...state.user.messages, ...res.data }
@@ -172,19 +172,19 @@ class PublicProfile extends React.Component {
 
 
             </div>
-            <div className="profile-buttons">
+            <div className="profile-message">
               {isAuthenticated() ?
                 <form onSubmit={this.handleSubmit}>
                   <div className="add-message">
-                    <textarea
+                    {/* <textarea
                       placeholder="Start a new Conversation"
                       onChange={this.handleChange}
                       className="comment-input"
-                    />
-                    <button className="comment-btn">+</button>
+                    /> */}
+                    <button className="message-btn">Start a Conversation</button>
                   </div>
                 </form>
-                : <p>Please login to send a message </p>}
+                : <p>Please login to start a conversation</p>}
 
               {/* <button>Follow</button> */}
             </div>

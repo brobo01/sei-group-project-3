@@ -2,8 +2,7 @@ import React from 'react'
 import TripMap from './TripMap'
 
 
-const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch, finalTrip }) => {
-  console.log(finalTrip)
+const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch }) => {
   return (
     <div>
       <div className="section">
@@ -93,7 +92,6 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
           {errors.endPointCountry && <small>{errors.endPointCountry}</small>}
 
           <TripMap
-            finalTrip={finalTrip}
             formData={formData}
             errors={errors}
             handleMapChange={handleMapChange}

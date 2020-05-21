@@ -1,15 +1,26 @@
 import React from 'react'
 import Select from 'react-select'
+import TripForm from './TripForm'
 
 
 
-const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, tags, buttonText, titleText, errors }) => {
+const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapChange, handleMapSearch , handleTripSearch , formData, tempTrip, buttonText, titleText, errors }) => {
   return (
     <div className="section">
       <div className="container">
-        <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png" 
-        alt= ""
-        height="100" />
+        <TripForm
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          handleMapChange={handleMapChange}
+          handleMapSearch={handleMapSearch}
+          handleTripSearch={handleTripSearch}
+          formData={formData}
+          tempTrip={tempTrip}
+          errors={errors}
+          buttonText="Add some more details"
+          titleText="Create a Trip"
+        />
+
         <div className="title">{titleText}</div>
         <form onSubmit={handleSubmit}>
           <div className="form">
@@ -20,24 +31,6 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
                 name="name"
                 onChange={handleChange}
                 value={formData.name}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> Starting Point: </label>
-              <input type="text"
-                name="startingPoint"
-                onChange={handleChange}
-                value={formData.startingPoint}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> End Point: </label>
-              <input type="text"
-                name="endPoint"
-                onChange={handleChange}
-                value={formData.endPoint}
               />
             </div>
 
@@ -80,7 +73,8 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
 
             <div className="form-item">
               <label> Highlights: </label>
-              <input type="text"
+              <input
+                type="text"
                 name="highlights"
                 onChange={handleChange}
                 value={formData.highlights}
@@ -90,7 +84,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
             <div className="form-item">
               <label> Time of year: </label>
               <input type="text"
-                name="time-of-year"
+                name="timeOfYear"
                 onChange={handleChange}
                 value={formData.timeOfYear}
               />
@@ -110,7 +104,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
               <input type="number"
                 name="scenery"
                 onChange={handleChange}
-                value={formData.ratings?.scenery}
+                value={formData.scenery}
               />
             </div>
 
@@ -119,7 +113,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, formData, 
               <input type="number"
                 name="enjoyment"
                 onChange={handleChange}
-                value={formData.ratings?.enjoyment}
+                value={formData.enjoyment}
               />
             </div>
 

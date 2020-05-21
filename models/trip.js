@@ -21,10 +21,8 @@ const tripSchema = new mongoose.Schema({
   routeImage: { type: String },
   image: { type: String },
   tags: [{ type: String, required: [true, 'field required'] }],
-  ratings: {
-    scenery: { type: Number },
-    enjoyment: { type: Number }
-  },
+  scenery: { type: Number },
+  enjoyment: { type: Number },
   photoGallery: [{ type: String }],
   videos: [{ type: String }],
   description: { type: String, required: [true, 'field required'] },

@@ -19,10 +19,8 @@ module.exports = [
       'fast',
       'offroad'
     ],
-    ratings: {
-      scenery: 5,
-      enjoyment: 5
-    },
+    scenery: 5,
+    enjoyment: 5,
     photoGallery: [],
     videos: [],
     description: 'Ruta 40 is the longest road in Argentina. In fact it’s one of the longest roads anywhere and the busiest in South America. It winds from Cabo Vírgenes (Santa Cruz) up to Quiaca (Jujuy) on the border with Bolivia. It takes in some stunning scenery along the route because this legendary road runs parallel to the Andes with sections passing by – or straight through – some 20 national parks. Connecting the country from south to north, on  Ruta 40 there are some major attractions  such as the Strait of Magellan, Perito Moreno Glacier, Lakes Region, the Wine Trail and Talampaya National Park',
@@ -48,10 +46,8 @@ module.exports = [
       'fast',
       'hotel'
     ],
-    ratings: {
-      scenery: 5,
-      enjoyment: 5
-    },
+    scenery: 5,
+    enjoyment: 5,
     photoGallery: [],
     videos: [],
     description: 'The romance of Route 66 continues to captivate people around the world. Running between Chicago and Los Angeles, “over two thousand miles all the way” in the words of the popular R&B anthem, this legendary old road passes through the heart of the United States on a diagonal trip that takes in some of the country’s most archetypal roadside scenes. If you’re looking for great displays of neon signs, rusty middle-of-nowhere truck stops, or kitschy Americana, do as the song says and “get your kicks on Route 66.”',
@@ -76,10 +72,8 @@ module.exports = [
       'solo',
       'panoramic view'
     ],
-    ratings: {
-      scenery: 5,
-      enjoyment: 5
-    },
+    scenery: 5,
+    enjoyment: 5,
     photoGallery: [],
     videos: [],
     description: 'Weaving a course between coast and highlands, The Classic route is equal parts beach and mountain. Quiet, stunning coastal roads in the south and central provinces yield to a mighty landscape of limestone karsts on the Ho Chi Minh Road in the north-central region. Popular towns and sights, such as Mui Ne, Dalat, Nha Trang, Hoi An, the Hai Van Pass, Phong Nha Caves and Ninh Binh are all covered; but so too are off the beaten path areas, such as the beaches around Quy Nhon, the coastal back-roads north of Hue, and the Western Ho Chi Minh Road. It’s the perfect balance of must-see sights and hidden gems. Zoom in on the map below and click the map symbols for links to my guides to specific locations.',
@@ -103,10 +97,8 @@ module.exports = [
       'architecture',
       'flat road'
     ],
-    ratings: {
-      scenery: 5,
-      enjoyment: 5
-    },
+    scenery: 5,
+    enjoyment: 5,
     photoGallery: [],
     videos: [],
     description: 'The drive to Le Mans has become something of a pilgrimage for British petrolheads, with thousands making the trip from the UK to northern France to soak up the thrills, spills and atmosphere of the world\'s most famous 24-hour race.',
@@ -129,10 +121,8 @@ module.exports = [
       'canyon',
       'camping'
     ],
-    ratings: {
-      scenery: 5,
-      enjoyment: 5
-    },
+    scenery: 5,
+    enjoyment: 5,
     photoGallery: [],
     videos: [],
     description: 'Once in a while you just need to ride. You need to answer the calling…to clear your head, feel small again, and regain appreciation for your life on your terms. When the Great Legends of the North call, you answer that call with a growl of the throttle. Distances are great but so is the peaceful solitude. The road, seemingly endless road, touches the sky. You will find solace and compassion from the mythical giant legends: the Great Polar Bear, the Great Bison and the Great Fish, as you meander along your chosen motorcycle journey in search of mythical beings',

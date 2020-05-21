@@ -34,7 +34,9 @@ router.route('/users')
 //* friends profiles
 router.route('/users/:userId')
   .get(user.userProfile)
-  .post(secureRoute, user.messageCreate)
+
+router.route('/users/:userId/conversation')
+  .get(secureRoute, user.messageCreate)
 
 // * comment on comment 
 

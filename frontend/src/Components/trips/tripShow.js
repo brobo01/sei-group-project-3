@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
 import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
-import { isAuthenticated } from '../../lib/auth'
+import { isAuthenticated, withHeaders } from '../../lib/auth'
 
 //* no longer using SVG, it defeated me. Now have a much simple lib of icons. enjoy.
 // import SVG from 'react-inlinesvg'
@@ -41,7 +41,7 @@ class tripShow extends React.Component {
     try {
       e.preventDefault()
       e.target.reset()
-      const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec })
+      const res = await axios.post(`/api/trips/${tripId}/comments`, { text: this.state.pendingRec }, withHeaders())
       this.setState((state, props) => {
         state.trip.recommendations = res.data.recommendations
         return state
@@ -100,7 +100,7 @@ class tripShow extends React.Component {
           </div>
           <div className="body">
             <div className="body-left">
-              <h1>{trip.user?.username}</h1><br></br>
+              <Link to={`/users/${trip.user._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
               <p>{trip.description}</p><br></br>
               <p>Time of year: {trip.timeOfYear}</p><br></br>
               <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>
@@ -148,7 +148,7 @@ class tripShow extends React.Component {
               {this.state.trip.recommendations?.map(obj => (
                 <div key={obj._id} className="comment">
                   <div className="comment-head">
-                    <Link to={`/users/${obj._id}`}>{obj.user?.username}</Link>
+                    <Link to={`/users/${obj.user._id}`}>{obj.user?.username}</Link>
                   </div>
                   <p className="comment-text">{obj.text}</p>
                 </div>
@@ -165,7 +165,7 @@ class tripShow extends React.Component {
                     <button className="comment-btn">+</button>
                   </div>
                 </form>
-                : <p>Login to add your recommendation </p>}
+                : <p>Please login to add your recommendation </p>}
             </div>
           </div>
         </section>

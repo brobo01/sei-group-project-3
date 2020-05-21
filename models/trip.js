@@ -11,12 +11,14 @@ const recommendationSchema = new mongoose.Schema({
 
 const tripSchema = new mongoose.Schema({
   name: { type: String, required: [true, 'field required'], unique: true, maxlength: 100 },
-  startingPointCity: { type: String, required: [true, 'field required'] },
-  startingPointState: { type: String },
-  startingPointCountry: { type: String, required: [true, 'field required'] },
-  endPointState: { type: String },
-  endPointCity: { type: String, required: [true, 'field required'] },
-  endPointCountry: { type: String, required: [true, 'field required'] },
+  finalTrip: {
+    startingPointCity: { type: String, required: [true, 'field required'] },
+    startingPointState: { type: String },
+    startingPointCountry: { type: String, required: [true, 'field required'] },
+    endPointState: { type: String },
+    endPointCity: { type: String, required: [true, 'field required'] },
+    endPointCountry: { type: String, required: [true, 'field required'] }
+  },
   distance: { type: String },
   routeImage: { type: String },
   image: { type: String },
@@ -39,9 +41,10 @@ const tripSchema = new mongoose.Schema({
 
 tripSchema
   .pre('validate', function (next) {
-    if (this.startingPointCity.toUpperCase() === this.endPointCity.toUpperCase()) {
-      this.invalidate('End Point must be different from Start Point')
-    }
+    console.log('hello')
+    // if (this.finalTrip.startingPointCity.toUpperCase() === this.finalTrip.endPointCity.toUpperCase()) {
+    //   this.invalidate('End Point must be different from Start Point')
+    // }
     next()
   })
 

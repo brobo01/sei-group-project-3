@@ -4,10 +4,7 @@ const { notFound } = require('../lib/errorMessages')
 async function userProfile(req, res, next) {
   const userId = req.params.userId
   try {
-    const user = await User.findById(userId).populate('user').populate('userName').populate('message.user').lean()
-    const messages = await Message.find({ $or: [{ recipient: userId }, { sender: userId }] }).populate('sender').populate('recipient').lean()
-    user.messages = messages
-    console.log('yo ' + messages)
+    const user = await User.findById(userId)
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {
@@ -27,7 +24,7 @@ async function userIndex(req, res, next) {
 
 async function indivProfile(req, res, next) {
   try {
-    const user = await User.findById(req.currentUser._id).populate('user').populate('userName').populate('message.user').lean()
+    const user = await User.findById(req.currentUser._id).populate('user').populate('userName').populate('message.user').populate('comment.user').lean()
     const messages = await Message.find({ $or: [{ recipient: req.currentUser._id }, { sender: req.currentUser._id }] }).populate('sender').populate('recipient').lean()
     user.messages = messages
     if (!user) throw new Error(notFound)
@@ -64,6 +61,33 @@ async function messageCreate(req, res, next) {
   }
 }
 
+async function getMessage(req, res, next) {
+  const messageId = req.params.messageId
+
+  try {
+    const trip = await Message.findById(messageId)
+    if (!trip) throw new Error()
+    res.status(200).json(trip)
+
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function commentCreate(req, res, next) {
+  try {
+    req.body.user = req.currentUser
+    const messageId = req.params.messageId
+    const message = await Message.findById(messageId)
+    if (!message) throw new Error(notFound)
+    message.comment.push(req.body)
+    await message.save()
+    res.status(201).json(message)
+  } catch (err) {
+    next(err)
+  }
+}
+
 // async function messageDelete(req, res, next) {
 //   try {
 //     const tripId = req.params.id
@@ -88,7 +112,9 @@ module.exports = {
   userIndex: userIndex,
   showProfile: indivProfile,
   editProfile: indivProfileEdit,
-  messageCreate: messageCreate
+  messageCreate: messageCreate,
+  commentCreate: commentCreate,
+  getMessage: getMessage
   // messageDelete: messageDelete
 
 }

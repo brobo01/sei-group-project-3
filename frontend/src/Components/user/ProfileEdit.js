@@ -111,6 +111,7 @@ class ProfileEdit extends React.Component {
     const { username, name, garage, dreamTrips, homeBase, email, tripPrefs } = this.state.userData
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     this.preloadCSS(filteredIcons)
+    
 
     return (
   <section className="edit-profile-page">

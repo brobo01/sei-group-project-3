@@ -21,6 +21,8 @@ router.route('/trips/:id/comments')
   // .post(trips.commentCreate)
   .post(secureRoute, trips.commentCreate)
 
+
+
 router.route('/trips/:id/comments/:commentId')
   .delete(trips.commentDelete)
 //   .delete(secureRoute, trips.commentDelete)
@@ -34,7 +36,11 @@ router.route('/users/:userId')
   .get(user.userProfile)
   .post(secureRoute, user.messageCreate)
 
+// * comment on comment 
 
+router.route('/users/:userId/:messageId')
+  .post(secureRoute, user.commentCreate)
+  .get(user.getMessage)
 
 //* indiv user profile
 router.route('/profile')

@@ -2,7 +2,7 @@ import React from 'react'
 import TripMap from './TripMap'
 
 
-const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , filteredIcons , addToTags}) => {
+const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , addToTags}) => {
   return (
     <div>
       <div className="trip-section">
@@ -202,7 +202,11 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
 
         </div>
       </form>
-          <button type='submit' className="submit-btn">{buttonText}</button>
+          <button
+          type='submit'
+          onClick={handleSubmit}
+          className="submit-btn">
+            {buttonText}</button>
     </div>
     </div>
     </div>

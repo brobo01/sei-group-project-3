@@ -14,14 +14,19 @@ class TripNew extends React.Component {
     formData: {
       name: '',
       image: '',
-      tags: [''],
+      tags: [],
       description: '',
-      startingPointCity:'London',
+      startingPointCity:'',
       startingPointState:'',
-      startingPointCountry:'GB',
-      endPointCity:'London',
+      startingPointCountry:'',
+      endPointCity:'',
       endPointState:'',
-      endPointCountry:'GB'
+      endPointCountry:'',
+      scenery: '',
+      enjoyment: '',
+      distance:'',
+      timeOfYear:'',
+      highlights:''
     },
     errors: {},
     tempTrip: {
@@ -44,6 +49,7 @@ class TripNew extends React.Component {
     e.preventDefault()
     try {
       const res = await axios.post('/api/trips', this.state.formData, withHeaders())
+      console.log(res)
 
       this.props.history.push(`/trips/${res.data._id}`)
     } catch (err) {

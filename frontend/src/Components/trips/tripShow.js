@@ -101,7 +101,7 @@ class tripShow extends React.Component {
               <Link to={`/users/${trip.user?._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
               <p>{trip.description}</p><br></br>
               <p>Time of year: {trip.timeOfYear}</p><br></br>
-              {isOwner(trip.user._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
+              {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
             </div>
             <div className="body-right">
               <TripMap

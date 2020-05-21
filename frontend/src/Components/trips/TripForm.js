@@ -2,15 +2,16 @@ import React from 'react'
 import TripMap from './TripMap'
 
 
-const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors , search , _updateViewport , handleMapSearch }) => {
+const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors , search , _updateViewport , handleMapChange , handleMapSearch , tempTrip , handleTripSearch , finalTrip }) => {
+  console.log(finalTrip)
   return (
     <div>
-    // <div className="section">
-    //   <div className="container">
-        {/* <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
+      {/* <div className="section">
+        <div className="container"> */}
+        <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
           alt=""
-          height="100" /> */}
-        {/* <div className="title">{titleText}</div>
+          height="100" />
+        <div className="title">{titleText}</div>
         <form onSubmit={handleSubmit}>
           <div className="form">
 
@@ -24,55 +25,89 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             </div>
             {errors.name && <small>{errors.name}</small>}
 
+{/* //* HANDLE MAP INPUTS -------------------------------------------------------------------
+//? STARTING POINT INPUTS ----------------------------- */}
+
             <div className="form-item">
               <label> Starting Point City: </label>
               <input type="text"
                 name="startingPointCity"
-                onChange={handleChange}
-                value={formData.startingPointCity}
+                onChange={handleMapChange}
+                value={tempTrip.startingPointCity}
               />
             </div>
-            {errors.startingPoint && <small>{errors.startingPoint}</small>}
+            {errors.startingPointCity && <small>{errors.startingPointCity}</small>}
+
+            <div className="form-item">
+              <label> Starting Point State: </label>
+              <input type="text"
+                name="startingPointState"
+                onChange={handleMapChange}
+                value={tempTrip.startingPointState}
+              />
+            </div>
+            {errors.startingPointState && <small>{errors.startingPoinState}</small>}
+            
             <div className="form-item">
               <label> Starting Point Country: </label>
               <input type="text"
                 name="startingPointCountry"
-                onChange={handleChange}
-                value={formData.startingPointCountry}
+                onChange={handleMapChange}
+                value={tempTrip.startingPointCountry}
               />
             </div>
-            {errors.startingPoint && <small>{errors.startingPoint}</small>}
+            {errors.startingPointCountry && <small>{errors.startingPointCountry}</small>}
+
+
+
+{/* //? ENDING POINT INPUTS ----------------------------- */}
 
             <div className="form-item">
               <label> End Point City: </label>
               <input type="text"
                 name="endPointCity"
-                onChange={handleChange}
-                value={formData.endPointCity}
+                onChange={handleMapChange}
+                value={tempTrip.endPointCity}
+              />
+                          </div>
+
+            {errors.endPointCity && <small>{errors.endPointCity}</small>}
+
+            <div className="form-item">
+              <label> End Point State: </label>
+              <input type="text"
+                name="endPointState"
+                onChange={handleMapChange}
+                value={tempTrip.endPointState}
               />
             </div>
-            {errors.endPoint && <small>{errors.endPoint}</small>}
+            {errors.endPointState && <small>{errors.endPointState}</small>}
+
             <div className="form-item">
               <label> End Point Country: </label>
               <input type="text"
                 name="endPointCountry"
-                onChange={handleChange}
-                value={formData.endPointCountry}
+                onChange={handleMapChange}
+                value={tempTrip.endPointCountry}
               />
             </div>
-            {errors.endPoint && <small>{errors.endPoint}</small>} */}
+            {errors.endPointCountry && <small>{errors.endPointCountry}</small>}
 
           <TripMap
+            finalTrip={finalTrip}
             formData={formData}
             errors={errors}
+            handleMapChange={handleMapChange}
             handleMapSearch={handleMapSearch}
             search={search}
-            height={'1000'}
-            width={'1000'}
+            height={'500'}
+            width={'500'}
           />
 
+          <button onClick={handleTripSearch}>Search for your trip</button>
 
-{/* 
+{/* //* END OF MAP INPUTS ------------------------------------------------------------------- */}
+
 
 
             <div className="form-item">
@@ -107,10 +142,10 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
 
             <button type='submit' className="submit-btn">{buttonText}</button>
           </div>
-        </form> */}
+        </form>
       </div>
-    </div>
-    </div>
+    // </div>
+    // </div>
   )
 }
 

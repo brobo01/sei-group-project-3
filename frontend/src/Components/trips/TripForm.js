@@ -3,23 +3,15 @@ import TripMap from './TripMap'
 
 
 const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors , search , _updateViewport , handleMapChange , handleMapSearch , tempTrip , handleTripSearch , finalTrip }) => {
-  console.log(finalTrip)
   return (
     <div>
-<<<<<<< HEAD
-      <div className="section">
-      <div className="container">
-        {/* <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
-=======
       {/* <div className="section">
-        <div className="container"> */}
+      <div className="container"> */}
         <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
->>>>>>> development
           alt=""
           height="100" />
         <div className="title">{titleText}</div>
-        <form onSubmit={handleSubmit}>
-          <div className="form">
+
 
             <div className="form-item">
               <label> Name: </label>
@@ -31,7 +23,7 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             </div>
             {errors.name && <small>{errors.name}</small>}
 
-{/* //* HANDLE MAP INPUTS -------------------------------------------------------------------
+//* HANDLE MAP INPUTS -------------------------------------------------------------------
 //? STARTING POINT INPUTS ----------------------------- */}
 
             <div className="form-item">
@@ -114,7 +106,8 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
 
 {/* //* END OF MAP INPUTS ------------------------------------------------------------------- */}
 
-
+<form onSubmit={handleSubmit}>
+          <div className="form">
 
             <div className="form-item">
               <label> Tags: </label>

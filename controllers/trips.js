@@ -17,7 +17,7 @@ async function tripsIndex(req, res, next) {
 async function tripsCreate(req, res, next) {
 
   try {
-    //req.body.user = req.currentUser 
+    req.body.user = req.currentUser
     const newTrip = await Trips.create(req.body)
     res.status(201).json(newTrip)
   } catch (err) {

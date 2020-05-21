@@ -128,174 +128,267 @@ module.exports = [
     description: 'Once in a while you just need to ride. You need to answer the calling…to clear your head, feel small again, and regain appreciation for your life on your terms. When the Great Legends of the North call, you answer that call with a growl of the throttle. Distances are great but so is the peaceful solitude. The road, seemingly endless road, touches the sky. You will find solace and compassion from the mythical giant legends: the Great Polar Bear, the Great Bison and the Great Fish, as you meander along your chosen motorcycle journey in search of mythical beings',
     highlights: ['Cochrane Polar Bear Habitat', 'Cedar Meadows’ Bison & Elk', 'Sudbury\'s Big Nickel'],
     pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Amalfi Coast',
+    startingPointCity: 'Naples',
+    startingPointState: '',
+    startingPointCountry: 'IT',
+    endPointCity: 'Salerno',
+    endPointState: '',
+    endPointCountry: 'IT',
+    distance: '',
+    routeImage: '',
+    image: 'https://quokka.travel/wp-content/uploads/2017/03/amalfi-coast-road-trip-itinerary-views.jpg',
+    tags: [
+      'sea',
+      'gastronomy',
+      'motorbike',
+      'panoramic view'
+    ],
+    scenery: 5,
+    enjoyment: 4,
+    photoGallery: [],
+    videos: [],
+    description: 'Stunning views of the Italian coast line, along with delicious food',
+    highlights: ['beautiful views'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'New England Road Trip',
+    startingPointCity: 'Boston',
+    startingPointState: 'MA',
+    startingPointCountry: 'US',
+    endPointCity: 'Portland',
+    endPointState: 'ME',
+    endPointCountry: 'US',
+    distance: '',
+    routeImage: '',
+    image: 'https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/09/fall-road-trips-vermont-foliage-tour.jpg',
+    tags: [
+      'nature',
+      'gastronomy',
+      'history'
+
+    ],
+    scenery: 4,
+    enjoyment: 4,
+    photoGallery: [],
+    videos: [],
+    description: 'One of the prettiest parts of the US, a must visit',
+    highlights: ['Autumn leaves', 'friendly locals'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Canadian Maritimes',
+    startingPointCity: 'Halifax',
+    startingPointState: 'NS',
+    startingPointCountry: 'CA',
+    endPointCity: 'Charlottetown',
+    endPointState: 'PEI',
+    endPointCountry: 'CA',
+    distance: '',
+    routeImage: '',
+    image: 'https://www.authentikcanada.com/uploads/images/orig/blog/charlottetown-pei.jpg',
+    tags: [
+      'rural',
+      'sea',
+      'forest'
+
+    ],
+    scenery: 4,
+    enjoyment: 5,
+    photoGallery: [],
+    videos: [],
+    description: 'Full of rich history and fanatastic coastlines',
+    highlights: ['Green Gables'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Alaskan Getaway',
+    startingPointCity: 'Anchorage',
+    startingPointState: 'AK',
+    startingPointCountry: 'US',
+    endPointCity: 'Homer',
+    endPointState: 'AK',
+    endPointCountry: 'US',
+    distance: '',
+    routeImage: '',
+    image: 'https://www.followmeaway.com/wp-content/uploads/2019/03/Alaska-road-trip-denali-road.jpg',
+    tags: [
+      'rural',
+      'mountains',
+      'camping'
+
+    ],
+    scenery: 4,
+    enjoyment: 3,
+    photoGallery: [],
+    videos: [],
+    description: 'It is a trip that really places you right in the middle of nowhere',
+    highlights: ['Alaskan Wildlife Conservation Center'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'New South Wales Tour',
+    startingPointCity: 'Sydney',
+    startingPointState: 'NSW',
+    startingPointCountry: 'AU',
+    endPointCity: 'Wagga Wagga',
+    endPointState: 'NWS',
+    endPointCountry: 'AU',
+    distance: '',
+    routeImage: '',
+    image: 'https://www.visitnsw.com/sites/visitnsw/files/styles/landscape_1400x788/public/2020-04/154677.webp?itok=DDFmxBal',
+    tags: [
+      'rural',
+      'gastronomy',
+      'sea'
+
+    ],
+    scenery: 3,
+    enjoyment: 3,
+    photoGallery: [],
+    videos: [],
+    description: 'Stop at the beaches and cute eateries along the way',
+    highlights: ['chatting with the locals at the pub'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Epic Australian Road Tour',
+    startingPointCity: 'Perth',
+    startingPointState: 'WA',
+    startingPointCountry: 'AU',
+    endPointCity: 'Melbourne',
+    endPointState: 'VIC',
+    endPointCountry: 'AU',
+    distance: '',
+    routeImage: '',
+    image: 'https://www.travellers-autobarn.com.au/wp-content/uploads/2017/08/pink-lake.jpg',
+    tags: [
+      'vineyard',
+      'rural',
+      'sea'
+
+    ],
+    scenery: 4,
+    enjoyment: 5,
+    photoGallery: [],
+    videos: [],
+    description: 'This trip takes you across almost the entire coastline of Australia',
+    highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Swiss Adventure',
+    startingPointCity: 'Geneva',
+    startingPointState: '',
+    startingPointCountry: 'CH',
+    endPointCity: 'Zermatt',
+    endPointState: '',
+    endPointCountry: 'CH',
+    distance: '',
+    routeImage: '',
+    image: 'https://cdn.justluxe.com/articles/images/news/shutterstock_254090041.jpg?comp=2',
+    tags: [
+      'mountains',
+      'rural',
+      'fast'
+
+    ],
+    scenery: 4,
+    enjoyment: 5,
+    photoGallery: [],
+    videos: [],
+    description: 'Take your time exploring the towns and cities in between the locations',
+    highlights: ['Adelboden', 'Interlaken', 'the old town of Brig'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Canadian Rockies',
+    startingPointCity: 'Calgary',
+    startingPointState: 'AB',
+    startingPointCountry: 'CA',
+    endPointCity: 'Jasper',
+    endPointState: 'AB',
+    endPointCountry: 'CA',
+    distance: '',
+    routeImage: '',
+    image: 'https://hikebiketravel.com/wp-content/uploads/2013/04/Columbia-Icefields-22.jpg',
+    tags: [
+      'mountains',
+      'nature',
+      'forest',
+      'panoramic view'
+
+    ],
+    scenery: 5,
+    enjoyment: 5,
+    photoGallery: [],
+    videos: [],
+    description: 'Seeing the best of Alberta',
+    highlights: ['Banff', 'Lake Louise', 'seeing the wildlife'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'Texas and New Mexico',
+    startingPointCity: 'Huston',
+    startingPointState: 'TX',
+    startingPointCountry: 'US',
+    endPointCity: 'AlAlbuquerque',
+    endPointState: 'NM',
+    endPointCountry: 'US',
+    distance: '',
+    routeImage: '',
+    image: 'https://thumbnails.texastribune.org/L_Ve3S6YozJ2lZisfmLduOBUYrQ=/1550x1038/smart/filters:format(webp):quality(75)/https://static.texastribune.org/media/images/TexasStatePark-2.jpg',
+    tags: [
+      'rural',
+      'canyon',
+      'off road'
+
+
+    ],
+    scenery: 4,
+    enjoyment: 4,
+    photoGallery: [],
+    videos: [],
+    description: 'There are infinite things to see in Texas, so make sure you check out everything ',
+    highlights: ['Texas BBQ'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'TN to CO',
+    startingPointCity: 'Nashville',
+    startingPointState: 'TN',
+    startingPointCountry: 'US',
+    endPointCity: 'Denver',
+    endPointState: 'CO',
+    endPointCountry: 'US',
+    distance: '',
+    routeImage: '',
+    image: 'https://cdn.theatlantic.com/thumbor/K4RCxEnDFfx_S98r2QFxJNC7618=/1440x810/media/img/mt/2020/03/shutterstock_1310132350/original.jpg',
+    tags: [
+      'moutains',
+      'fast'
+    ],
+    scenery: 4,
+    enjoyment: 4,
+    photoGallery: [],
+    videos: [],
+    description: 'Two sets of mountains and farm-filled prairie land',
+    highlights: ['Dodge City'],
+    pastTravellers: ['user123', 'fakeuser12']
+  }, {
+    name: 'TN to CO',
+    startingPointCity: 'Nashville',
+    startingPointState: 'TN',
+    startingPointCountry: 'US',
+    endPointCity: 'Denver',
+    endPointState: 'CO',
+    endPointCountry: 'US',
+    distance: '',
+    routeImage: '',
+    image: 'https://cdn.theatlantic.com/thumbor/K4RCxEnDFfx_S98r2QFxJNC7618=/1440x810/media/img/mt/2020/03/shutterstock_1310132350/original.jpg',
+    tags: [
+      'moutains',
+      'fast'
+    ],
+    scenery: 4,
+    enjoyment: 4,
+    photoGallery: [],
+    videos: [],
+    description: 'Two sets of mountains and farm-filled prairie land',
+    highlights: ['Dodge City'],
+    pastTravellers: ['user123', 'fakeuser12']
   }
-  //  , {
-  //   name: 'Amalfi Coast',
-  //   startingPointCity: 'Naples',
-  //   startingPointState: '',
-  //   startingPointCountry: 'IT',
-  //   endPointCity: 'Salerno',
-  //   endPointState: '',
-  //   endPointCountry: 'IT',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://quokka.travel/wp-content/uploads/2017/03/amalfi-coast-road-trip-itinerary-views.jpg',
-  //   tags: [
-  //     'sea',
-  //     'gastronomy',
-  //     'motorbike',
-  //     'panoramic view'
-  //   ],
-  //   scenery: 5,
-  //   enjoyment: 4,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'Stunning views of the Italian coast line, along with delicious food',
-  //   highlights: ['beautiful views'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'New England Road Trip',
-  //   startingPointCity: 'Boston',
-  //   startingPointState: 'MA',
-  //   startingPointCountry: 'US',
-  //   endPointCity: 'Portland',
-  //   endPointState: 'ME',
-  //   endPointCountry: 'US',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/09/fall-road-trips-vermont-foliage-tour.jpg',
-  //   tags: [
-  //     'nature',
-  //     'gastronomy',
-  //     'history'
-
-  //   ],
-  //   scenery: 4,
-  //   enjoyment: 4,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'One of the prettiest parts of the US, a must visit',
-  //   highlights: ['Autumn leaves', 'friendly locals'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'Canadian Maritimes',
-  //   startingPointCity: 'Halifax',
-  //   startingPointState: 'NS',
-  //   startingPointCountry: 'CA',
-  //   endPointCity: 'Charlottetown',
-  //   endPointState: 'PEI',
-  //   endPointCountry: 'CA',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://www.authentikcanada.com/uploads/images/orig/blog/charlottetown-pei.jpg',
-  //   tags: [
-  //     'rural',
-  //     'sea',
-  //     'forest'
-
-  //   ],
-  //   scenery: 4,
-  //   enjoyment: 5,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'Full of rich history and fanatastic coastlines',
-  //   highlights: ['Green Gables'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'Alaskan Getaway',
-  //   startingPointCity: 'Anchorage',
-  //   startingPointState: 'AK',
-  //   startingPointCountry: 'US',
-  //   endPointCity: 'Homer',
-  //   endPointState: 'AK',
-  //   endPointCountry: 'US',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://www.followmeaway.com/wp-content/uploads/2019/03/Alaska-road-trip-denali-road.jpg',
-  //   tags: [
-  //     'rural',
-  //     'mountains',
-  //     'camping'
-
-  //   ],
-  //   scenery: 4,
-  //   enjoyment: 3,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'It is a trip that really places you right in the middle of nowhere',
-  //   highlights: ['Alaskan Wildlife Conservation Center'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'New South Wales Tour',
-  //   startingPointCity: 'Sydney',
-  //   startingPointState: 'NSW',
-  //   startingPointCountry: 'AU',
-  //   endPointCity: 'Wagga Wagga',
-  //   endPointState: 'NWS',
-  //   endPointCountry: 'AU',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://www.visitnsw.com/sites/visitnsw/files/styles/landscape_1400x788/public/2020-04/154677.webp?itok=DDFmxBal',
-  //   tags: [
-  //     'rural',
-  //     'gastronomy',
-  //     'sea'
-
-  //   ],
-  //   scenery: 3,
-  //   enjoyment: 3,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'Stop at the beaches and cute eateries along the way',
-  //   highlights: ['chatting with the locals at the pub'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'Epic Australian Road Tour',
-  //   startingPointCity: 'Perth',
-  //   startingPointState: 'WA',
-  //   startingPointCountry: 'AU',
-  //   endPointCity: 'Melbourne',
-  //   endPointState: 'VIC',
-  //   endPointCountry: 'AU',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://www.travellers-autobarn.com.au/wp-content/uploads/2017/08/pink-lake.jpg',
-  //   tags: [
-  //     'vineyard',
-  //     'rural',
-  //     'sea'
-
-  //   ],
-  //   scenery: 4,
-  //   enjoyment: 5,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'This trip takes you across almost the entire coastline of Australia',
-  //   highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }, {
-  //   name: 'Swiss Adventure',
-  //   startingPointCity: 'Geneva',
-  //   startingPointState: '',
-  //   startingPointCountry: 'CH',
-  //   endPointCity: 'Lusanne',
-  //   endPointState: '',
-  //   endPointCountry: 'CH',
-  //   distance: '',
-  //   routeImage: '',
-  //   image: 'https://www.travellers-autobarn.com.au/wp-content/uploads/2017/08/pink-lake.jpg',
-  //   tags: [
-  //     'mountains',
-  //     'rural',
-  //     'sea'
-
-  //   ],
-  //   scenery: 4,
-  //   enjoyment: 5,
-  //   photoGallery: [],
-  //   videos: [],
-  //   description: 'This trip takes you across almost the entire coastline of Australia',
-  //   highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
-  //   pastTravellers: ['user123', 'fakeuser12']
-  // }
 ]

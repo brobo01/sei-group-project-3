@@ -23,7 +23,7 @@ class Navbar extends React.Component {
           <div className="links">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} /></Link>
             {isAuthenticated() && <Link to='/trips/new' className="link">Add Trip</Link>}
-            <Link to='/trips' className="link">Trips</Link>
+            {isAuthenticated() && <Link to='/trips' className="link">Trips</Link>}
             {!isAuthenticated() && <Link to='/login' className="link">Login</Link>}
             {!isAuthenticated() && <Link to='/register' className="link">Register</Link>}
             {isAuthenticated() && <Link to='/profile' className="link">Profile</Link>}

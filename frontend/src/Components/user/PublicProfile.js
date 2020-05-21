@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import Modal from 'react-modal'
 import ReactTooltip from "react-tooltip"
-
+import { Link } from 'react-router-dom'
+import RTimage from '../../styles/assets/roadtrippers.png'
 import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -104,6 +105,13 @@ class PublicProfile extends React.Component {
     }
     return (
       <section>
+         <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right">
+          </div>
+        </div>
         <div>
           <Modal
             isOpen={this.state.showModal}
@@ -176,7 +184,7 @@ class PublicProfile extends React.Component {
                     <button className="message-btn">Start a Conversation</button>
                   </div>
                 </form>
-                : <p>Please login to start a conversation</p>}
+                : <p className="message-holder">Please login to start a conversation</p>}
 
               {/* <button>Follow</button> */}
             </div>

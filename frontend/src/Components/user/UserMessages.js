@@ -87,7 +87,7 @@ class UserMessages extends React.Component {
               ? 'you'
               : 'them'
 
-          }>{this.filterMessages().text}</p>
+          }>{this.filterMessages()?.text}</p>
           {this.filterMessages().comment?.map(comment => (
             <div key={comment._id} className={
               comment.user === this.state.user._id

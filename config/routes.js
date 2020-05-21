@@ -11,7 +11,7 @@ router.route('/trips')
   .post(secureRoute, trips.create)
 
 router.route('/trips/:id')
-  .get(trips.show)
+  .get(secureRoute, trips.show)
   .put(trips.update)
   .delete(trips.delete)
 // .put(secureRoute, trips.update)

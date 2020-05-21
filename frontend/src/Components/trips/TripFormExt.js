@@ -4,9 +4,9 @@ import TripForm from './TripForm'
 
 
 
-const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapChange, handleMapSearch , handleTripSearch , formData, tempTrip, buttonText, titleText, errors }) => {
+const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapChange, handleMapSearch , handleTripSearch , formData, tempTrip, buttonText, titleText, errors , icons , addToTags}) => {
   return (
-    <div className="section">
+    <div className="trip-section">
       <div className="container">
         <TripForm
           handleChange={handleChange}
@@ -14,11 +14,13 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapC
           handleMapChange={handleMapChange}
           handleMapSearch={handleMapSearch}
           handleTripSearch={handleTripSearch}
+          addToTags={addToTags}
+          icons={icons}
           formData={formData}
           tempTrip={tempTrip}
           errors={errors}
           buttonText="Add some more details"
-          titleText="Create a Trip"
+          titleText={titleText}
         />
 
         <div className="title">{titleText}</div>
@@ -103,6 +105,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapC
               <label> Scenery: </label>
               <input type="number"
                 name="scenery"
+                max="5"
                 onChange={handleChange}
                 value={formData.scenery}
               />
@@ -112,6 +115,7 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapC
               <label> Enjoyment: </label>
               <input type="number"
                 name="enjoyment"
+                max="5"
                 onChange={handleChange}
                 value={formData.enjoyment}
               />

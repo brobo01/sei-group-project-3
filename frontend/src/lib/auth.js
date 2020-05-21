@@ -27,7 +27,10 @@ export const getPayload = () => {
 
 
 export const isOwner = id => {
+
   const userId = getPayload().sub
+  console.log('is owner from token', userId)
+  console.log('is owner from argument', id)
   return userId === id
 }
 

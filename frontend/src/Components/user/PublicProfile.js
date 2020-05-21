@@ -184,7 +184,7 @@ class PublicProfile extends React.Component {
                     <button className="message-btn">Start a Conversation</button>
                   </div>
                 </form>
-                : <p>Please login to start a conversation</p>}
+                : <p className="message-holder">Please login to start a conversation</p>}
 
               {/* <button>Follow</button> */}
             </div>

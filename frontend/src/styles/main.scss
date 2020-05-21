@@ -6,12 +6,13 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 .background-image{
 background-image: url(https://millionmilesecrets.com/wp-content/uploads/shutterstock_547827592.jpg);
 background-size: cover;
+// padding-bottom:100px;
 
 .background{
   background: radial-gradient(circle, rgba(53,79,82,0.95) 0%, rgba(33,49,51,0.95) 92%);
   height: 100%;
   min-height: 100vh;
-  margin-bottom:50px;
+  padding-bottom:100px;
 }
 }
 
@@ -150,12 +151,14 @@ background-size: cover;
   color: white;
   font-size: 15px;
 }
-
+.message-holder {
+  margin: 30px
+}
 
 
 .profile-messages {
   
-  margin-top: 5px;
+  margin: 15px;
    background-color: rgba(0,0,0,0.5);
     border-radius: 5px;
   padding: 20px;
@@ -432,10 +435,12 @@ textarea {
               object-fit: cover;
               height: 300px;
               width: 300px;
+             
               }
           }
           .crop img {
             position: absolute;
+             
           }
           .blurb {
             //* this is for the text that shows up when you hover over an image on index page
@@ -451,6 +456,177 @@ textarea {
       }  
     }
   } 
+
+.trip-section{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  margin: 40px 0px;
+  .title{
+    margin-top: 30px;
+    font-size: 35px;
+    margin: 35px;
+    color: white;
+  }
+  .logo{
+    margin: 20px;
+  }
+  .container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width: 900px;
+    background-color: #52796f;
+    border-radius: 10px;
+    padding:5px;
+    .map-section{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      height: 100%;
+      width: 100%;
+      .map-inputs{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 550px;
+        width: 380px;
+        background-color:  #3d5a53;
+        border-radius: 10px;
+        .name{
+          background-color: #52796f;
+          padding: 10px;
+          border-radius: 5px;
+        }
+        .sub-title{
+          margin: 0px 0px; 
+        }
+        .start, .end{
+          display:flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          background-color: #52796f;
+          padding: 10px;
+          border-radius: 5px;
+          height: 165px;
+          .sub-title{
+            margin: 0px 0px; 
+          }
+        }
+          .btn{
+            font-size: 17px;
+            color: white;
+            border: none;
+            width: 200px;
+            height: 30px;
+            background-color: #9d0208;
+          }
+        
+      }
+    }
+    .description-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin: 20px 0px;
+      .description{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        background-color:  #3d5a53;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        textarea{
+          width: 90%;
+          min-height: 150px;
+          font-size: 16px;
+          padding: 5px;
+          margin-top: 10px;
+        }
+      }
+    }
+    .icons-section{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .icons-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        background-color:  #3d5a53;
+        border-radius: 10px;
+      .icons-container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      .icons{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+        padding: 13px;
+      }
+    }
+    }
+  }
+    .photo-section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top:20px;
+      .photo-div{
+        padding-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        background-color:  #3d5a53;
+        border-radius: 10px;
+      }
+}
+  
+    .submit-btn{
+      font-size: 20px;
+      color: white;
+      border: none;
+      width: 250px;
+      height: 50px;
+      background-color: #9d0208;
+      margin: 50px;
+    }
+  }
+    .sub-title{
+      color:white;
+      font-size: 20px;
+      margin: 10px 0px;
+    }          
+  .input{
+        background-color: white;
+        border: none;
+        box-shadow: 0 0px 10px darkgray;
+        width: 300px;
+        height: 30px;
+        font-size: 14px;
+        padding: 0px 5px;
+      }
+}
+
+
+
+
+
+
+
+
+
 
 
 .footer {
@@ -683,8 +859,15 @@ padding-bottom: 90px;
       height:30px;
       border-radius: 15px;
       font-weight: bold;
-    }  
+    } 
+    
   }
+  .comment-holder {
+      margin: 20px;
+      text-align: center;
+      color: white;
+      
+    } 
 }
 }
 

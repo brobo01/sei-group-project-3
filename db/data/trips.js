@@ -35,7 +35,7 @@ module.exports = [
     startingPointCountry: 'US',
     endPointCity: 'Albuquerque',
     endPointState: 'NM',
-    endPointCountry: 'US', 
+    endPointCountry: 'US',
     distance: '1115km / 693m',
     routeImage: 'https://www.tripsavvy.com/thmb/Fi12CRuXjxKzoWMNQKVnckDnn_k=/1000x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RoadTrip_Route66_NPS-566b0fbb3df78ce1615e75f6.jpg',
     image: 'https://img.redbull.com/images/c_fill,g_auto,w_860,h_573/q_auto,f_auto/redbullcom/2015/02/10/1331704370512_3/discover-the-world-on-your-bike-route-66',
@@ -129,4 +129,173 @@ module.exports = [
     highlights: ['Cochrane Polar Bear Habitat', 'Cedar Meadows’ Bison & Elk', 'Sudbury\'s Big Nickel'],
     pastTravellers: ['user123', 'fakeuser12']
   }
+  //  , {
+  //   name: 'Amalfi Coast',
+  //   startingPointCity: 'Naples',
+  //   startingPointState: '',
+  //   startingPointCountry: 'IT',
+  //   endPointCity: 'Salerno',
+  //   endPointState: '',
+  //   endPointCountry: 'IT',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://quokka.travel/wp-content/uploads/2017/03/amalfi-coast-road-trip-itinerary-views.jpg',
+  //   tags: [
+  //     'sea',
+  //     'gastronomy',
+  //     'motorbike',
+  //     'panoramic view'
+  //   ],
+  //   scenery: 5,
+  //   enjoyment: 4,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'Stunning views of the Italian coast line, along with delicious food',
+  //   highlights: ['beautiful views'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'New England Road Trip',
+  //   startingPointCity: 'Boston',
+  //   startingPointState: 'MA',
+  //   startingPointCountry: 'US',
+  //   endPointCity: 'Portland',
+  //   endPointState: 'ME',
+  //   endPointCountry: 'US',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://cdn10.bostonmagazine.com/wp-content/uploads/sites/2/2018/09/fall-road-trips-vermont-foliage-tour.jpg',
+  //   tags: [
+  //     'nature',
+  //     'gastronomy',
+  //     'history'
+
+  //   ],
+  //   scenery: 4,
+  //   enjoyment: 4,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'One of the prettiest parts of the US, a must visit',
+  //   highlights: ['Autumn leaves', 'friendly locals'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'Canadian Maritimes',
+  //   startingPointCity: 'Halifax',
+  //   startingPointState: 'NS',
+  //   startingPointCountry: 'CA',
+  //   endPointCity: 'Charlottetown',
+  //   endPointState: 'PEI',
+  //   endPointCountry: 'CA',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://www.authentikcanada.com/uploads/images/orig/blog/charlottetown-pei.jpg',
+  //   tags: [
+  //     'rural',
+  //     'sea',
+  //     'forest'
+
+  //   ],
+  //   scenery: 4,
+  //   enjoyment: 5,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'Full of rich history and fanatastic coastlines',
+  //   highlights: ['Green Gables'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'Alaskan Getaway',
+  //   startingPointCity: 'Anchorage',
+  //   startingPointState: 'AK',
+  //   startingPointCountry: 'US',
+  //   endPointCity: 'Homer',
+  //   endPointState: 'AK',
+  //   endPointCountry: 'US',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://www.followmeaway.com/wp-content/uploads/2019/03/Alaska-road-trip-denali-road.jpg',
+  //   tags: [
+  //     'rural',
+  //     'mountains',
+  //     'camping'
+
+  //   ],
+  //   scenery: 4,
+  //   enjoyment: 3,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'It is a trip that really places you right in the middle of nowhere',
+  //   highlights: ['Alaskan Wildlife Conservation Center'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'New South Wales Tour',
+  //   startingPointCity: 'Sydney',
+  //   startingPointState: 'NSW',
+  //   startingPointCountry: 'AU',
+  //   endPointCity: 'Wagga Wagga',
+  //   endPointState: 'NWS',
+  //   endPointCountry: 'AU',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://www.visitnsw.com/sites/visitnsw/files/styles/landscape_1400x788/public/2020-04/154677.webp?itok=DDFmxBal',
+  //   tags: [
+  //     'rural',
+  //     'gastronomy',
+  //     'sea'
+
+  //   ],
+  //   scenery: 3,
+  //   enjoyment: 3,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'Stop at the beaches and cute eateries along the way',
+  //   highlights: ['chatting with the locals at the pub'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'Epic Australian Road Tour',
+  //   startingPointCity: 'Perth',
+  //   startingPointState: 'WA',
+  //   startingPointCountry: 'AU',
+  //   endPointCity: 'Melbourne',
+  //   endPointState: 'VIC',
+  //   endPointCountry: 'AU',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://www.travellers-autobarn.com.au/wp-content/uploads/2017/08/pink-lake.jpg',
+  //   tags: [
+  //     'vineyard',
+  //     'rural',
+  //     'sea'
+
+  //   ],
+  //   scenery: 4,
+  //   enjoyment: 5,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'This trip takes you across almost the entire coastline of Australia',
+  //   highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }, {
+  //   name: 'Swiss Adventure',
+  //   startingPointCity: 'Geneva',
+  //   startingPointState: '',
+  //   startingPointCountry: 'CH',
+  //   endPointCity: 'Lusanne',
+  //   endPointState: '',
+  //   endPointCountry: 'CH',
+  //   distance: '',
+  //   routeImage: '',
+  //   image: 'https://www.travellers-autobarn.com.au/wp-content/uploads/2017/08/pink-lake.jpg',
+  //   tags: [
+  //     'mountains',
+  //     'rural',
+  //     'sea'
+
+  //   ],
+  //   scenery: 4,
+  //   enjoyment: 5,
+  //   photoGallery: [],
+  //   videos: [],
+  //   description: 'This trip takes you across almost the entire coastline of Australia',
+  //   highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
+  //   pastTravellers: ['user123', 'fakeuser12']
+  // }
 ]

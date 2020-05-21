@@ -820,6 +820,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
     height:100%;
     // background-color:#9d0208;
     margin-right:30px;
+    button.edit-your-profile{
+      transform: translate(-100px);
+        height: 80px;
+        width: 100px;
+        background: rgba(250, 100, 0, 0.4);
+        border: none;
+        font-size: 15px;
+        color: white;
+    }
+    button:hover{
+      background: rgba(250, 100, 0, 1)
+    }
   }
 }
 

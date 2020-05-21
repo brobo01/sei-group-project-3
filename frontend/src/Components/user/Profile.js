@@ -7,6 +7,7 @@ import { icons } from "../../styles/assets/icon-data"
 import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { getOwnProfile } from '../../lib/api'
+import { isAuthenticated } from '../../lib/auth'
 
 class Profile extends React.Component {
   state = {
@@ -72,8 +73,12 @@ class Profile extends React.Component {
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-          <div className="header-right"></div>
+          <div className="header-right">
+
+          {isAuthenticated() && <Link to='/profile/edit'><button className="edit-your-profile" type="button">Edit Profile</button></Link> } 
+          </div>
         </div>
+        
         <div>
           <Modal
             isOpen={this.state.showModal}

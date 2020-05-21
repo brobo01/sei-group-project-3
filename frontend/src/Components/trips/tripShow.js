@@ -6,10 +6,6 @@ import { Carousel } from 'react-responsive-carousel'
 // import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated, withHeaders } from '../../lib/auth'
-
-//* no longer using SVG, it defeated me. Now have a much simple lib of icons. enjoy.
-// import SVG from 'react-inlinesvg'
-// import  { icons } from  '../../styles/all-icons'
 import { icons } from "../../styles/assets/icon-data"
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripMap from './TripMap'

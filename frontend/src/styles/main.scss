@@ -140,6 +140,19 @@ background-size: cover;
   }
 }
 
+.message-btn {
+  margin: 30px;
+  width: 500px;
+  height: 40px;
+  background-color: #9d0208;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+}
+
+
+
 .profile-messages {
   
   margin-top: 5px;
@@ -181,6 +194,7 @@ text-decoration: none;
     width: 30vw;
     margin: auto;
     padding: 15px;
+    min-height: 550px;
     max-width: 455px;
     max-height: 550px; 
     overflow-x: hidden; 
@@ -348,6 +362,37 @@ textarea {
     align-items: center;
     max-width: 800px;
     width: 75%;
+    .search-container {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(0,0,0,0.5);
+      width: 100vw;
+      height: 20vh;
+      margin: 30px;
+      .search-bar {
+        display: flex;
+        flex-direction: column;
+    justify-content: center;
+        label {
+          color: white;
+          width: 300px;
+        }
+        input {
+          border-radius: 5px;
+          font-size: 15px;
+        }
+        Select {
+          height: 30px;
+          width: 300px;
+
+        }
+        .input {
+          width: 300px;
+          height: 30px;
+
+        }
+      }
+    }
     .title{
       background-color: none;
       color: white;
@@ -366,6 +411,8 @@ textarea {
     background-color: #52796f;
     border-radius: 10px;
     padding-top: 50px;
+    min-width: 60vw;
+    min-height: 60vh;
       .index-comps{
         display: flex;
         flex-direction: column;
@@ -898,6 +945,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
     height:100%;
     // background-color:#9d0208;
     margin-right:30px;
+    button.edit-your-profile{
+      transform: translate(-100px);
+        height: 80px;
+        width: 100px;
+        background: rgba(250, 100, 0, 0.4);
+        border: none;
+        font-size: 15px;
+        color: white;
+    }
+    button:hover{
+      background: rgba(250, 100, 0, 1)
+    }
   }
 }
 

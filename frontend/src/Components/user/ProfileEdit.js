@@ -47,26 +47,31 @@ class ProfileEdit extends React.Component {
       console.log(err.response)
     }}
 
-  handleAddImage = (event) => {
-    if (event.target.name === 'profilePhoto') {
-      const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
-      userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
+    // handleSelectProfilePhoto = (event) => {
+    //   console.log(event.target.style)
+    // }
 
-      this.setState({ userData })
-    } else {
-      const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips] }
-    userData.recentTrips[userData.recentTrips.length - 1] = event.target.value
-    this.setState({ userData })
-    }}
 
-  handleAddExtraImage = (e) => {
-    if (e.target.name === 'profilePhoto') {
-      const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
+    handleAddImage = (event) => {
+      if (event.target.name === 'profilePhoto') {
+        const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto] }
+        userData.profilePhoto[userData.profilePhoto.length - 1] = event.target.value
+  
+        this.setState({ userData })
+      } else {
+        const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips] }
+      userData.recentTrips[userData.recentTrips.length - 1] = event.target.value
       this.setState({ userData })
-    } else {
-      const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
-      this.setState({ userData })
-    }}
+      }}
+  
+    handleAddExtraImage = (e) => {
+      if (e.target.name === 'profilePhoto') {
+        const userData = { ...this.state.userData, profilePhoto: [...this.state.userData.profilePhoto, ''] }
+        this.setState({ userData })
+      } else {
+        const userData = { ...this.state.userData, recentTrips: [...this.state.userData.recentTrips, ''] }
+        this.setState({ userData })
+      }}
 
     handleRemoveImage = (e) => {
       if (e.target.name === 'profilePhoto') {
@@ -139,7 +144,7 @@ onClick={this.handleAddExtraImage}>Add Another Profile Picture</button>}</h3>
 {this.state.userData.profilePhoto.map(photo => 
 photo ? 
 (
-<div key={photo} style={{ width: "150px", height: "84px", margin: "5px", borderRadius: "15px",
+<div onClick={this.handleSelectProfilePhoto} key={photo} style={{ width: "150px", height: "84px", margin: "5px", borderRadius: "15px",
 backgroundImage: `url(${photo})`, backgroundSize: "cover", backgroundRepeat: "no-repeat"}}>
 <button onClick={this.handleRemoveImage} 
 name="profilePhoto" 

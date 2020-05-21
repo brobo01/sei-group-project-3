@@ -67,6 +67,7 @@ class tripShow extends React.Component {
           <div className="hero">
             <div className="hero-image-container">
               <img
+              alt=""
                 src={trip.image}
                 className="hero-image"
                 height="400"

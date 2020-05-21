@@ -1,14 +1,10 @@
 import React from 'react'
-// import axios from 'axios'
 import ImageUpload from './ImageUpload'
-// import ReactTooltip from "react-tooltip"
 import { icons } from "../../styles/assets/icon-data"
 import { Link } from 'react-router-dom'
 import RTimage from '../../styles/assets/roadtrippers.png'
 import { editProfile, getOwnProfile } from '../../lib/api'
-import { isAuthenticated } from '../../lib/auth'
-// import ProfileDetails from './ProfileDetails'
-
+import ProfileDetails from './ProfileDetails'
 
 class ProfileEdit extends React.Component {
   state = {
@@ -24,8 +20,6 @@ class ProfileEdit extends React.Component {
       tripPrefs: ['']
     }
   }
-
-
   async componentDidMount() {
     try {
       const res = await getOwnProfile()
@@ -109,7 +103,6 @@ class ProfileEdit extends React.Component {
       document.getElementById(icon.name).setAttribute("style", "color: white"))
   }
 
-
   render() {
     const { username, name, garage, dreamTrips, homeBase, email, tripPrefs } = this.state.userData
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
@@ -122,7 +115,7 @@ class ProfileEdit extends React.Component {
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
           <h2 className="edit-title"> Edit your profile</h2>
-          <div className="header-right"> {isAuthenticated() && <Link to='/profile'><button className="edit-your-profile" type="button">Finish</button></Link> } </div>
+          <div className="header-right"></div>
          
         </div>
       <section className="edit-profile-page">
@@ -195,97 +188,57 @@ photo ?
 </div> 
 </div>
   </div>
+
   <hr className="line-break"></hr>
   <h3 className="edit-title">Your Riding Style</h3>
 <div className="bottom-section">
 <div className="edit-profile-icons">
-          {icons.map(icon =><p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}{icon.name} </p>)}
-        
+          {icons.map(icon =><p className="icons" id={icon.name} onClick={this.addToPref} key={icon.name}>{icon.value}{icon.name} </p>)}       
 </div>
 </div>
+
 <hr className="line-break"></hr>
 <div className="edit-profile-details">
-
-{/* <ProfileDetails 
-name="username"
-onChange={this.handleChange}
-value={username ? username : ""}
-/> */}
-
-<div className="input-box">
-<h3 className="edit-titles">Name</h3>
-<input 
-className="input"
-// placeholder="name"
+<ProfileDetails 
+title="Name"
 name="name"
-onChange={this.handleChange}
+handleChange={this.handleChange}
 value={name ? name : ""}
 />
-</div>
-
-<div className="input-box">
-<h3 className="edit-titles">Username</h3>
-<input 
-className="input"
-// placeholder="username"
+<ProfileDetails 
+title="Username"
 name="username"
-onChange={this.handleChange}
+handleChange={this.handleChange}
 value={username ? username : ""}
 />
-</div>
-
-<div className="input-box">
-<h3 className="edit-titles">Email</h3>
-<input 
-className="input"
-// placeholder="email"
+<ProfileDetails 
+title="Email"
 name="email"
-onChange={this.handleChange}
+handleChange={this.handleChange}
 value={email ? email : ""}
 />
-</div>
-
-<div className="input-box">
-<h3 className="edit-titles">Home Base</h3>
-<input 
-className="input"
-// placeholder="home base"
+<ProfileDetails 
+title="Home Base"
 name="homeBase"
-onChange={this.handleChange}
-defaultValue={homeBase ? homeBase : ""}
+handleChange={this.handleChange}
+value={homeBase ? homeBase : ""}
 />
-</div>
-
-<div className="input-box">
-<h3 className="edit-titles">Garage</h3>
-<input 
-className="input"
-// placeholder="whats your ride?"
+<ProfileDetails 
+title="Garage"
 name="garage"
-onChange={this.handleChange}
-defaultValue={garage ? garage : ""}
+handleChange={this.handleChange}
+value={garage ? garage : ""}
 />
-</div>
-
-<div className="input-box">
-<h3 className="edit-titles">Dream Trips</h3>
-
-<input 
-className="input"
-// placeholder="dream trip"
+<ProfileDetails 
+title="Dream Trips"
 name="dreamTrips"
-onChange={this.handleChange}
-defaultValue={dreamTrips ? dreamTrips : ""}
+handleChange={this.handleChange}
+value={dreamTrips ? dreamTrips : ""}
 />
-</div>
 </div>
 <button className="finish-edit" type="submit">Finish Editting</button>
           </form>
-      
       </section>
       </section>
-    )
-  }
-}
-
+    )}}
 export default ProfileEdit

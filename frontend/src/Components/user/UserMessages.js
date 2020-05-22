@@ -2,7 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { getOwnProfile } from '../../lib/api'
 import { withHeaders } from '../../lib/auth'
-
+import { Link } from 'react-router-dom'
+import RTimage from '../../styles/assets/roadtrippers.png'
 
 class UserMessages extends React.Component {
   state = {
@@ -18,7 +19,6 @@ class UserMessages extends React.Component {
       console.log(err)
     }
   }
-
   filterMessages = () => {
     const messageId = this.props.match.params.id
     const res = this.state.user.messages.filter(message => (
@@ -27,7 +27,6 @@ class UserMessages extends React.Component {
     console.log(res)
     return res[0]
   }
-
   handleSubmit = async e => {
     const messageId = this.props.match.params.id
     const userId = this.state.user._id
@@ -48,36 +47,37 @@ class UserMessages extends React.Component {
       console.log(err)
     }
   }
-
   handleChange = e => {
     const text = e.target.value
     console.log(text)
     this.setState({ pending: text })
   }
-
   render() {
     const { user } = this.state
     if (!user) return <p>Loading</p>
-
     return (
       <section className="message">
 
+        <div className="header">
+          <div className="header-left">
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+          </div>
+          <div className="header-right">
+            {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>}
+          </div>
+        </div>
 
 
         <h3>Conversation between
-
           {this.filterMessages()?.sender._id === this.state.user._id
             ? ' You '
             : ` ${this.filterMessages().sender.username} `
-
           }
              &
             {this.filterMessages().recipient._id === this.state.user._id
             ? ' You'
             : ` ${this.filterMessages().recipient.username}`
-
           } </h3>
-
         <div className="message-body">
           {/* <p className={
 
@@ -89,16 +89,10 @@ class UserMessages extends React.Component {
 
           {this.filterMessages().comment?.map(comment => (
             <div key={comment._id} className={comment.user === this.state.user._id ? 'you' : 'them'}>
-
               <p key={comment._id}>{comment.text}</p>
-
             </div>
-
           ))}
-
-
         </div>
-
         <div>
           <form onSubmit={this.handleSubmit} className="submit-message">
             <textarea
@@ -113,5 +107,9 @@ class UserMessages extends React.Component {
     )
   }
 }
+<<<<<<< HEAD
 
 export default UserMessages
+=======
+export default UserMessages
+>>>>>>> development

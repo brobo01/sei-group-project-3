@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { Carousel } from 'react-responsive-carousel'
+// import { Carousel } from 'react-responsive-carousel'
 // import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated, withHeaders, isOwner } from '../../lib/auth'
@@ -49,21 +49,29 @@ class tripShow extends React.Component {
   }
   handleDate = e => {
     console.log(e)
+    
   }
+
+
   render() {
     const { trip } = this.state
     if (trip.length === 0) return null
     const filteredIcons = (trip.tags.length === 0 ? null :
       icons.filter(icon => trip.tags.includes(icon.name))
     )
+    console.log(this.props)
     return (
       <div>
         <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-          <div className="header-right"></div>
-        </div>        <section className="show-trip">
+          <div className="header-right">
+          {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
+          </div>
+        </div>        
+        
+        <section className="show-trip">
           <div className="hero">
             <div className="hero-image-container">
               <img
@@ -90,7 +98,7 @@ class tripShow extends React.Component {
             </div>
             <div className="icons">
               <div className="value">Trip tags</div>
-              {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
+              {filteredIcons.map(icon => <ReactTooltip  key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
           </div>

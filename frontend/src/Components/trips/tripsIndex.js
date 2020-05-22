@@ -86,14 +86,20 @@ class tripsIndex extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
 
+=======
+    // const { trips } = this.state
+>>>>>>> development
     return (
       <main>
         <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} /></Link>
           </div>
-          <div className="header-right"></div>
+          <div className="header-right">
+            {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>}
+          </div>
         </div>
 
         <div className="index">

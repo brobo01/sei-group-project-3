@@ -41,8 +41,11 @@ class Login extends React.Component {
             <div className="header-left">
               <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
             </div>
-            <div className="header-right"></div>
-          </div>          <div className="container">
+            <div className="header-right">
+            {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
+            </div>
+          </div>          
+          <div className="container">
             <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
               alt=""
               height="100" />
@@ -51,13 +54,13 @@ class Login extends React.Component {
 
             <form onSubmit={this.handleSubmit}>
 
-              <div className="form">
+              <div className="form" style={{ height: "300px"}}>
                 <div className="error-msg">
                   {error && <small>{error}</small>}
                 </div>
 
                 <div className="form-item">
-                  <label> Email: </label>
+                  <label> Email </label>
                   <input type="email"
                     name="email"
                     onChange={this.handleChange}
@@ -66,7 +69,7 @@ class Login extends React.Component {
                   />
                 </div>
                 <div className="form-item">
-                  <label> Password: </label>
+                  <label> Password </label>
                   <input type="password"
                     name="password"
                     onChange={this.handleChange}

@@ -8,7 +8,6 @@ import { Carousel } from 'react-responsive-carousel'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { getOwnProfile } from '../../lib/api'
 import { isAuthenticated } from '../../lib/auth'
-
 class Profile extends React.Component {
   state = {
     showModal: false,
@@ -27,7 +26,6 @@ class Profile extends React.Component {
     currentCoverPic: null,
     userTrips: []
   }
-
   async componentDidMount() {
     try {
       const res = await getOwnProfile()
@@ -44,27 +42,21 @@ class Profile extends React.Component {
   //   console.log(userTrips)
   //   this.setState({ userTrips })
   // }
-
   handleOpenModal = () => {
     this.setState({ showModal: true })
   }
-
   handleCloseModal = () => {
     this.setState({ showModal: false })
   }
-
-
   // handleSelectProfilePhoto = (event) => {
   //   const pic = event.target.value
   //   this.setState({ ...this.state, currentProfPic: pic })
   // }
-
   handleSelectPhoto = (event) => {
     const pic = event.target.value
     const target = event.target.id
     this.setState({ ...this.state, [target]: pic })
   }
-
   render() {
     const { username, name, garage, dreamTrips, profilePhoto, recentTrips, homeBase, tripPrefs } = this.state.user
     const { currentProfPic, currentCoverPic } = this.state
@@ -88,7 +80,6 @@ class Profile extends React.Component {
         borderRadius: "5px",
         marginBottom: "3px"
     }
-
     return (
       <section>
          <div className="header">
@@ -99,6 +90,8 @@ class Profile extends React.Component {
           {isAuthenticated() && <Link to='/profile/edit'><button className="edit-your-profile" type="button">Edit Profile</button></Link> } 
           </div>
         </div>
+
+
         
         <div style={{display: "flex", justifyContent: "center"}}>
           <Modal
@@ -113,14 +106,12 @@ class Profile extends React.Component {
               centerMode
               dynamicHeight={true}
             >
-
               {profilePhoto.map(photo =>
               <div id={photo} key={photo} className="carousel-item">
               {isAuthenticated() && <button style={choosePicStyle} className="choose-pic" onClick={this.handleSelectPhoto} id="currentProfPic" value={photo}>make profile pic</button>}
                 <img src={photo} alt="" className="carousel-image" />
               </div>)}
             </Carousel>
-
           </Modal>
         </div> 
         <div className="cover">
@@ -156,10 +147,8 @@ class Profile extends React.Component {
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
-
             {/* view your own messages */}
             <div className="profile-messages">
-
               <p>Your current conversations:</p>
               <hr />
               <div className="profile-messages-main">
@@ -169,22 +158,18 @@ class Profile extends React.Component {
                       {message.sender._id === this.state.user._id
                         ? 'You '
                         : `${message.sender.username} `
-
                       }
              &
             {message.recipient._id === this.state.user._id
                         ? ' You'
                         : ` ${message.recipient.username}`
-
                       }
                       {/* {message.sender?.username} & {message.recipient?.username} */}
                     </Link>
                   </div>
                 ))}
               </div>
-
             </div>
-
             {/* <div className="profile-buttons">
             </div> */}
           </div>
@@ -193,7 +178,6 @@ class Profile extends React.Component {
               infiniteLoop
               centerMode
               dynamicHeight={true}>
-
               {recentTrips.map(trip =>
                 <div key={trip} className="carousel-item">
                    {isAuthenticated() && <button style={choosePicStyle} onClick={this.handleSelectPhoto} id="currentCoverPic" value={trip}>make cover pic</button>}

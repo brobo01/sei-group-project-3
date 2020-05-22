@@ -23,107 +23,74 @@ const TripFormExt = ({ handleChange, handleMultiChange, handleSubmit, handleMapC
           titleText={titleText}
         />
 
-        <div className="title">{titleText}</div>
+            <div className="additional-info-container">
         <form onSubmit={handleSubmit}>
+            <div className="additional-info-section">
           <div className="form">
 
+<label className="sub-title">
+              Description: </label>
+            <div className="additional-info">
+
+            <div className="extras">
             <div className="form-item">
-              <label> Name: </label>
-              <input type="text"
-                name="name"
-                onChange={handleChange}
-                value={formData.name}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> Tags: </label>
-              <input type="text"
-                name="tags"
-                onChange={handleChange}
-                value={formData.tags}
-                />
-
-                {/* <Select 
-                  className="select"
-                  options={tags}
-                  isMulti
-                  onChange={handleMultiChange}
-                  // value={formData.tags}
-                /> */}
-
-
-            </div>
-
-            <div className="form-item">
-              <label> Description: </label>
-              <textarea type="text"
-                name="description"
-                onChange={handleChange}
-                value={formData.description}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> Image: </label>
-              <input type="text"
-                name="image"
-                onChange={handleChange}
-                value={formData.image}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> Highlights: </label>
-              <input
-                type="text"
-                name="highlights"
-                onChange={handleChange}
-                value={formData.highlights}
-              />
-            </div>
-
-            <div className="form-item">
-              <label> Time of year: </label>
+              <label className="sub-title"> Time of year: </label>
               <input type="text"
                 name="timeOfYear"
+                className="input"
                 onChange={handleChange}
                 value={formData.timeOfYear}
               />
             </div>
 
             <div className="form-item">
-              <label> Distance: </label>
+              <label className="sub-title"> Distance: </label>
               <input type="text"
                 name="distance"
+                className="input"
                 onChange={handleChange}
                 value={formData.distance}
               />
             </div>
 
+            </div>
+
+
+            <div className="ratings">
+
             <div className="form-item">
-              <label> Scenery: </label>
+              <label className="sub-title"> Scenery: </label>
               <input type="number"
                 name="scenery"
                 max="5"
+                min="1"
+                placeholder="1 to 5"
+                className="input"
                 onChange={handleChange}
                 value={formData.scenery}
               />
             </div>
 
             <div className="form-item">
-              <label> Enjoyment: </label>
+              <label className="sub-title"> Enjoyment: </label>
               <input type="number"
                 name="enjoyment"
                 max="5"
+                min="1"
+                placeholder="1 to 5"
+                className="input"
                 onChange={handleChange}
                 value={formData.enjoyment}
               />
             </div>
-
-            <button type='submit' className="submit-btn">{buttonText}</button>
+            </div>
+            </div>
+            </div>
+            <button type='submit' className="submit-btn">
+              {buttonText}</button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   )

@@ -134,6 +134,7 @@ class TripEdit extends React.Component {
             handleTripSearch={this.handleTripSearch}
             addToTags={this.addToTags}
             icons={icons}
+            visibility="hidden"
             formData={this.state.formData}
             tempTrip={this.state.tempTrip}
             errors={this.state.errors}

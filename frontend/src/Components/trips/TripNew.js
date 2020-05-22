@@ -51,7 +51,7 @@ class TripNew extends React.Component {
       const res = await axios.post('/api/trips', this.state.formData, withHeaders())
       console.log(res)
 
-      this.props.history.push(`/trips/${res.data._id}`)
+      this.props.history.push(`/trips/${res.data._id}/edit`)
     } catch (err) {
       // this.setState({ errors: err.response.data })
       console.log(this.state.errors)
@@ -116,9 +116,20 @@ class TripNew extends React.Component {
           formData={this.state.formData}
           tempTrip={this.state.tempTrip}
           errors={this.state.errors}
+          visiblility="visible"
           buttonText="Add some more details"
           titleText="Create a Trip"
         />
+        <div className="button-container">
+                <div className="button-section">
+        <button
+          type='submit'
+          onClick={this.handleSubmit}
+          visibility='hidden'
+          className="submit-btn">
+            Add some more details</button>
+            </div>
+            </div>
       </section>
     )
   }

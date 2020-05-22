@@ -90,7 +90,7 @@ class tripsIndex extends React.Component {
       <main>
         <div className="header">
           <div className="header-left">
-            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage}  /></Link>
           </div>
           <div className="header-right"></div>
         </div>

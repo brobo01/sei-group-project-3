@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripCard from './TripCard'
 import { getAllTrips } from '../../lib/api'
@@ -81,18 +82,20 @@ class tripsIndex extends React.Component {
   handleMultiChange = selected => {
 
     this.setState({ selectVal: selected })
-    console.log(this.state)
+
   }
 
   render() {
-    const { trips } = this.state
+    // const { trips } = this.state
     return (
       <main>
         <div className="header">
           <div className="header-left">
-            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage}  /></Link>
+            <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} /></Link>
           </div>
-          <div className="header-right"></div>
+          <div className="header-right">
+            {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>}
+          </div>
         </div>
 
         <div className="index">
@@ -106,8 +109,8 @@ class tripsIndex extends React.Component {
               <div className="search-bar">
                 <label>Search Tags</label>
                 <Select
-                  options={this.options}
                   isMulti
+                  options={this.options}
                   searchable={true}
                   onChange={this.handleMultiChange}
                   className="input"

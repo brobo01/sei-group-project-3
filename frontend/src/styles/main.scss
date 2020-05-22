@@ -263,7 +263,7 @@ textarea {
     }
     .cover-left-title{
       font-size: 45px;
-      width:450px;
+      width:418px;
       padding: 20px 10px;
       background-color: rgba(0,0,0,0.5);
       border-top-left-radius: 5px;
@@ -271,7 +271,7 @@ textarea {
     }
     .cover-left-subtitle{
       font-size: 30px;
-      width:450px;
+      width:418px;
       padding: 10px;
       background-color: rgba(0,0,0,0.5);
       border-bottom-left-radius: 5px;
@@ -312,7 +312,7 @@ textarea {
     .title{
       background-color: none;
       color: white;
-      font-size: 30px;
+      font-size: 35px;
       margin: 20px;
     }
     .form{
@@ -322,6 +322,7 @@ textarea {
       align-items: center;
       width: 500px;
       height: 500px;
+      padding-top: 10px;
       background-color: #52796f;
       border-radius: 10px;
       .form-item{
@@ -330,15 +331,18 @@ textarea {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        width: 90%;
+        width: 78%;
         label{
           background-color: #52796f;
           color: white;
+          font-size: medium;
         }
         input{
           background-color: white;
           width: 60%;
           height: 30px;
+          border-radius: 10px;
+          border: 0;
         }
       }
       .submit-btn{
@@ -348,6 +352,7 @@ textarea {
         width: 200px;
         height: 50px;
         background-color: #9d0208;
+        border-radius: 10px;
       }
       .error {
   border: 3px solid #9d0208;
@@ -828,15 +833,54 @@ padding-bottom: 90px;
     margin: 30px 0px;
     .body-left{
       width: 48%;
-      background-color: #52796f;
+     background-color: #3d5a53;
+    padding: 20px;
+    border-radius: 5px;
       padding: 10px;
+      hr {
+        width: 70%;
+        margin: 0 20px 20px;
+      }
+      .link {
+        text-decoration: none;
+       
+      }
       h1{
         color: white;
+        text-decoration: none;
+        padding: 5px 20px 0;
+      }
+      h1:hover {
+text-decoration: underline;
       }
       Link{
         color:black;
         
+        
       }
+      h3 {
+        color: white;
+        margin: 5px 20px;
+        
+      }
+      p {
+        color: black;
+        margin: 5px 20px;
+      }
+      .edit-trip-container {
+        margin-top: 20px;
+        padding: 20px;
+.edit-trip {
+        color: white;
+        margin-top: 100px;
+        text-decoration: none;
+        
+      }
+      .edit-trip:hover {
+        color: #9d0208;
+      }
+      }
+      
 
     }
     .body-right{
@@ -911,6 +955,14 @@ padding-bottom: 90px;
       background-color: rgb(189, 189, 189);
       .comment-head{
         padding: 5px 5px;
+        .link {
+          text-decoration: none;
+          color: #9d0208;
+        }
+        .link:hover {
+          color: white;
+        }
+
       }
       .comment-text{
         padding: 5px 5px;
@@ -1209,6 +1261,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
     // background-color:#9d0208;
     margin-right:30px;
     button.edit-your-profile{
+      transform: translate(-100px);
+        height: 80px;
+        width: 100px;
+        background: rgba(250, 100, 0, 0.4);
+        border: none;
+        font-size: 15px;
+        color: white;
+    }
+    button.back-button{
       transform: translate(-100px);
         height: 80px;
         width: 100px;

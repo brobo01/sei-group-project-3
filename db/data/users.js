@@ -6,7 +6,7 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'SW London',
-    profilePhoto: ['https://cdn-1.motorsport.com/images/amp/27vbxEx0/s6/67-ford-chip-ganassi-racing-fo.jpg', 'https://cdn-6.motorsport.com/images/mgl/6O1bQjW2/s8/69-ford-chip-ganassi-racing-fo-1.jpg', 'https://cdn-2.motorsport.com/images/mgl/2y3axep6/s8/67-ford-chip-ganassi-racing-fo-1.jpg'],
+    profilePhoto: ['https://vignette.wikia.nocookie.net/pirates/images/5/5c/CotBPCommodoreNorringtonPromo.jpg/revision/latest/scale-to-width-down/250?cb=20120624223252', 'https://cdn-1.motorsport.com/images/amp/27vbxEx0/s6/67-ford-chip-ganassi-racing-fo.jpg', 'https://cdn-6.motorsport.com/images/mgl/6O1bQjW2/s8/69-ford-chip-ganassi-racing-fo-1.jpg', 'https://cdn-2.motorsport.com/images/mgl/2y3axep6/s8/67-ford-chip-ganassi-racing-fo-1.jpg'],
     tripPrefs: ['vineyard', 'sea', 'track', 'car', 'art and culture', 'mechanics', 'gastronomy', 'history', 'forest', 'hills', 'twisty', 'friends'],
     garage: '2020 Harley Davidson CVO',
     dreamTrips: 'Winner of Le Mans race',
@@ -19,7 +19,7 @@ module.exports = [
     passwordConfirmation: 'pass',
     homeBase: '#YYC',
     profilePhoto: ['https://cdn.vox-cdn.com/thumbor/2XTYqiTtJ-8H8k46jALMh9ZMfzU=/0x0:1548x1024/1200x800/filters:focal(693x458:939x704)/cdn.vox-cdn.com/uploads/chorus_image/image/65936299/cats4.0.jpg'],
-    tripsPrefs: ['hilly', 'rural'],
+    tripsPrefs: ['mountains', 'vineyards', 'nature'],
     garage: '1957 Classic Cadillac de Ville',
     dreamTrips: 'Car trip around Morroco',
     recentTrips: ['https://www.fairmont.com/assets/0/104/1821/1826/5036/5037/4d1d7da9-5d63-4e91-a26d-f02bb67f7d89.jpg', 'https://d1bv4heaa2n05k.cloudfront.net/user-images/1535025032242/shutterstock-1142567063_main_1535025093424.jpeg']
@@ -86,7 +86,7 @@ module.exports = [
   }, {
     username: 'BoJo',
     name: 'Boris Johnson',
-    email: 'bojo@email',
+    email: 'bj@email',
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'London',
@@ -107,5 +107,53 @@ module.exports = [
     garage: 'Toyota Tundra',
     dreamTrips: 'All of the TransCanada Highway',
     recentTrips: ['https://www.cicnews.com/2020/01/quebec-invited-305-skilled-worker-candidates-over-two-arrima-draws-0113473.html', 'https://muskokagetaway.com/wp-content/uploads/2018/03/muskoka.jpg', 'https://i.cbc.ca/1.3195090.1440006322!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/bison.jpg']
+  }, {
+    username: 'Homer',
+    name: 'Homer J Simpson',
+    email: 'homer@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'Springfield',
+    profilePhoto: ['https://ichef.bbci.co.uk/news/304/media/images/47104000/jpg/_47104670_homer_226other.jpg', 'https://www.factinate.com/wp-content/uploads/2018/03/10948685356_e8800174e0_b.jpg'],
+    tripPrefs: ['gastronomy', 'friends', 'vineyard'],
+    garage: '1973 Plymouth Valiant',
+    dreamTrips: 'October Fest',
+    recentTrips: ['http://2.bp.blogspot.com/_KyNaC0eSTPU/THlFiXtBQAI/AAAAAAAAC-U/QOEhf8cE6xE/s400/lghr18010%2Bshark-bait-homer-simpson-poster.jpg', 'https://pbs.twimg.com/media/CyMZCFJXAAAwhIU?format=jpg&name=medium']
+  }, {
+    username: 'The funny one',
+    name: 'Chandler Bing',
+    email: 'bing@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'NY, NY',
+    profilePhoto: ['https://vignette.wikia.nocookie.net/friends/images/4/48/Chandler_Bing_portrait.jpg/revision/latest?cb=20100601130820', 'https://cdn.pinkvilla.com/files/styles/contentpreview/public/chandler_bing_0.jpg?itok=2E55xFkh'],
+    tripPrefs: ['friends'],
+    garage: 'Ferrari F50',
+    dreamTrips: 'Yemen',
+    recentTrips: ['https://secretldn.com/wp-content/uploads/2017/02/friendss.jpg', 'https://www.amny.com/wp-content/uploads/2020/03/GettyImages-1089200736.jpg']
+  }, {
+    username: 'Dragon Mama',
+    name: 'Daenerys Targaryen',
+    email: 'danny@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'Dothraki Sea',
+    profilePhoto: ['https://vignette.wikia.nocookie.net/gameofthrones/images/e/ee/QueenDaenerysTargaryenIronThrone.PNG/revision/latest?cb=20190520173137', 'https://imgix.bustle.com/elite-daily/2017/06/22185133/daenerys-game-of-thrones-733.jpg?w=1020&h=574&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70&dpr=2'],
+    tripPrefs: ['abroad', 'camping', 'mountains'],
+    garage: '3 Dragons',
+    dreamTrips: 'All inclusive resort',
+    recentTrips: ['https://awoiaf.westeros.org/images/thumb/1/1a/Dothraki_Sea1_HBO.jpg/600px-Dothraki_Sea1_HBO.jpg', 'https://historymaniacmegan.files.wordpress.com/2019/02/tumblr_m8cfcabhfx1rd7inoo1_500.png', 'https://awoiaf.westeros.org/images/2/26/Dothraki_sea_grassland.jpg']
+  }, {
+    username: 'Lawyer Morty',
+    name: 'Morty Smith Esq',
+    email: 'morty@email',
+    password: 'pass',
+    passwordConfirmation: 'pass',
+    homeBase: 'The Citadel',
+    profilePhoto: ['https://vignette.wikia.nocookie.net/rickandmorty/images/f/f9/Lawyer-NotLawyer_Morty.png/revision/latest?cb=20170402102431', 'https://vignette.wikia.nocookie.net/theapartments/images/2/2b/Screen_Shot_2019-02-06_at_11.36.07_AM.png/revision/latest?cb=20190206163327'],
+    tripPrefs: ['off road', 'fast'],
+    garage: 'spaceship',
+    dreamTrips: 'Adventures with the fam',
+    recentTrips: ['https://filmdaily.co/wp-content/uploads/2018/06/rick-and-morty-unitys-planet.jpg', 'https://filmdaily.co/wp-content/uploads/2018/06/rick-and-morty-screaming-sun.jpg', 'https://filmdaily.co/wp-content/uploads/2018/06/rick-and-morty-bird-world.jpg', 'https://filmdaily.co/wp-content/uploads/2018/06/rick-and-morty-venzenulon-9.jpg']
   }
 ]

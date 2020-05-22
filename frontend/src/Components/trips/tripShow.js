@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { Carousel } from 'react-responsive-carousel'
+// import { Carousel } from 'react-responsive-carousel'
 // import { stringUpdate } from '../../lib/map'
 import ReactTooltip from "react-tooltip"
 import { isAuthenticated, withHeaders, isOwner } from '../../lib/auth'
@@ -49,21 +49,28 @@ class tripShow extends React.Component {
   }
   handleDate = e => {
     console.log(e)
+    
   }
+
+
   render() {
     const { trip } = this.state
     if (trip.length === 0) return null
     const filteredIcons = (trip.tags.length === 0 ? null :
       icons.filter(icon => trip.tags.includes(icon.name))
     )
+    console.log(this.props)
     return (
       <div>
         <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-          <div className="header-right"></div>
-        </div>
+          <div className="header-right">
+          {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
+          </div>
+        </div>        
+        
         <section className="show-trip">
           <div className="hero">
             <div className="hero-image-container">
@@ -91,20 +98,30 @@ class tripShow extends React.Component {
             </div>
             <div className="icons">
               <div className="value">Trip tags</div>
-              {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
+              {filteredIcons.map(icon => <ReactTooltip  key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
           </div>
           <div className="body">
             <div className="body-left">
-              <Link to={`/users/${trip.user?._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
+              <Link to={`/users/${trip.user?._id}`} className="link"><h1>{trip.user?.username}</h1><br></br></Link>
+              <hr />
               <p>{trip.description}</p><br></br>
-              <p>Time of year: {trip.timeOfYear}</p><br></br>
+
+              <h3>Time of year:</h3>
+              <p> {trip.timeOfYear}</p><br></br>
+
               <h3>Trip highlights:</h3>
               {trip.highlights.map(item => (
                 <p key={item}>{item}</p>
+
               ))}
-              {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
+              <br />
+
+              <div className="edit-trip-container">
+                {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} className="edit-trip" >Edit this trip</Link>}
+              </div>
+
             </div>
             <div className="body-right">
               <TripMap
@@ -149,7 +166,7 @@ class tripShow extends React.Component {
               {this.state.trip.recommendations?.map(obj => (
                 <div key={obj._id} className="comment">
                   <div className="comment-head">
-                    <Link to={`/users/${obj.user._id}`}>{obj.user?.username}</Link>
+                    <Link to={`/users/${obj.user._id}`} className="link">{obj.user?.username}</Link>
                   </div>
                   <p className="comment-text">{obj.text}</p>
                 </div>

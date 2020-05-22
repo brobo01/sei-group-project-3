@@ -18,7 +18,7 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: '#YYC',
-    profilePhoto: [],
+    profilePhoto: ['https://cdn.vox-cdn.com/thumbor/2XTYqiTtJ-8H8k46jALMh9ZMfzU=/0x0:1548x1024/1200x800/filters:focal(693x458:939x704)/cdn.vox-cdn.com/uploads/chorus_image/image/65936299/cats4.0.jpg'],
     tripsPrefs: ['hilly', 'rural'],
     garage: '1957 Classic Cadillac de Ville',
     dreamTrips: 'Car trip around Morroco',
@@ -30,11 +30,11 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'W London',
-    profilePhoto: [],
-    tripPrefs: ['country side', 'curvy'],
+    profilePhoto: ['https://images.theconversation.com/files/312307/original/file-20200128-81416-1bjupq6.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'],
+    tripPrefs: ['nature', 'off road', 'sea', 'mountains', 'history'],
     garage: 'Yamaha XT225 Serow',
     dreamTrips: 'North to South of the Americas',
-    recentTrips: ['https://www.smartertravel.com/uploads/2017/06/road_trip_tips_hero-1400x500.jpg', 'https://specials-images.forbesimg.com/imageserve/1145661962/960x0.jpg?fit=scale']
+    recentTrips: ['https://bento.cdn.pbs.org/hostedbento-prod/filer_public/Kingdoms%20of%20the%20Sky/Thumbnails/andes-thumb.jpg', 'https://www.smartertravel.com/uploads/2017/06/road_trip_tips_hero-1400x500.jpg', 'https://specials-images.forbesimg.com/imageserve/1145661962/960x0.jpg?fit=scale']
   }, {
     username: 'syntacticsugarbear',
     name: 'Jack May',
@@ -42,7 +42,7 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'London',
-    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UF7T00ANN-9e0ffcda6506-512', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/14618/thumb_Screen_Shot_2019-05-30_at_16.42.14.png'],
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UF7T00ANN-9e0ffcda6506-512', 'https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/14618/thumb_Screen_Shot_2019-05-30_at_16.42.14.png', 'https://www.funko.com/craftmin/products/00000030620.png'],
     tripPrefs: ['sea', 'friends'],
     garage: 'Vauxhall Viva',
     dreamTrips: 'Through the center of Australia',
@@ -66,11 +66,11 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'London',
-    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UPF4VBW6A-aa58c07cbaf1-512'],
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-UPF4VBW6A-aa58c07cbaf1-512', 'https://mir-s3-cdn-cf.behance.net/user/276/bcfb7127062131.57b0d0d208243.jpg'],
     tripPrefs: ['off road', 'camping'],
     garage: 'Honda CB500X',
     dreamTrips: 'West Coast New Zealand',
-    recentTrips: ['https://bloximages.newyork1.vip.townnews.com/sandiegomagazine.com/content/tncms/assets/v3/editorial/b/08/b087e7a7-d7a2-56c6-9df1-8d271c93e5e5/5e15057eac014.image.jpg?resize=786%2C525', 'https://media.frankandoak.com/media/assets/handbook/2019/07/roadtrip/4-roadtrip.jpg?imwidth=2000']
+    recentTrips: ['https://bloximages.newyork1.vip.townnews.com/sandiegomagazine.com/content/tncms/assets/v3/editorial/b/08/b087e7a7-d7a2-56c6-9df1-8d271c93e5e5/5e15057eac014.image.jpg?resize=786%2C525', 'https://media.frankandoak.com/media/assets/handbook/2019/07/roadtrip/4-roadtrip.jpg?imwidth=2000', 'https://amazon.clikpic.com/billycurrie/images/quiraing.jpg']
   }, {
     username: 'ledge',
     name: 'Guy Routledge',
@@ -78,7 +78,7 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'London',
-    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-USL1A41QB-2ed929f7e01e-512'],
+    profilePhoto: ['https://ca.slack-edge.com/T0351JZQ0-USL1A41QB-2ed929f7e01e-512', 'https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/399/profiles/18833/profileImage/me-400.png', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQCJBWEiiWN9Igv-nqClNeo7hG_MuphleQWDD37j_2wWEOekeBr&usqp=CAU'],
     tripPrefs: ['gastronomy', 'canyon'],
     garage: 'Triumph Speed Twin',
     dreamTrips: 'North Eastern Brazil',
@@ -90,11 +90,11 @@ module.exports = [
     password: 'pass',
     passwordConfirmation: 'pass',
     homeBase: 'London',
-    profilePhoto: ['https://www.telegraph.co.uk/content/dam/women/2019/06/17/TELEMMGLPICT000101650504_trans_NvBQzQNjv4Bqd2YoQY3XRytG6zBmMwBxdH4c1BluzUsKInVBvLXOw-8.jpeg?imwidth=1400', 'https://assets.heart.co.uk/2011/30/boris-johnson-1311676139-view-0.jpg', 'https://i.redd.it/7vn83ent14c31.jpg'],
-    tripPrefs: ['vineyard', 'cities', 'friends'],
+    profilePhoto: ['https://www.telegraph.co.uk/content/dam/women/2019/06/17/TELEMMGLPICT000101650504_trans_NvBQzQNjv4Bqd2YoQY3XRytG6zBmMwBxdH4c1BluzUsKInVBvLXOw-8.jpeg?imwidth=1400', 'https://assets.heart.co.uk/2011/30/boris-johnson-1311676139-view-0.jpg', 'https://i.redd.it/7vn83ent14c31.jpg', 'https://www.breakingnewstoday.co.uk/wp-content/uploads/2019/05/boris-on-a-bike-1200x900.jpg'],
+    tripPrefs: ['vineyard', 'cities', 'friends', 'gastronomy'],
     garage: '1978 AMC Concord',
     dreamTrips: 'Village Hopping in the Cotswolds',
-    recentTrips: ['https://hg-images.condecdn.net/image/KE7aPGDEO1L/crop/1620/0.586/f/Britannia-Bay-house-10apr15_pr_b_1.jpg']
+    recentTrips: ['https://hg-images.condecdn.net/image/KE7aPGDEO1L/crop/1620/0.586/f/Britannia-Bay-house-10apr15_pr_b_1.jpg', 'https://i.pinimg.com/originals/9c/1c/d5/9c1cd5dc86dea61a8f14336e19aff431.jpg']
   }, {
     username: 'Tru',
     name: 'Justin Trudeau',
@@ -106,6 +106,6 @@ module.exports = [
     tripPrefs: ['camping', 'riverside', 'sports'],
     garage: 'Toyota Tundra',
     dreamTrips: 'All of the TransCanada Highway',
-    recentTrips: ['https://www.cicnews.com/2020/01/quebec-invited-305-skilled-worker-candidates-over-two-arrima-draws-0113473.html', 'https://muskokagetaway.com/wp-content/uploads/2018/03/muskoka.jpg']
+    recentTrips: ['https://www.cicnews.com/2020/01/quebec-invited-305-skilled-worker-candidates-over-two-arrima-draws-0113473.html', 'https://muskokagetaway.com/wp-content/uploads/2018/03/muskoka.jpg', 'https://i.cbc.ca/1.3195090.1440006322!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/bison.jpg']
   }
 ]

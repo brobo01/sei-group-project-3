@@ -112,7 +112,6 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             <input type="text"
               className="input"
               name="endPointCountry"
-              className="input"
               placeholder="Country code (eg GB, US)..."
               onChange={handleMapChange}
               value={tempTrip.endPointCountry}

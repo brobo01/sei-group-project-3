@@ -368,27 +368,5 @@ module.exports = [
     description: 'Two sets of mountains and farm-filled prairie land',
     highlights: ['Dodge City'],
     pastTravellers: ['user123', 'fakeuser12']
-  }, {
-    name: 'TN to CO',
-    startingPointCity: 'Nashville',
-    startingPointState: 'TN',
-    startingPointCountry: 'US',
-    endPointCity: 'Denver',
-    endPointState: 'CO',
-    endPointCountry: 'US',
-    distance: '',
-    routeImage: '',
-    image: 'https://cdn.theatlantic.com/thumbor/K4RCxEnDFfx_S98r2QFxJNC7618=/1440x810/media/img/mt/2020/03/shutterstock_1310132350/original.jpg',
-    tags: [
-      'moutains',
-      'fast'
-    ],
-    scenery: 4,
-    enjoyment: 4,
-    photoGallery: [],
-    videos: [],
-    description: 'Two sets of mountains and farm-filled prairie land',
-    highlights: ['Dodge City'],
-    pastTravellers: ['user123', 'fakeuser12']
   }
 ]

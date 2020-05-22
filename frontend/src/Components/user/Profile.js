@@ -71,17 +71,16 @@ class Profile extends React.Component {
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     const modalStyle = {
       content: {
-        position: "fixed",
-        left: "25%",
+        // position: "fixed",
+        left: "20%",
         border: "1px solid rgb(204, 204, 204)",
         background: "rgba(15, 15, 15, 0.8)",
         overflow: "auto",
         borderRadius: "20px",
         padding: "20px",
-        width: "40%",
-        height: "55%"
-      }
+        width: "60%",
     }
+  }
     const choosePicStyle = {
         color: "whitesmoke",
         background: "rgba(128, 128, 128, 0.5)",
@@ -101,7 +100,7 @@ class Profile extends React.Component {
           </div>
         </div>
         
-        <div>
+        <div style={{display: "flex", justifyContent: "center"}}>
           <Modal
             isOpen={this.state.showModal}
             contentLabel="onRequestClose Example"

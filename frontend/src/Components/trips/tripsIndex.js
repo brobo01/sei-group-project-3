@@ -32,7 +32,7 @@ class tripsIndex extends React.Component {
     { name: 'hostel', label: 'Hostels' },
     { name: 'hotel', label: 'Hotels' },
     { name: 'mechanics', label: 'Mechanics' },
-    { name: 'motorbike', label: 'Motorbikes' },
+    { name: 'motorbike', label: 'Motorbike' },
     { name: 'mountains', label: 'Mountains' },
     { name: 'nature', label: 'Nature' },
     { name: 'off road', label: 'Off-Road', },

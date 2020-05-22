@@ -13,7 +13,7 @@ class UserMessages extends React.Component {
     try {
       const res = await getOwnProfile()
       this.setState({ user: res.data })
-
+      console.log(this.state.user._id)
     } catch (err) {
       console.log(err)
     }
@@ -21,9 +21,6 @@ class UserMessages extends React.Component {
 
   filterMessages = () => {
     const messageId = this.props.match.params.id
-    console.log(messageId)
-    console.log(messageId)
-
     const res = this.state.user.messages.filter(message => (
       message._id === messageId
     ))
@@ -44,6 +41,7 @@ class UserMessages extends React.Component {
         state.user.messages.find(({ _id }) => {
           return _id === res.data._id
         }).comment = res.data.comment
+        console.log(state)
         return state
       })
     } catch (err) {
@@ -88,21 +86,15 @@ class UserMessages extends React.Component {
               : 'them'
 
           }>{this.filterMessages()?.text}</p>
-          {this.filterMessages().comment?.map(comment => (
-            <div key={comment._id} className={
-              comment.user === this.state.user._id
-                ? 'you'
-                : 'them'
 
-            }>
+          {this.filterMessages().comment?.map(comment => (
+            <div key={comment._id} className={comment.user === this.state.user._id ? 'you' : 'them'}>
+
               <p key={comment._id}>{comment.text}</p>
 
             </div>
 
           ))}
-
-
-
 
 
         </div>
@@ -123,3 +115,5 @@ class UserMessages extends React.Component {
 }
 
 export default UserMessages
+
+//5ec6e75f7f684acdc00516c3

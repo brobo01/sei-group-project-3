@@ -39,7 +39,6 @@ async function indivProfileEdit(req, res, next) {
 
   try {
     const user = await User.findById(req.currentUser._id)
-    // const user = await User.findById('5ec52e53837d547b3dfc7459')
     if (!user) throw new Error(notFound)
     Object.assign(user, req.body)
     await user.save()
@@ -59,9 +58,6 @@ async function messageCreate(req, res, next) {
       sender: userA,
       recipient: userB
     }
-    // req.body.sender = req.currentUser._id
-    // req.body.recipient = req.params.userId
-    console.log(req.body)
     const message = await Message.create(model)
     res.status(201).json(message)
   } catch (err) {
@@ -84,7 +80,8 @@ async function getMessage(req, res, next) {
 
 async function commentCreate(req, res, next) {
   try {
-    req.body.user = req.currentUser
+
+    req.body.user = req.currentUser._id
     const messageId = req.params.messageId
     const message = await Message.findById(messageId)
     if (!message) throw new Error(notFound)

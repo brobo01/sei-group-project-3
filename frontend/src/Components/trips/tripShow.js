@@ -67,7 +67,7 @@ class tripShow extends React.Component {
           <div className="hero">
             <div className="hero-image-container">
               <img
-              alt=""
+                alt=""
                 src={trip.image}
                 className="hero-image"
                 height="400"
@@ -101,6 +101,10 @@ class tripShow extends React.Component {
               <Link to={`/users/${trip.user?._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
               <p>{trip.description}</p><br></br>
               <p>Time of year: {trip.timeOfYear}</p><br></br>
+              <h3>Trip highlights:</h3>
+              {trip.highlights.map(item => (
+                <p key={item}>{item}</p>
+              ))}
               {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
             </div>
             <div className="body-right">
@@ -121,7 +125,7 @@ class tripShow extends React.Component {
             </div>
           </div>
           <div className="show-carousel">
-            <Carousel
+            {/* <Carousel
               infiniteLoop
               centerMode
             >
@@ -136,7 +140,7 @@ class tripShow extends React.Component {
                   alt="trip"
                   className="image carousel-image route-image" />
               </div>
-            </Carousel>
+            </Carousel> */}
           </div>
           <div className="comments-container">
             <div className="comments-title">

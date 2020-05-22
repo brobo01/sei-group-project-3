@@ -63,7 +63,7 @@ class Register extends React.Component {
                 <input type="text"
                   name="username"
                   onChange={this.handleChange}
-                  className={errors.username ? 'error' : ''}
+
                 />
               </div>
               <div className="error-msg">

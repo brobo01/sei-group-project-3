@@ -79,13 +79,13 @@ class UserMessages extends React.Component {
           } </h3>
 
         <div className="message-body">
-          <p className={
+          {/* <p className={
 
             this.filterMessages().sender._id === this.state.user._id
               ? 'you'
               : 'them'
 
-          }>{this.filterMessages()?.text}</p>
+          }>{this.filterMessages()?.text}</p> */}
 
           {this.filterMessages().comment?.map(comment => (
             <div key={comment._id} className={comment.user === this.state.user._id ? 'you' : 'them'}>
@@ -115,5 +115,3 @@ class UserMessages extends React.Component {
 }
 
 export default UserMessages
-
-//5ec6e75f7f684acdc00516c3

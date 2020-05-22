@@ -15,10 +15,10 @@ async function register(req, res, next) {
 async function login(req, res, next) {
   try {
     const user = await User.findOne({ email: req.body.email })
-    console.log(user)
+
     if (!user || !user.validatePassword(req.body.password)) {
-      console.log(req.body)
-      console.log(unauthorized)
+
+
       throw new Error(unauthorized)
 
     }
@@ -27,9 +27,9 @@ async function login(req, res, next) {
       message: `Welcome back ${user.username}`,
       token
     })
-    console.log(token)
+
   } catch (err) {
-    console.log('the next error ', err.message, ' klkl')
+
     next(err)
   }
 }

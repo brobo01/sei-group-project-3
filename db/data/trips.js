@@ -77,6 +77,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Weaving a course between coast and highlands, The Classic route is equal parts beach and mountain. Quiet, stunning coastal roads in the south and central provinces yield to a mighty landscape of limestone karsts on the Ho Chi Minh Road in the north-central region. Popular towns and sights, such as Mui Ne, Dalat, Nha Trang, Hoi An, the Hai Van Pass, Phong Nha Caves and Ninh Binh are all covered; but so too are off the beaten path areas, such as the beaches around Quy Nhon, the coastal back-roads north of Hue, and the Western Ho Chi Minh Road. It’s the perfect balance of must-see sights and hidden gems. Zoom in on the map below and click the map symbols for links to my guides to specific locations.',
+    timeOfYear: 'spring is best',
     highlights: ['Ho Chi Minh', 'Mui Ne', 'Hanoi', 'Phong Nha Caves', 'Dalat'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -102,6 +103,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'The drive to Le Mans has become something of a pilgrimage for British petrolheads, with thousands making the trip from the UK to northern France to soak up the thrills, spills and atmosphere of the world\'s most famous 24-hour race.',
+    timeOfYear: 'currently postponed until 19-20 September :(',
     highlights: ['Le Mans', 'Mad Friday'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -126,6 +128,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Once in a while you just need to ride. You need to answer the calling…to clear your head, feel small again, and regain appreciation for your life on your terms. When the Great Legends of the North call, you answer that call with a growl of the throttle. Distances are great but so is the peaceful solitude. The road, seemingly endless road, touches the sky. You will find solace and compassion from the mythical giant legends: the Great Polar Bear, the Great Bison and the Great Fish, as you meander along your chosen motorcycle journey in search of mythical beings',
+    timeOfYear: 'avoid winter at all cost, most of the year is winter',
     highlights: ['Cochrane Polar Bear Habitat', 'Cedar Meadows’ Bison & Elk', 'Sudbury\'s Big Nickel'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -150,6 +153,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Stunning views of the Italian coast line, along with delicious food',
+    timeOfYear: 'summer time',
     highlights: ['beautiful views'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -174,6 +178,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'One of the prettiest parts of the US, a must visit',
+    timeOfYear: 'autumn',
     highlights: ['Autumn leaves', 'friendly locals'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -198,6 +203,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Full of rich history and fanatastic coastlines',
+    timeOfYear: 'Spring/summer',
     highlights: ['Green Gables'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -222,6 +228,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'It is a trip that really places you right in the middle of nowhere',
+    timeOfYear: 'avoid winter',
     highlights: ['Alaskan Wildlife Conservation Center'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -246,6 +253,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'This trip takes you across almost the entire coastline of Australia',
+    timeOfYear: 'September to November or March to May',
     highlights: ['Pink Lake', 'Bunda Cliffs', 'Apollo Bay'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -270,6 +278,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Take your time exploring the towns and cities in between the locations',
+    timeOfYear: 'summer',
     highlights: ['Adelboden', 'Interlaken', 'the old town of Brig'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -295,6 +304,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'Seeing the best of Alberta',
+    timeOfYear: 'road trips are best in summer',
     highlights: ['Banff', 'Lake Louise', 'seeing the wildlife'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -320,6 +330,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'There are infinite things to see in Texas, so make sure you check out everything ',
+    timeOfYear: 'early spring',
     highlights: ['Texas BBQ'],
     pastTravellers: ['user123', 'fakeuser12']
   },
@@ -345,6 +356,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'beautiful national parks and walled cities',
+    timeOfYear: 'avoid the hottest months in the summer',
     highlights: ['Seeing where Game of Thrones was filmed'],
     pastTravellers: ['user123', 'fakeuser12']
   }, {
@@ -357,7 +369,7 @@ module.exports = [
     endPointCountry: 'GB',
     distance: '',
     routeImage: '',
-    image: 'https://cdn.theatlantic.com/thumbor/WNVmc03NCbOHqUxbr-TSOMoPz7M=/1200x834/media/img/photo/2018/09/a-photo-trip-to-croatia/c01_442536130/original.jpg',
+    image: 'https://cdn.britannica.com/s:700x500/46/99546-050-2DFE5299/Snowdonia-National-Park-Wales.jpg',
     tags: [
       'history',
       'sea',
@@ -369,6 +381,7 @@ module.exports = [
     photoGallery: [],
     videos: [],
     description: 'When visiting the UK, make sure to explore outside of just London, this trip around Wales is a great chance to discover more',
+    timeOfYear: 'always a good time for Wales',
     highlights: ['coasteering at Preseli Venture', 'making bespoke gin at The Welsh Wind Distillery'],
     pastTravellers: ['user123', 'fakeuser12']
   }

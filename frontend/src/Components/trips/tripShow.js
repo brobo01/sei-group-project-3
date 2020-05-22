@@ -96,14 +96,24 @@ class tripShow extends React.Component {
           </div>
           <div className="body">
             <div className="body-left">
-              <Link to={`/users/${trip.user?._id}`}><h1>{trip.user?.username}</h1><br></br></Link>
+              <Link to={`/users/${trip.user?._id}`} className="link"><h1>{trip.user?.username}</h1><br></br></Link>
+              <hr />
               <p>{trip.description}</p><br></br>
-              <p>Time of year: {trip.timeOfYear}</p><br></br>
+
+              <h3>Time of year:</h3>
+              <p> {trip.timeOfYear}</p><br></br>
+
               <h3>Trip highlights:</h3>
               {trip.highlights.map(item => (
                 <p key={item}>{item}</p>
+
               ))}
-              {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} >Edit this trip</Link>}
+              <br />
+
+              <div className="edit-trip-container">
+                {isOwner(trip.user?._id) && <Link to={`/trips/${trip._id}/edit`} className="edit-trip" >Edit this trip</Link>}
+              </div>
+
             </div>
             <div className="body-right">
               <TripMap
@@ -148,7 +158,7 @@ class tripShow extends React.Component {
               {this.state.trip.recommendations?.map(obj => (
                 <div key={obj._id} className="comment">
                   <div className="comment-head">
-                    <Link to={`/users/${obj.user._id}`}>{obj.user?.username}</Link>
+                    <Link to={`/users/${obj.user._id}`} className="link">{obj.user?.username}</Link>
                   </div>
                   <p className="comment-text">{obj.text}</p>
                 </div>

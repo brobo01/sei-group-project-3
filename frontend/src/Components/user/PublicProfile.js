@@ -89,20 +89,18 @@ class PublicProfile extends React.Component {
 
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     // console.log(filteredIcons)
-
     const modalStyle = {
       content: {
-        position: "fixed",
-        left: "25%",
+        // position: "fixed",
+        left: "20%",
         border: "1px solid rgb(204, 204, 204)",
         background: "rgba(15, 15, 15, 0.8)",
         overflow: "auto",
         borderRadius: "20px",
         padding: "20px",
-        width: "40%",
-        height: "55%"
-      }
+        width: "60%",
     }
+  }
     return (
       <section>
          <div className="header">
@@ -110,6 +108,7 @@ class PublicProfile extends React.Component {
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
           <div className="header-right">
+          {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
           </div>
         </div>
         <div>
@@ -130,8 +129,6 @@ class PublicProfile extends React.Component {
                 <img src={photo} alt="" className="carousel-image" />
               </div>)}
             </Carousel>
-
-            <button style={{ background: "red", borderRadius: "30px", color: "white" }} onClick={this.handleCloseModal}>X</button>
           </Modal>
         </div>
 
@@ -200,7 +197,7 @@ class PublicProfile extends React.Component {
                   <img src={trip}
                     alt=""
                     className="carousel-image" />
-                  <p className="legend"></p>
+                  {/* <p className="legend"></p> */}
                 </div>)}
             </Carousel>
           </div>

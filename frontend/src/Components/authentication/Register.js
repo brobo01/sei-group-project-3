@@ -50,8 +50,11 @@ class Register extends React.Component {
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
-          <div className="header-right"></div>
-        </div>        <div className="container">
+          <div className="header-right">
+          {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
+          </div>
+        </div>        
+        <div className="container">
           <img className="logo" src="https://i.ya-webdesign.com/images/alphabet-biker-png-2.png"
             alt=""
             height="100" />
@@ -59,7 +62,7 @@ class Register extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <div className="form">
               <div className="form-item">
-                <label> Username: </label>
+                <label> Username </label>
                 <input type="text"
                   name="username"
                   onChange={this.handleChange}
@@ -72,7 +75,7 @@ class Register extends React.Component {
 
 
               <div className="form-item">
-                <label> Name: </label>
+                <label> Name </label>
                 <input type="text"
                   name="name"
                   onChange={this.handleChange}

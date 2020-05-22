@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripCard from './TripCard'
 import { getAllTrips } from '../../lib/api'
@@ -85,14 +84,16 @@ class tripsIndex extends React.Component {
   }
 
   render() {
-    const { trips } = this.state
+    // const { trips } = this.state
     return (
       <main>
         <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage}  /></Link>
           </div>
-          <div className="header-right"></div>
+          <div className="header-right">
+          {<button onClick={this.props.history.goBack} className="back-button" type="button">Back</button>} 
+          </div>
         </div>
 
         <div className="index">

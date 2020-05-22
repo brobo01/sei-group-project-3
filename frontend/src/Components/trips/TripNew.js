@@ -16,12 +16,12 @@ class TripNew extends React.Component {
       image: '',
       tags: [],
       description: '',
-      startingPointCity:'',
+      startingPointCity:'London',
       startingPointState:'',
-      startingPointCountry:'',
-      endPointCity:'',
+      startingPointCountry:'GB',
+      endPointCity:'London',
       endPointState:'',
-      endPointCountry:'',
+      endPointCountry:'GB',
       scenery: '',
       enjoyment: '',
       distance:'',
@@ -116,6 +116,8 @@ class TripNew extends React.Component {
           formData={this.state.formData}
           tempTrip={this.state.tempTrip}
           errors={this.state.errors}
+          height="550"
+          width="350"
           visiblility="visible"
           buttonText="Add some more details"
           titleText="Create a Trip"

@@ -63,7 +63,8 @@ class tripShow extends React.Component {
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
           <div className="header-right"></div>
-        </div>        <section className="show-trip">
+        </div>
+        <section className="show-trip">
           <div className="hero">
             <div className="hero-image-container">
               <img

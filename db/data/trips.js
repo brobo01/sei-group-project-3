@@ -347,7 +347,7 @@ module.exports = [
     description: 'beautiful national parks and walled cities',
     highlights: ['Seeing where Game of Thrones was filmed'],
     pastTravellers: ['user123', 'fakeuser12']
-  }, {
+  } , {
     name: 'Welsh Travels',
     startingPointCity: 'London',
     startingPointState: '',
@@ -371,5 +371,69 @@ module.exports = [
     description: 'When visiting the UK, make sure to explore outside of just London, this trip around Wales is a great chance to discover more',
     highlights: ['coasteering at Preseli Venture', 'making bespoke gin at The Welsh Wind Distillery'],
     pastTravellers: ['user123', 'fakeuser12']
+  } , {
+    name: 'French Riviera',
+    startingPointCity: 'Marseille',
+    startingPointState: '',
+    startingPointCountry: 'FR',
+    endPointCity: 'Toulon',
+    endPointState: '',
+    endPointCountry: 'FR',
+    distance: '',
+    routeImage: '',
+    image: 'https://rivierabarcrawltours.com/wp-content/uploads/2020/01/what-is-the-french-riviera-pic1.jpg',
+    tags: [
+      'sea',
+      'gastronomy',
+      'abroad',
+      'cities'
+
+    ],
+    scenery: 4,
+    enjoyment: 3,
+    photoGallery: [],
+    videos: [],
+    description: 'The biggest drawcard for driving this route is to visit the stunning calanques, the majority are located between Marseille and La Ciotat and form part of a National Park. Tourism Offices can provide you with maps of the calanques including Port Pin, en Vau, Sormiou, Sugiton, Morgiou, and Figuerolles and you can follow the cliff top hiking trails to reach them. Port-Miou is the one closest to Cassis that is accessible by car.',
+    highlights: ['Coast', 'French', 'Wine'],
+    pastTravellers: ['user123', 'fakeuser12']
+  } , {
+    name: 'The Mongol Rally',
+    startingPointCity: 'London',
+    startingPointState: '',
+    startingPointCountry: 'GB',
+    endPointCity: 'Ulaanbaatar',
+    endPointState: '',
+    endPointCountry: 'MN',
+    distance: '',
+    routeImage: '',
+    image: 'https://traveler.marriott.com/wp-content/uploads/2017/04/Mongolia_Gobi.jpg',
+    tags: [
+      'mechanics',
+      'off road',
+      'car',
+      'mountains'
+
+    ],
+    scenery: 4,
+    enjoyment: 5,
+    photoGallery: [],
+    videos: [],
+    description: 'This is the greatest motoring adventure on the planet. This is 10,000 miles of chaos across mountain, deserts and steppe on roads ranging from bad to not-a-road in a tiny 1000cc car you bought from a scrapyard for £4.60. There is no backup. Theres is no set route. There’s no guarantee you will make it to the end. It’s just you, your rolling turd and planet-earth sized bucket of adventure.',
+    highlights: ['Rally', 'Friends', 'Getting into trouble', 'Getting out of troube'],
+    pastTravellers: ['user123', 'fakeuser12']
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]

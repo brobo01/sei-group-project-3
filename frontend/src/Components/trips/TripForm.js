@@ -2,7 +2,7 @@ import React from 'react'
 import TripMap from './TripMap'
 
 
-const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , addToTags , visibility}) => {
+const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , addToTags , visibility, height, width}) => {
   console.log(visibility)
   return (
     <div>
@@ -126,6 +126,7 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
           onClick={handleTripSearch}>Search for your trip
           </button>
           </div>
+<div classname="map-width">
 
           <TripMap
             formData={formData}
@@ -133,9 +134,10 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             handleMapChange={handleMapChange}
             handleMapSearch={handleMapSearch}
             search={search}
-            height={'100%'}
-            width={'100%'}
-          />
+            height={height}
+            width={width}
+            />
+            </div>
 </div>
 
 

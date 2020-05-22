@@ -130,27 +130,24 @@ background-size: cover;
   font-size: 15px;
 }
 .message-holder {
-  margin: 30px
+  margin: 30px;
 }
 
 
 .profile-messages {
-  
   margin: 15px;
-   background-color: rgba(0,0,0,0.5);
-    border-radius: 5px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 5px;
   padding: 20px;
   .profile-messages-main {
-
     max-width: 455px;
     max-height: 110px; 
     overflow-x: hidden; 
     overflow-x: auto; 
     text-align:justify; 
     .link {
-    
-text-decoration: none;
-    color: rgb(250, 100, 0);
+      text-decoration: none;
+      color: rgb(250, 100, 0);
     }
     .link:hover{
       text-decoration: underline;
@@ -163,37 +160,72 @@ text-decoration: none;
 
 //* message page
 .message {
-    text-align: center;
   display: flex;
   flex-direction: column;
   align-content: center;
+  text-align: center;
   h3 {
     margin: 20px;
     color: white;
   }
-  .message-body {
+
+    .message-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 30vw;
     margin: auto;
     padding: 15px;
     min-height: 550px;
-    max-width: 455px;
-    max-height: 550px; 
+    width: 455px;
+    min-height: 550px; 
     overflow-x: hidden; 
     overflow-x: auto; 
     background-color: #52796f;
     border-radius: 5px;
+    .messages{
+      .you, .them {
+        height: auto;
+        padding:7px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 3px darkgrey;
+      }
+      .you {
+        text-align: right;
+        background: linear-gradient(90deg, rgba(14,72,246,1) 0%, rgba(0,73,193,1) 98%);
+        color: white;
+      }
+      .them {
+        text-align: left;
+        background: linear-gradient(270deg, rgba(124,124,124,1) 0%, rgba(122,122,122,1) 98%);
+
+      }
+    }
+    .submit-message{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #3d5a53;
+      border-radius:10px;
+      padding: 0px 10px;
+      .comment-input{
+        width: 90%;
+        min-height: 40px;
+      }
+      .comment-btn{
+        height: 30px;
+        background-color:#9d0208;
+        border: none;
+        border-radius: 7px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        box-shadow: 0px 0px 3px darkgrey;
+      }
+    }
   
-    
-    .you {
-      text-align: right;
-   
-    
-    }
-    .them {
-      text-align: left;
-      
-      
-    }
   }
   
 
@@ -324,7 +356,7 @@ textarea {
       .error-msg {
         height: 17px;
         small {
-  color: #9d0208;
+        color: #9d0208;
 }
       }
   }
@@ -467,10 +499,10 @@ textarea {
       justify-content: space-evenly;
       height: 100%;
       width: 100%;
-      .map-width{
-        width:450px;
-        height: 550px;
-      }
+      // .map-width{
+      //   width:100%;
+      //   height: 100%;
+      // }
       .map-inputs{
         display:flex;
         flex-direction: column;

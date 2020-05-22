@@ -1,7 +1,9 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { getOwnProfile } from '../../lib/api'
 import { withHeaders } from '../../lib/auth'
+import RTimage from '../../styles/assets/roadtrippers.png'
 
 
 class UserMessages extends React.Component {
@@ -55,65 +57,70 @@ class UserMessages extends React.Component {
     this.setState({ pending: text })
   }
 
-  render() {
-    const { user } = this.state
-    if (!user) return <p>Loading</p>
+render() {
+const { user } = this.state
+if (!user) return <p>Loading</p>
 
-    return (
-      <section className="message">
+return (
+  <div>
+  <div className="header">
+  <div className="header-left">
+    <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
+  </div>
+  <div className="header-right"></div>
+</div>
+  <section className="message">
+    <h3>Conversation between
 
+      {this.filterMessages()?.sender._id === this.state.user._id
+        ? ' you '
+        : ` ${this.filterMessages().sender.username} `
 
+      }
+        &
+        {this.filterMessages().recipient._id === this.state.user._id
+        ? ' You'
+        : ` ${this.filterMessages().recipient.username}`
 
-        <h3>Conversation between
+      } </h3>
 
-          {this.filterMessages()?.sender._id === this.state.user._id
-            ? ' You '
-            : ` ${this.filterMessages().sender.username} `
+    <div className="message-body">
+      {/* <p className={
+        this.filterMessages().sender._id === this.state.user._id 
+        ? 'you' 
+        : 'them'
+      }>{this.filterMessages()?.text}</p> */}
+      <div className="messages">
 
-          }
-             &
-            {this.filterMessages().recipient._id === this.state.user._id
-            ? ' You'
-            : ` ${this.filterMessages().recipient.username}`
+      {this.filterMessages().comment?.map(comment => (
+        <div key={comment._id} className={comment.user === this.state.user._id ? 'you' : 'them'}>
 
-          } </h3>
-
-        <div className="message-body">
-          <p className={
-
-            this.filterMessages().sender._id === this.state.user._id
-              ? 'you'
-              : 'them'
-
-          }>{this.filterMessages()?.text}</p>
-
-          {this.filterMessages().comment?.map(comment => (
-            <div key={comment._id} className={comment.user === this.state.user._id ? 'you' : 'them'}>
-
-              <p key={comment._id}>{comment.text}</p>
-
-            </div>
-
-          ))}
-
+          <p key={comment._id}>{comment.text}</p>
 
         </div>
 
-        <div>
-          <form onSubmit={this.handleSubmit} className="submit-message">
-            <textarea
-              placeholder="Leave a message..."
-              className="comment-input"
-              onChange={this.handleChange}
-            />
-            <button className="comment-btn">+</button>
-          </form>
+))}
+</div>
+
+
+
+
+    <div className="send-message">
+      <form onSubmit={this.handleSubmit} className="submit-message">
+        <textarea
+          placeholder="Write a message..."
+          className="comment-input"
+          onChange={this.handleChange}
+        />
+        <button className="comment-btn">></button>
+      </form>
+    </div>
         </div>
-      </section>
-    )
-  }
+        {/* </div> */}
+  </section>
+  </div>
+)
+}
 }
 
 export default UserMessages
-
-//5ec6e75f7f684acdc00516c3

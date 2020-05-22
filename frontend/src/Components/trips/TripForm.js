@@ -2,7 +2,8 @@ import React from 'react'
 import TripMap from './TripMap'
 
 
-const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , addToTags}) => {
+const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText, errors, search, _updateViewport, handleMapChange, handleMapSearch, tempTrip, handleTripSearch , icons , addToTags , visibility}) => {
+  console.log(visibility)
   return (
     <div>
       <div className="trip-section">
@@ -133,8 +134,8 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
             handleMapChange={handleMapChange}
             handleMapSearch={handleMapSearch}
             search={search}
-            height={'550'}
-            width={'500'}
+            height={'100%'}
+            width={'100%'}
           />
 </div>
 
@@ -202,11 +203,6 @@ const TripForm = ({ handleChange, handleSubmit, formData, buttonText, titleText,
 
         </div>
       </form>
-          <button
-          type='submit'
-          onClick={handleSubmit}
-          className="submit-btn">
-            {buttonText}</button>
     </div>
     </div>
     </div>

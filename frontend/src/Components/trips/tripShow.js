@@ -91,9 +91,7 @@ class tripShow extends React.Component {
             <div className="icons">
               <div className="value">Trip tags</div>
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
-              {/* <SVG> */}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
-              {/* </SVG> */}
             </div>
           </div>
           <div className="body">

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import axios from 'axios'
-import { isAuthenticated, withHeaders, isOwner } from '../../lib/auth'
+import { withHeaders, isOwner } from '../../lib/auth'
 
 import RTimage from '../../styles/assets/roadtrippers.png'
 import TripFormExt from './TripFormExt'
@@ -77,7 +77,6 @@ class TripEdit extends React.Component {
   handleTripSearch = () => {
     const finalTrip = {...this.state.tempTrip}
     const formData = {...this.state.formData , ...finalTrip}
-    // console.log(state)
     this.setState({ formData })
   }
 

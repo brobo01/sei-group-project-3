@@ -34,24 +34,14 @@ class Profile extends React.Component {
       console.log(err)
     }
   }
-  // async getRoutes() {
-  //   const res = await axios.get('/api/trips')
-  //   const userTrips = res.filter(object => (
-  //     object._id === this.props.match.params.userId
-  //   ))
-  //   console.log(userTrips)
-  //   this.setState({ userTrips })
-  // }
+
   handleOpenModal = () => {
     this.setState({ showModal: true })
   }
   handleCloseModal = () => {
     this.setState({ showModal: false })
   }
-  // handleSelectProfilePhoto = (event) => {
-  //   const pic = event.target.value
-  //   this.setState({ ...this.state, currentProfPic: pic })
-  // }
+
   handleSelectPhoto = (event) => {
     const pic = event.target.value
     const target = event.target.id
@@ -63,7 +53,6 @@ class Profile extends React.Component {
     const filteredIcons = icons.filter(icon => tripPrefs.includes(icon.name))
     const modalStyle = {
       content: {
-        // position: "fixed",
         left: "20%",
         border: "1px solid rgb(204, 204, 204)",
         background: "rgba(15, 15, 15, 0.8)",
@@ -82,7 +71,7 @@ class Profile extends React.Component {
     }
     return (
       <section>
-         <div className="header">
+        <div className="header">
           <div className="header-left">
             <Link to='/'><img className="nav-logo" alt="logo" src={RTimage} height="50" /></Link>
           </div>
@@ -139,7 +128,6 @@ class Profile extends React.Component {
         <div className="recent-trips">
           <div className="bio-div">
             <div className="bio">
-              {/* {[homeBase, garage, dreamTrips].map(i =><> <span style={{ color: "#fa6400" }}key={i}>{i}</span><hr></hr><br></br></>)} */}
               Home base <span style={{ color: "#fa6400" }}>{homeBase}</span> <hr></hr><br></br>
             In the garage <span style={{ color: "#fa6400" }}>{garage}</span> <hr></hr><br></br>
             Ultimate Trip <span style={{ color: "#fa6400" }}>{dreamTrips}</span><hr></hr><br></br>
@@ -147,7 +135,6 @@ class Profile extends React.Component {
               {filteredIcons.map(icon => <ReactTooltip key={icon.name} id={icon.name} place="top" effect="solid">{icon.name}</ReactTooltip>)}
               {filteredIcons.map(icon => <label key={icon.name} data-tip data-for={icon.name}>{icon.value}</label>)}
             </div>
-            {/* view your own messages */}
             <div className="profile-messages">
               <p>Your current conversations:</p>
               <hr />
@@ -164,14 +151,12 @@ class Profile extends React.Component {
                         ? ' You'
                         : ` ${message.recipient.username}`
                       }
-                      {/* {message.sender?.username} & {message.recipient?.username} */}
                     </Link>
                   </div>
                 ))}
               </div>
             </div>
-            {/* <div className="profile-buttons">
-            </div> */}
+
           </div>
           <div className="caro-div">
             <Carousel
@@ -184,7 +169,6 @@ class Profile extends React.Component {
                   <img src={trip}
                     alt=""
                     className="carousel-image" />
-                  {/* <p className="legend"></p> */}
                 </div>)}
             </Carousel>
           </div>

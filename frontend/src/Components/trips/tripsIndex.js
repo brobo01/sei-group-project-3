@@ -55,14 +55,6 @@ class tripsIndex extends React.Component {
     }
   }
 
-  //  handleHover = async (element) => {
-  // this.setState({ hover: true })
-  //   }
-
-  // handleUnhover = async (element) => {
-  //   this.setState({ hover: false })
-  // }
-
 
   filterTrips = () => {
     const { searchVal, selectVal } = this.state
@@ -86,7 +78,6 @@ class tripsIndex extends React.Component {
   }
 
   render() {
-    // const { trips } = this.state
     return (
       <main>
         <div className="header">
@@ -122,15 +113,11 @@ class tripsIndex extends React.Component {
               {this.filterTrips().map(trip =>
                 <TripCard key={trip._id} className="all-index-div"
                   {...trip}
-                // hover={this.state.hover}
-                // handleHover={this.handleHover}
-                // handleUnhover={this.handleUnhover}
                 />)}
             </div>
           </div>
         </div>
       </main>
-
     )
   }
 }

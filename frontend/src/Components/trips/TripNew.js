@@ -53,7 +53,6 @@ class TripNew extends React.Component {
 
       this.props.history.push(`/trips/${res.data._id}/edit`)
     } catch (err) {
-      // this.setState({ errors: err.response.data })
       console.log(this.state.errors)
     }
   }
@@ -66,7 +65,6 @@ class TripNew extends React.Component {
   handleTripSearch = () => {
     const finalTrip = {...this.state.tempTrip}
     const formData = {...this.state.formData , ...finalTrip}
-    // console.log(state)
     this.setState({ formData })
   }
 

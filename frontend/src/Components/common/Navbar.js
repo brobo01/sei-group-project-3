@@ -15,8 +15,6 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      // <div className="navbar">
-      //   <img className="nav-logo" alt="logo" src={RTimage} />
 
       <Menu right >
         <div className="navbar-links">
@@ -31,10 +29,6 @@ class Navbar extends React.Component {
           </div>
         </div>
       </Menu>
-
-
-
-      // </div>
 
     )
   }

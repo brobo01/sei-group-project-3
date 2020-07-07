@@ -83,11 +83,12 @@ Finally on the profile page is the messaging facility which allows users to mess
 
 
 ### Bugs and Challenges
-[]
+The only bug stems from my greatest challenge on this project - inputing trip points on to the map. While it works, it could be slicker and took a good deal longer than it should've done. To achieve a static map was relatively simple, but to get it so that the map was interactive required more precise inputs.
+
 ### Wins
-[]
+For me, the biggest win of the project was the effective team work which, from idea generation through to final delivery, was characterised by positive and open communication. Challenges were overcome by either group discussion or pair coding and the team worked collaboratively to deliver a feature rich final project.
 
 ### Future Content
-[]
+To further develop Roadtrippers, the first thing would be the trip input functionality. While it currently works, it would be better to have a drop down or selector for the country and, if that is a country that requires a state, make the state box appear. To improve the trip index page, it would be great to show all the trips on a global map and then on click the image appears on the map.
 
 
